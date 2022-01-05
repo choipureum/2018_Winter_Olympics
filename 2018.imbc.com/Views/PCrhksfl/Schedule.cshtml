@@ -1,0 +1,189 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var list = ViewBag.list as ScheduleList;
+    var selectList = ViewBag.selectList as List<SportsTypeInfo>;
+    Page.Title = "편성표";
+    var info = new ScheduleInfo();
+}
+
+<div id="nav_team">
+    <ul>
+        <li><a href="Medal">메달순위</a></li>
+        <li class="on"><a href="Schedule"> 편성표</a></li>
+        <li><a href="Notice">ON-AIR 공지</a></li>
+    </ul>
+</div>
+
+<div id="medal_tb">
+    <p class="update">최종 업데이트 :  @list.update</p>
+    <p>경기일정 입력</p>    
+    <br />
+    <a href="Schedule?dtDay=@ViewBag.prevday"><</a>
+    @ViewBag.today
+    <a href="Schedule?dtDay=@ViewBag.nextday">></a>
+    <br><br>
+    <table>
+        <caption>리우 올림픽 경기일정</caption>
+        <tr>
+            <th style="width:150px;">시작/종료</th>
+            <th style="width:180px;">종목</th>
+            <th style="width:330px;">세부</th>
+            <th style="width:100px;">등록/삭제</th>
+        </tr>
+        <tr>
+            <td>
+                <input name="txtstart" type="text" maxlength="5" id="txtstart" style="width:50px;" /> ~
+                <input name="txtEnd" type="text" maxlength="5" id="txtEnd" style="width:50px;" />
+                <br>예) 05:00~06:00
+            </td>
+            <td>
+                <select name="ddlSportType" id="ddlSportType">
+                    @foreach (SportsTypeInfo item in selectList)
+                    {
+                    <option value="@item.SportType">@item.SportName</option>
+                    }
+                </select>
+            </td>
+            <td>
+                <!--
+                세부종목:<input name="txtDetailSportName" type="text" id="txtDetailSportName" style="width:250px;padding-left:20px" /><br />
+                선&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수:<textarea name="txtPlayerName" rows="3" cols="20" id="txtPlayerName" style="width:250px;padding-left:20px"></textarea><br />
+                결과기본:<input name="txtResultInfo" type="text" id="txtResultInfo" style="width:250px;padding-left:20px" /><br />
+                결과상세:<textarea name="txtResultDetail" rows="3" cols="20" id="txtResultDetail" style="width:250px;padding-left:20px"></textarea><br />
+                다시보기:<input name="txtVodUrl" type="text" id="txtVodUrl" style="width:250px;padding-left:20px" /><br />
+                관련기사:<input name="txtNewsUrl" type="text" id="txtNewsUrl" style="width:250px;padding-left:20px" />
+                    -->
+                <br />
+                세부종목:<input name="txtDetailSportName" type="text" id="txtDetailSportName" style="width:250px;padding-left:20px" /><br /><br />
+                상&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;세:<textarea name="txtResultDetail" rows="3" cols="20" id="txtResultDetail" style="width:250px;padding-left:20px"></textarea><br /><br />
+                다시보기:<input name="txtVodUrl" type="text" id="txtVodUrl" style="width:250px;padding-left:20px" /><br /><br />
+                관련기사:<input name="txtNewsUrl" type="text" id="txtNewsUrl" style="width:250px;padding-left:20px" />
+                <br /><br />
+            </td>
+            <td>
+                <input type="image" name="lnkAdd" id="lnkAdd" src="~/common/admin/images/btn_row_add.gif" onclick="if (!fncCheck()) return false;" />
+            </td>
+        </tr>
+        @foreach (ScheduleInfo sitem in list)
+        {
+            <tr>
+                <td>
+                    <input name="txtstart_@sitem.SchedulePK" type="text" maxlength="5" id="txtstart_@sitem.SchedulePK" style="width:50px;" value="@sitem.StartTime" /> ~
+                    <input name="txtEnd_@sitem.SchedulePK" type="text" maxlength="5" id="txtEnd_@sitem.SchedulePK" style="width:50px;" value="@sitem.EndTime" />
+                    <br>예) 05:00~06:00
+                </td>
+                <td>
+                    <select name="ddlSportType_@sitem.SchedulePK" id="ddlSportType_@sitem.SchedulePK">
+                        @foreach (SportsTypeInfo item in selectList)
+                        {
+                            if (sitem.SportType == item.SportType.ToString())
+                            {
+                                <option value="@item.SportType" selected="selected" >@item.SportName</option>
+                            }
+                            else
+                            {
+                            <option value="@item.SportType">@item.SportName</option>
+                            }
+                        }
+                    </select>
+                </td>
+                <td>
+                    <!--
+                    세부종목:<input name="txtDetailSportName_@sitem.SchedulePK" type="text" id="txtDetailSportName_@sitem.SchedulePK" style="width:250px;padding-left:20px" value="@sitem.DetailSportName" /><br />
+                    선&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수:<textarea name="txtPlayerName_@sitem.SchedulePK" rows="3" cols="20" id="txtPlayerName_@sitem.SchedulePK" style="width:250px;padding-left:20px">@sitem.PlayerName</textarea><br />
+                    결과기본:<input name="txtResultInfo_@sitem.SchedulePK" type="text" id="txtResultInfo_@sitem.SchedulePK" style="width:250px;padding-left:20px" value="@sitem.ResultInfo" /><br />
+                    결과상세:<textarea name="txtResultDetail_@sitem.SchedulePK" rows="3" cols="20" id="txtResultDetail_@sitem.SchedulePK" style="width:250px;padding-left:20px">@sitem.ResultDetail</textarea><br />
+                    다시보기:<input name="txtVodUrl_@sitem.SchedulePK" type="text" id="txtVodUrl_@sitem.SchedulePK" style="width:250px;padding-left:20px" value="@sitem.VodUrl" /><br />
+                    관련기사:<input name="txtNewsUrl_@sitem.SchedulePK" type="text" id="txtNewsUrl_@sitem.SchedulePK" style="width:250px;padding-left:20px" value="@sitem.NewsUrl" />
+                        -->
+                    <br />
+                    세부종목:<input name="txtDetailSportName_@sitem.SchedulePK" type="text" id="txtDetailSportName_@sitem.SchedulePK" style="width:250px;padding-left:20px" value="@sitem.DetailSportName" /><br /><br />
+                    상&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;세:<textarea name="txtResultDetail_@sitem.SchedulePK" rows="3" cols="20" id="txtResultDetail_@sitem.SchedulePK" style="width:250px;padding-left:20px">@sitem.ResultDetail</textarea><br /><br />
+                    다시보기:<input name="txtVodUrl_@sitem.SchedulePK" type="text" id="txtVodUrl_@sitem.SchedulePK" style="width:250px;padding-left:20px" value="@sitem.VodUrl" /><br /><br />
+                    관련기사:<input name="txtNewsUrl_@sitem.SchedulePK" type="text" id="txtNewsUrl_@sitem.SchedulePK" style="width:250px;padding-left:20px" value="@sitem.NewsUrl" />
+                    <br /><br />
+                </td>
+                <td> 
+                    <a href="javascript:fncCheckUpdate(@sitem.SchedulePK);"><img src="~/common/admin/images/btn_submit.gif" /></a><br /><br />
+                    <a href="javascript:fncCheckDelete(@sitem.SchedulePK);"><img src="~/common/admin/images/btn_row_del.gif" /></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<script type="text/javascript">
+    function fncCheck() {
+        if ($("#txtstart").val() == "") {
+            alert('시작 시간을 입력해주세요');
+            $("#txtstart").focus();
+            return false;
+        }
+
+        if ($("#txtEnd").val() == "") {
+            alert('종료 시간을 입력해주세요');
+            $("#txtEnd").focus();
+            return false;
+        }
+
+        if ($("#txtDetailSportName").val() == "") {
+            alert('세부 종목을 입력해주세요');
+            $("#txtDetailSportName").focus();
+            return false;
+        }
+        var result = $("#txtResultDetail").val();
+        result = result.replace(/\n/g, "$br$");
+
+        $.post(
+            '@Url.Action("ScheduleProcess", "PCrhksfl")', { DateString: '@ViewBag.today', StartTime: $("#txtstart").val(), EndTime: $("#txtEnd").val(), SportType: $("#ddlSportType").val(), DetailSportName: $("#txtDetailSportName").val(), PlayerName: $("#txtPlayerName").val(), ResultInfo: $("#txtResultInfo").val(), ResultDetail: result, VodUrl: $("#txtVodUrl").val(), NewsUrl: $("#txtNewsUrl").val()},
+            function (response) {
+                alert(response);
+                location.href = "Schedule?dtDay=@ViewBag.today";
+            }
+        );
+
+    }
+
+    function fncCheckUpdate(idx) {
+        if ($("#txtstart_" + idx).val() == "") {
+            alert('시작 시간을 입력해주세요');
+            $("#txtstart_" + idx).focus();
+            return;
+        }
+
+        if ($("#txtEnd_" + idx).val() == "") {
+            alert('종료 시간을 입력해주세요');
+            $("#txtEnd_" + idx).focus();
+            return;
+        }
+
+        if ($("#txtDetailSportName_" + idx).val() == "") {
+            alert('세부 종목을 입력해주세요');
+            $("#txtDetailSportName_" + idx).focus();
+            return;
+        }
+        var result = $("#txtResultDetail_" + idx).val();
+        result = result.replace(/\n/g, "$br$");
+
+        $.post(
+            '@Url.Action("ScheduleUpdateProcess", "PCrhksfl")', { SchedulePK: idx, StartTime: $("#txtstart_" + idx).val(), EndTime: $("#txtEnd_" + idx).val(), SportType: $("#ddlSportType_" + idx).val(), DetailSportName: $("#txtDetailSportName_" + idx).val(), PlayerName: $("#txtPlayerName_" + idx).val(), ResultInfo: $("#txtResultInfo_" + idx).val(), ResultDetail: result, VodUrl: $("#txtVodUrl_" + idx).val(), NewsUrl: $("#txtNewsUrl_" + idx).val()},
+            function (response) {
+                alert(response);
+                location.href = "Schedule?dtDay=@ViewBag.today";
+            }
+        );
+    }
+
+    function fncCheckDelete(idx) {
+        if (confirm("삭제 하시겠습니까?")) {
+            $.post(
+                '@Url.Action("ScheduleDeleteProcess", "PCrhksfl")', { idx: idx },
+                function (response) {
+                    alert(response);
+                    location.href = "Schedule?dtDay=@ViewBag.today";
+                }
+            );
+        }
+    }
+</script>

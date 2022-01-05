@@ -1,0 +1,743 @@
+﻿@charset "utf-8";
+body.m {background:#e1dfeb}
+body.s {background:#e1dfeb}
+body.m #wrap {overflow:hidden; width:100%; text-align:center; background:url("../images/bg_top.jpg") no-repeat center top}
+body.s #wrap {overflow:hidden; width:100%; text-align:center; background:url("../images/bg_sub.jpg") no-repeat center top}
+#header {z-index:30; position:relative; width:1000px; height:58px; margin:0 auto; padding-top:20px; text-align:left}
+body.m #container {overflow:hidden; width:100%; background:url("../images/bg_btm.jpg") no-repeat center bottom}
+body.s #container {overflow:hidden; width:100%}
+#colgroup {overflow:hidden; position:relative; width:1000px; margin:0 auto; text-align:left; background:url("../images/bg_latest.gif") repeat-x 0 630px}
+#footer {overflow:hidden; position:relative; width:861px; height:47px; margin:0 auto 98px; padding:27px 0 0 139px; background:url("../images/bg_footer.gif") repeat-x left top; border-bottom:1px solid #c8c9d2; text-align:left}
+#header h1 {position:absolute; left:131px; top:78px; width:423px; height:56px}
+#header .nav_g {overflow:hidden; position:absolute; right:24px; top:13px; width:116px; height:11px}
+#header .nav_g ul {width:116px; height:11px}
+#header .nav_g ul li {float:left; height:11px; margin-right:9px; padding-right:10px; background:url("../images/bg_header_bar.gif") no-repeat right top}
+#header .nav_g ul li.last {margin:0; padding:0; background:none}
+#header .nav_g ul li a {display:block; float:left; height:11px}
+#header .count {overflow:hidden; position:absolute; right:6px; top:120px; width:100px; height:16px}
+#header .count img {display:block; float:left}
+#header .count em {display:block; float:left; position:relative; top:-5px; width:43px; height:16px; padding-left:16px; font-size:20px; color:#fff; font-family:'Trebuchet MS'; text-align:left; line-height:1.33; letter-spacing:10px}
+#h_rank {position:absolute; right:0; top:147px; width:260px; height:55px; padding:3px 0 0 14px}
+#h_rank .rank {display:block; float:left; margin:9px 13px 0 0; padding:0 0 0 31px; background:url("../images/bg_kor_flag.jpg") no-repeat 0 8px}
+#h_rank .rank img {position:relative; left:1px; top:9px}
+#h_rank ol {overflow:hidden; float:left; width:170px; height:44px}
+#h_rank ol li {float:left; width:18px; height:37px; margin-right:6px; padding:7px 0 0 31px; font-size:17px; color:#fff; font-family:'Trebuchet MS'; line-height:44px; text-align:center}
+#h_rank ol li.gold {background:url("../images/bg_gold_medal.jpg") no-repeat}
+#h_rank ol li.silver {background:url("../images/bg_silver_medal.jpg") no-repeat}
+#h_rank ol li.bronze {background:url("../images/bg_bronze_medal.jpg") no-repeat}
+#h_rank em {font-size:26px; color:#fff; font-weight:bold; line-height:1.33; font-family:'Trebuchet MS'}
+#h_nav {width:1000px; height:58px; padding-top:3px; background:url("../images/bg_nav.png") no-repeat}
+#h_nav ul {width:714px; height:50px; padding:0 0 0 12px}
+#h_nav ul li {position:relative; float:left; height:50px; background:url("../images/bg_nav_bar.gif") no-repeat right 20px}
+#h_nav ul li.home {width:53px}
+#h_nav ul li.home_on {width:43px; display:inline; margin-left:-2px; background:url("../images/bg_nav_on.gif") no-repeat; background-size:43px 50px}
+#h_nav ul li.info {width:83px}
+#h_nav ul li.info_on {width:83px; display:inline; margin-left:-2px; background:url("../images/bg_nav_on.gif") no-repeat; background-size:83px 50px}
+#h_nav ul li.news {width:100px}
+#h_nav ul li.news_on {width:100px; display:inline; margin-left:-2px; background:url("../images/bg_nav_on.gif") no-repeat; background-size:100px 50px}
+#h_nav ul li.schedule {width:83px}
+#h_nav ul li.schedule_on {width:83px; display:inline; margin-left:-2px; background:url("../images/bg_nav_on.gif") no-repeat; background-size:83px 50px}
+#h_nav ul li.highlight {width:127px}
+#h_nav ul li.highlight_on {width:127px; display:inline; margin-left:-2px; background:url("../images/bg_nav_on.gif") no-repeat; background-size:127px 50px}
+#h_nav ul li.rank {width:85px; display:inline; margin-left:-2px}
+#h_nav ul li.rank_on {width:85px; display:inline; margin-left:-2px; background:url("../images/bg_nav_on.gif") no-repeat; background-size:85px 50px}
+#h_nav ul li.korteam {width:94px}
+#h_nav ul li.korteam_on {width:94px; display:inline; margin-left:-2px; background:url("../images/bg_nav_on.gif") no-repeat; background-size:94px 50px}
+#h_nav ul li.cheer {width:90px; background:none}
+#h_nav ul li.cheer_on {width:90px; display:inline; margin-left:-2px; background:url("../images/bg_nav_on.gif") no-repeat; background-size:94px 50px}
+#h_nav ul li span, #h_nav ul li a {display:block; height:31px; padding-top:19px; text-align:center}
+#h_nav ul li .ready {display:none; position:absolute; left:50%; top:40px; width:98px; height:28px; margin-left:-49px}
+#front {overflow:hidden; position:relative; width:976px; height:420px; padding:0 0 0 24px; background:#282b3c url("../images/bg_player.gif") no-repeat 702px 0}
+#front .info {position:relative; width:660px; height:35px; line-height:35px; color:#b4b4b4; color:#b4b4b4; letter-spacing:-1px}
+#front .info em {font-weight:bold}
+#front .info span {margin-left:10px; color:#62688a; letter-spacing:0}
+#front .onair {display:block; position:absolute; right:0; top:6px; width:72px; height:22px; padding:0; border:0; background:none; cursor:pointer}
+#front .help {display:block; position:absolute; right:19px; top:5px; width:142px; height:25px}
+#front .ad {position:absolute; right:21px; top:38px; width:250px; height:365px}
+#front .ad iframe {overflow:hidden; width:250px; height:365px}
+#player {overflow:hidden; position:relative; width:660px; height:370px}
+#photo {overflow:hidden; position:relative; width:1000px; height:170px; padding-top:40px; background:#1a1c27 url("../images/bg_photo.gif") repeat-x left top}
+#photo h2 {position:absolute; top:7px; width:120px; height:22px; padding-top:11px; text-align:center; cursor:pointer; background:url("../images/bg_photo_off.gif") no-repeat}
+#photo h2.on {z-index:10; background:url("../images/bg_photo_on.gif") no-repeat}
+#photo h2.highlight {left:22px}
+#photo h2.vod {left:144px}
+/*#photo h2.cheer {left:22px}*/
+#photo h2.cheer {left:266px}
+#photo .list {display:none; position:relative; width:977px; height:170px; padding-left:23px}
+#photo .wrap {overflow:hidden; position:relative; width:956px; height:149px; padding-top:21px}
+#photo ul {overflow:hidden; width:960px; height:149px; -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060); -moz-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060); -ms-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060); -o-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060); transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060); /* easeInQuint */; -webkit-animation-duration:1s;	-moz-animation-duration:1s;	-ms-animation-duration:1s;	-o-animation-duration:1s;	animation-duration:1s; -webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both}
+#photo ul li {display:block; overflow:hidden; float:left; position:relative; width:172px; height:43px; margin-right:5px; padding:106px 9px 0 9px; color:#9a9a9a; line-height:1.55; letter-spacing:-1px; cursor:pointer}
+#photo ul li .img {display:block; overflow:hidden; position:absolute; left:0; top:0; width:172px; height:96px; border:1px solid #171717; text-align:center; cursor:pointer}
+#photo ul li .img img {width:172px; height:96px}
+#photo ul li.on .img {width:168px; height:90px; border:4px solid #fff; text-align:center}
+#photo ul li.on .img img {margin:-3px 0 0 -3px}
+#photo .date {display:block; font-size:11px; color:#62688a; letter-spacing:0}
+#photo button {display:block; position:absolute; top:61px; width:9px; height:17px; padding:0; border:0; background:none; cursor:pointer}
+#photo .btn_pre {left:7px}
+#photo .btn_next	 {right:7px}
+#photo .more {display:block; position:absolute; right:24px; top:-25px; padding-right:9px; font-size:11px; color:#aab0d1; line-height:1.33; background:url("../images/bg_photo_more.gif") no-repeat right 3px; letter-spacing:-1px}
+#latest {overflow:hidden; float:left; position:relative; width:730px; height:198px; padding-top:12px; margin-right:20px; background:url("../images/bg_shadow.gif") repeat-x left 198px}
+#latest h2 {overflow:hidden; height:30px; padding-left:9px}
+#latest .list {overflow:hidden; width:728px; height:154px; border:1px solid #cdcadb; background:url("../images/bg_latest_list.gif") no-repeat}
+#latest dl {overflow:hidden; float:left; width:344px; height:137px; padding:14px 15px 0 19px}
+#latest dl dt {margin-bottom:12px}
+#latest dl dt .img {display:block; overflow:hidden; position:absolute; left:22px; top:87px; width:157px; height:88px; text-align:center}
+#latest dl dt .img img {width:157px}
+#latest dl dt a {font-size:14px; color:#212121; letter-spacing:-1px; line-height:1.33; font-weight:bold}
+#latest dl dd {width:176px; padding-left:168px; letter-spacing:-1px}
+#latest dl dd a {color:#4b4b4b; line-height:1.6}
+#latest dl dd span {display:block; font-size:11px; color:#62688a; letter-spacing:0}
+#latest ul {overflow:hidden; float:left; width:350px; height:137px; padding-top:17px}
+#latest ul li {width:328px; margin-bottom:6px; padding:0 11px; background:url("../images/bg_rect.gif") no-repeat 0 5px; letter-spacing:-1px}
+#latest ul li a {color:#4b4b4b; line-height:1.33}
+#latest ul li img {position:relative; left:9px; top:0}
+#latest .layer {position:absolute; right:2px; top:21px; width:81px; height:15px}
+#latest .layer button {display:block; float:left; width:16px; height:14px; padding:0; border:0; background:none; cursor:pointer}
+#latest .btn_pre {margin-right:2px}
+/*#latest .layer span {display:block; float:left; width:24px; height:14px; margin-right:5px; padding-top:2px; font-size:11px; color:#62688a; line-height:1.35; text-align:right; font-weight:bold}*/
+#latest .layer_page {float:left; position:relative; width:40px; height:14px; margin-right:5px; padding:2px 0 0 0; font-size:11px; color:#62688a; line-height:1.35; text-align:right; font-weight:bold}
+#preview {overflow:hidden; float:left; position:relative; width:250px; height:194px; padding-top:16px}
+#preview .thum {display:block; position:relative; width:248px; height:155; border:1px solid #cdcadb}
+#preview .thum span {display:block; position:absolute; left:0; top:101px; width:218px; height:45px; padding:9px 15px 0 15px; background:url("../images/bg_news.png"); color:#cdcdcd; line-height:1.55}
+#preview .more {display:block; position:absolute; right:4px; top:24px; padding-right:9px; font-size:11px; color:#62688a; line-height:1.33; background:url("../images/bg_more.gif") no-repeat right 3px; letter-spacing:-1px}
+body.s #schedule {padding-top:0}
+#schedule {overflow:hidden; float:left; position:relative; width:250px; height:198px; padding-top:16px}
+#schedule h2 {overflow:hidden; height:26px; padding-left:2px}
+#schedule h2 span {position:absolute; left:96px; top:22px; font-size:11px; font-weight:bold; line-height:1.33; color:#fff}
+body.s #schedule h2 span {position:absolute; left:96px; top:6px; font-size:11px; font-weight:bold; line-height:1.33; color:#fff}
+#schedule ol {overflow:hidden; width:248px; height:154px}
+#schedule ol li {position:relative; width:153px; height:26px; padding-left:95px; background:url("../images/bg_schedule_part.gif") no-repeat right top; line-height:26px; color:#b4b4b4}
+#schedule ol li .time {display:block; position:absolute; left:0; top:0; width:88px; height:26px; background:url("../images/bg_schedule_time.gif") no-repeat; text-align:center; color:#62688a; font-weight:bold}
+#schedule ol li .part {overflow:hidden; width:132px; height:26px; white-space:nowrap; -o-text-overflow:ellipsis; text-overflow:ellipsis}
+#schedule .btn_onair {display:block; position:absolute; right:8px; top:6px; width:15px; height:13px}
+#schedule .more {display:block; position:absolute; right:4px; top:24px; padding-right:9px; font-size:11px; color:#62688a; line-height:1.33; background:url("../images/bg_more.gif") no-repeat right 3px; letter-spacing:-1px}
+body.s #schedule .more {display:block; position:absolute; right:4px; top:8px; padding-right:9px; font-size:11px; color:#62688a; line-height:1.33; background:url("../images/bg_more.gif") no-repeat right 3px; letter-spacing:-1px} 
+#news {overflow:hidden; float:left; position:relative; width:730px; height:313px; margin-right:20px}
+#news h2 {overflow:hidden; height:30px; padding-left:9px}
+#news dl {overflow:hidden; float:left; position:relative; width:400px; height:269px; border:1px solid #1f1f23; border-right:0}
+#news dl dt {position:absolute; left:0; top:179px; width:400px; height:40px; letter-spacing:-1px}
+#news dl dt strong {overflow:hidden; z-index:10; position:absolute; left:0; top:0; width:370px; height:23px; padding:17px 15px 0 15px; background:url("../images/bg_news.png"); font-size:14px; color:#fff; white-space:nowrap; -o-text-overflow:ellipsis; text-overflow:ellipsis}
+#news dl dt img {position:absolute; left:0; top:-179px}
+#news dl dd {position:absolute; left:0; top:219px; width:370px; height:47px; padding:3px 15px 0 15px; background:url("../images/bg_news.png")}
+#news dl dd a {color:#c1c1c1; font-size:11px; letter-spacing:-1px; line-height:1.45}
+#news ul {overflow:hidden; float:left; width:328px; height:269px; border:1px solid #1f1f23; border-left:0; background:#1f1f23}
+#news ul li {position:relative; width:151px; height:74px; padding:15px 5px 0 172px; border-bottom:1px solid #000; letter-spacing:-1px}
+#news ul li a {/*display:block; position:relative; width:151px; height:74px; padding:15px 5px 0 172px; */color:#b3b3b3; line-height:1.55}
+#news ul li .img {display:block; position:absolute; left:0; top:0; overflow:hidden; width:160px; height:89px; text-align:center}
+#news ul li .img img {width:160px}
+#news ul li .date {display:block; margin-top:2px; font-size:11px; letter-spacing:0; color:#737373}
+#news .more {display:block; position:absolute; right:4px; top:12px; padding-right:9px; font-size:11px; color:#62688a; line-height:1.33; background:url("../images/bg_more.gif") no-repeat right 3px; letter-spacing:-1px}
+#sns {overflow:hidden; position:relative; width:250px; height:313px; background:url("../images/bg_shadow.gif") repeat-x left 301px}
+#sns h2 {overflow:hidden; height:26px; padding:4px 0 0 2px}
+#sns ul {overflow:hidden; position:relative; overflow-y:auto; -webkit-overflow-scrolling: touch; width:212px; height:257px; padding:12px 25px 0 11px; border:1px solid #cdcadb; background:#fff; letter-spacing:-1px; scrollbar-highlight-color: #e5e5e5;scrollbar-shadow-color: #e5e5e5; scrollbar-arrow-color: #a6a6a6; scrollbar-face-color: #FFFFFF; scrollbar-3dlight-color: #FFFFFF;scrollbar-darkshadow-color: #FFFFFF;scrollbar-track-color: #FFFFFF}
+#sns ul::-webkit-scrollbar {width:13px}
+#sns ul::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); border-radius: 10px;}
+#sns ul::-webkit-scrollbar-thumb {border-radius: 10px; -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)}
+#sns ul li {position:relative; width:155px; margin-bottom:12px; padding:0 0 17px 57px; background:url("../images/bg_sns_dott.gif") repeat-x left bottom; color:#8e8e8e; line-height:1.33}
+#sns ul li a {color:#8e8e8e; line-height:1.33}
+#sns ul li span {display:block; margin-top:6px; padding-left:15px; font-size:11px; color:#999; background:url("../images/bg_twitter.gif") no-repeat}
+#sns ul li em {margin-left:4px; padding-left:4px; background:url("../images/bg_sns_bar.gif") no-repeat}
+#sns ul li img {position:absolute; left:0; top:0}
+#cheer {overflow:hidden; position:relative; width:1000px; height:469px; background:url("../images/bg_shadow.gif") repeat-x left 442px}
+#cheer h2 {overflow:hidden; height:30px; padding-left:9px}
+#cheer .area {overflow:hidden; width:998px; height:410px; border:1px solid #cdcadb; background:url("../images/bg_cheer.gif") repeat-x}
+#cheer .sns_login {overflow:hidden; width:915px; height:31px; padding:20px 0 0 85px}
+#cheer .sns_login h3 {float:left; width:56px; height:12px; margin-right:8px}
+#cheer .sns_login ul {overflow:hidden; float:left; height:14px; margin-right:4px}
+#cheer .sns_login ul li {float:left; width:14px; height:14px; margin-right:5px}
+#cheer .sns_login p {float:left; font-size:11px; color:#a7a7a7; letter-spacing:-1px}
+#cheer .sns_login input {width:13px; height:13px; margin:0 3px 0 0}
+#cheer .sns_login label {position:relative; top:2px}
+#cheer .sns_regi {overflow:hidden; position:relative; width:975px; padding:0 0 0 25px}
+#cheer .sns_regi .thum {display:block; float:left; width:49px; height:36px; margin-right:7px; border:1px solid #c3c3c3}
+#cheer textarea {float:left; width:791px; height:45px; padding:5px 8px; margin-right:6px; border:1px solid #cfcdd9; background:#f3f2f9; resize:none; font-size:12px; color:#a5a4a4; line-height:1.55}
+#cheer .list {overflow:hidden; width:890px; padding:28px  27px 0 83px}
+#cheer .list li {position:relative; width:890px; min-height:38px; height:auto !important; height:38px; margin-bottom:14px; padding-bottom:7px; border-bottom:1px solid #dededc}
+#cheer .list li img {position:absolute; left:-58px; top:0; width:49px; height:36px; border:1px solid #c3c3c3}
+#cheer .list li .info {margin-bottom:5px; padding-left:18px; font-size:11px; font-family:'Trebuchet MS'; line-height:1.33; color:#a5a4a4}
+#cheer .list li .fb {background:url("../images/bg_facebook.gif") no-repeat}
+#cheer .list li .txt {color:#747474; line-height:1.55}
+#cheer .more {display:block; position:absolute; right:4px; top:12px; padding-right:9px; font-size:11px; color:#62688a; line-height:1.33; background:url("../images/bg_more.gif") no-repeat right 3px; letter-spacing:-1px}
+body.m #cheer_ad {overflow:hidden; float:left; position:relative; width:730px; margin-right:20px; background:url("../images/bg_shadow.gif") repeat-x left 442px}
+body.m #cheer_ad h2 {overflow:hidden; height:30px; padding-left:9px}
+body.m #cheer_ad .area {overflow:hidden; width:728px; height:589px; border:1px solid #cdcadb; background:url("../images/bg_cheer.gif") repeat-x}
+body.m #cheer_ad .sns_login {overflow:hidden; width:645px; height:31px; padding:20px 0 0 85px}
+body.m #cheer_ad .sns_login h3 {float:left; width:56px; height:12px; margin-right:8px}
+body.m #cheer_ad .sns_login ul {overflow:hidden; float:left; height:14px; margin-right:4px}
+body.m #cheer_ad .sns_login ul li {float:left; width:14px; height:14px; margin-right:5px; cursor:pointer; text-indent:-5000em}
+body.m #cheer_ad .sns_login ul li.mbc {width:34px; background:url("../images/icon_mbc_off.gif") no-repeat}
+body.m #cheer_ad .sns_login ul li.mbc.on {width:34px; background:url("../images/icon_mbc.gif") no-repeat}
+body.m #cheer_ad .sns_login ul li.fb {background:url("../images/icon_facebook_off.gif") no-repeat}
+body.m #cheer_ad .sns_login ul li.fb.on {background:url("../images/icon_facebook.gif") no-repeat}
+body.m #cheer_ad .sns_login ul li.tw {background:url("../images/icon_twitter_off.gif") no-repeat}
+body.m #cheer_ad .sns_login ul li.tw.on {background:url("../images/icon_twitter.gif") no-repeat}
+body.m #cheer_ad .sns_login ul li.me {background:url("../images/icon_me2day_off.gif") no-repeat}
+body.m #cheer_ad .sns_login ul li.me.on {background:url("../images/icon_me2day.gif") no-repeat}
+body.m #cheer_ad .sns_login p {float:left; font-size:11px; color:#a7a7a7; letter-spacing:-1px}
+body.m #cheer_ad .sns_login input {width:13px; height:13px; margin:0 3px 0 0}
+body.m #cheer_ad .sns_login label {position:relative; top:2px}
+body.m #cheer_ad .sns_regi {overflow:hidden; position:relative; width:705px; padding:0 0 0 25px}
+body.m #cheer_ad .sns_regi .thum {display:block; float:left; width:49px; height:36px; margin-right:7px; border:1px solid #c3c3c3}
+body.m #cheer_ad textarea {float:left; width:522px; height:45px; padding:5px 8px; margin-right:6px; border:1px solid #cfcdd9; background:#f3f2f9; resize:none; font-size:12px; color:#a5a4a4; line-height:1.55}
+body.m #cheer_ad .list {overflow:hidden; width:620px; padding:28px 27px 0 83px}
+body.m #cheer_ad .list li {position:relative; width:620px; min-height:38px; height:auto !important; height:38px; margin-bottom:14px; padding-bottom:7px; border-bottom:1px solid #dededc}
+body.m #cheer_ad .list li img {position:absolute; left:-58px; top:0; width:49px; height:36px; border:1px solid #c3c3c3}
+body.m #cheer_ad .list li .info {margin-bottom:5px; padding-left:18px; font-size:11px; font-family:'Trebuchet MS'; line-height:1.33; color:#a5a4a4}
+body.m #cheer_ad .list li .mbc {padding:0 0 0 38px; background:url("../images/icon_mbc.gif") no-repeat}
+body.m #cheer_ad .list li .fb {background:url("../images/icon_facebook.gif") no-repeat}
+body.m #cheer_ad .list li .tw {background:url("../images/icon_twitter.gif") no-repeat}
+body.m #cheer_ad .list li .me {background:url("../images/icon_me2day.gif") no-repeat}
+body.m #cheer_ad .list li .txt {color:#747474; line-height:1.55}
+body.m #cheer_ad .more {display:block; position:absolute; right:4px; top:12px; padding-right:9px; font-size:11px; color:#62688a; line-height:1.33; background:url("../images/bg_more.gif") no-repeat right 3px; letter-spacing:-1px}
+.paging {overflow:hidden; width:100%; height:27px; text-align:center}
+.paging a {display:inline-block; overflow:hidden; height:14px; margin-left:-1px; padding:2px 7px 0 6px; text-align:center; border-left:1px solid #ccc; border-right:1px solid #ccc; color:#313031; font-size:12px; line-height:1.33; letter-spacing:-1px; font-weight:bold}
+.paging b {display:inline-block; overflow:hidden; height:14px; margin-left:-1px; padding:2px 7px 0 6px; text-align:center; border-left:1px solid #ccc; border-right:1px solid #ccc; color:#c4006a; font-size:12px; line-height:1.33; letter-spacing:-1px}
+.paging .btn_pre {height:14px; margin:0; padding:2px 4px 0 7px; border:0; font-family:'Dotum'; background:url("../images/bg_pageing_pre.gif") no-repeat 0 5px; font-weight:normal}
+.paging .btn_next {height:14px; margin:0; padding:2px 7px 0 4px; border:0; font-family:'Dotum'; background:url("../images/bg_pageing_next.gif") no-repeat right 5px; font-weight:normal}
+#ad250 {overflow:hidden; float:left; width:250px; height:250px}
+#ad250 iframe {overflow:hidden; width:250px; height:250px}
+#last_rank {overflow:hidden; position:relative;width:156px; height:64px; margin:15px 0 20px; padding-left:92px; border:1px solid #cdcadb; background:#fff}
+#last_rank h2 {position:absolute; left:14px; top:11px; width:52px; height:33px}
+#last_rank .btn_pre {display:block; position:absolute; left:82px; top:21px; width:10px; height:19px; padding:0; border:0; background:none; cursor:pointer}
+#last_rank .btn_next {display:block; position:absolute; right:7px; top:21px; width:10px; height:19px; padding:0; border:0; background:none; cursor:pointer}
+#last_rank .btn {display:block; position:absolute; left:14px; top:47px; width:33px; height:11px}
+#last_rank .list {overflow:hidden; position:relative; width:139px; height:64px}
+#last_rank .list ol {overflow:hidden; width:139px; height:64px}
+#last_rank .list ol li {position:absolute; left:0; height:0; width:139px; height:64px; text-align:center; filter:alpha(opacity=0); opacity:0; -webkit-animation-duration:500ms;	-moz-animation-duration:500ms;	-ms-animation-duration:500ms;	-o-animation-duration:500ms;	animation-duration:500ms; -webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both}
+#footer .logo {display:block; position:absolute; left:16px; top:19px; width:106px; height:33px}
+#footer ul {overflow:hidden; width:183px; height:11px; margin-bottom:6px}
+#footer ul li {float:left; height:11px; margin-right:6px; padding-right:8px; background:url("../images/bg_footer_bar.gif") no-repeat right 3px}
+#footer ul li.last {margin:0; padding:0; background:none}
+#footer ul li a {display:block; float:left; height:11px}
+#s_col {overflow:hidden; width:1000px; margin:16px auto 30px; text-align:left}
+#s_con {float:left; position:relative; width:890px; min-height:1100px; height:auto !important; height:1100px; padding:0 20px 30px; margin-right:20px; background:#fff}
+#s_con h2 {height:40px; padding-top:20px; border-bottom:1px solid #dadada}
+#s_aside {overflow:hidden; float:left; width:250px; margin-bottom:30px}
+#s_ad {overflow:hidden; width:250px; height:250px; margin-bottom:15px}
+#s_ad iframe {overflow:hidden; width:250px; height:250px}
+#s_schedule {overflow:hidden; float:left; position:relative; width:250px; height:185px; margin-bottom:13px; background:url("../images/bg_shadow.gif") repeat-x left 182px}
+#s_schedule h2 {overflow:hidden; height:26px; padding-left:2px}
+#s_schedule h2 span {position:absolute; left:96px; top:7px; font-size:11px; font-weight:bold; line-height:1.33; color:#fff}
+#s_schedule ol {overflow:hidden; width:248px; height:154px}
+#s_schedule ol li {position:relative; width:153px; height:26px; padding-left:95px; background:url("../images/bg_schedule_part.gif") no-repeat right top; line-height:26px; color:#b4b4b4}
+#s_schedule ol li .time {display:block; position:absolute; left:0; top:0; width:88px; height:26px; background:url("../images/bg_schedule_time.gif") no-repeat; text-align:center; color:#62688a; font-weight:bold}
+#s_schedule ol li .part {overflow:hidden; width:132px; height:26px; white-space:nowrap; -o-text-overflow:ellipsis; text-overflow:ellipsis}
+#s_schedule .btn_onair {display:block; position:absolute; right:8px; top:6px; width:15px; height:13px}
+#s_schedule .more {display:block; position:absolute; right:4px; top:8px; padding-right:9px; font-size:11px; color:#62688a; line-height:1.33; background:url("../images/bg_more.gif") no-repeat right 3px; letter-spacing:-1px}
+/*
+#s_preview {overflow:hidden; position:relative; width:250px; height:297px}
+#s_preview h2 {height:26px; padding-left:2px}
+#s_preview dl {overflow:hidden; position:relative; width:218px; height:102px; padding:167px 15px 0 15px; border:1px solid #cdcadb; background:#39393f}
+#s_preview dl dt {margin-bottom:6px}
+#s_preview dl dt a {color:#b3b3b3; font-weight:bold; line-height:1.55}
+#s_preview dl dt img {position:absolute; left:0; top:0}
+#s_preview dl dd {}
+#s_preview dl dd a {color:#8e8e8e; line-height:1.33}
+#s_preview .more {display:block; position:absolute; right:4px; top:8px; padding-right:9px; font-size:11px; color:#62688a; line-height:1.33; background:url("../images/bg_more.gif") no-repeat right 3px; letter-spacing:-1px}
+*/
+#s_preview {overflow:hidden; float:left; position:relative; width:250px; height:194px}
+#s_preview .thum {display:block; position:relative; width:248px; height:155; border:1px solid #cdcadb}
+#s_preview .thum span {display:block; position:absolute; left:0; top:101px; width:218px; height:45px; padding:9px 15px 0 15px; background:url("../images/bg_news.png"); color:#cdcdcd; line-height:1.55}
+#s_preview .more {display:block; position:absolute; right:4px; top:8px; padding-right:9px; font-size:11px; color:#62688a; line-height:1.33; background:url("../images/bg_more.gif") no-repeat right 3px; letter-spacing:-1px}
+.news_list {overflow:hidden; width:690px}
+.news_list ul {overflow:hidden; width:690px; margin-bottom:20px; padding:22px 0 7px; border-bottom:1px solid #dadada}
+.news_list ul li {overflow:hidden; width:690px; margin-bottom:28px}
+.news_list dl {overflow:hidden; position:relative; width:690px; padding:1px 0 0 0}
+.news_list ul li.img dl {overflow:hidden; position:relative; width:480px; height:109px; padding:1px 0 0 210px}
+.news_list dl dt {margin-bottom:6px; letter-spacing:-1px}
+.news_list dl dt .img {display:block; overflow:hidden; position:absolute; left:0; top:0; width:194px; height:108px; border:1px solid #bfbfbf}
+.news_list dl dt .img img {width:194px}
+.news_list dl dt a {font-size:16px; color:#212121; font-weight:bold; line-height:1.33}
+.news_list dl dd {letter-spacing:-1px}
+.news_list dl dd a {color:#747474; line-height:1.55}
+.news_list dl dd span {display:block; margin-top:12px; color:#62688a; font-size:11px; letter-spacing:0}
+.news_option {overflow:hidden; position:absolute; right:15px; top:24px}
+.news_option select {float:left; height:22px; margin-right:2px; color:#737373; border:1px solid #bbb}
+.news_option .btn_sort {float:left; margin-right:13px}
+.news_option ul {overflow:hidden; float:left; padding-top:4px}
+.news_option ul li {float:left; margin-right:9px; color:#747474; line-height:1.33}
+.news_option ul li input {overflow:hidden; position:relative; top:-2px; width:13px; height:13px; margin-right:3px}
+.nav_info {overflow:hidden; position:absolute; right:21px; top:23px; width:489px; height:38px}
+.nav_info ul {overflow:hidden; width:490px; height:38px}
+.nav_info ul li {float:left; width:106px; height:36px; margin-right:1px; border:1px solid #dadada}
+.nav_info ul li.last {width:160px}
+.nav_info ul li.on {border-bottom:1px solid #fff}
+.nav_info ul li.on a {font-weight:bold}
+.nav_info ul li a {display:block; height:36px; color:#737373; letter-spacing:-1px; line-height:36px; font-size:12px; font-weight:normal; text-align:center}
+.news_view {overflow:hidden; width:690px; padding-top:21px}
+.news_view h3 {margin-bottom:20px; padding-left:5px; font-size:16px; color:#212121; letter-spacing:-1px; line-height:1.33}
+.news_view .img {overflow:hidden; margin-bottom:26px; text-align:center}
+.news_view .img img {border:1px solid #a7a7a7}
+.news_view .txt {margin-bottom:20px; color:#747474; line-height:1.7; font-size:14px; letter-spacing:-1px}
+.news_view .nav {overflow:hidden; position:relative; width:690px; padding:15px 0 6px 0; border-top:1px solid #dadada; border-bottom:1px solid #dadada; letter-spacing:-1px; color:#62688a}
+.news_view .nav p {margin-bottom:6px}
+.news_view .nav a {color:#747474; line-height:1.33}
+.news_view .writer {display:block; margin-bottom:18px; font-size:11px; color:#62688a; line-height:1.33}
+.news_view .btn_list {position:absolute; right:0; top:17px; width:75px; height:30px}
+.stadium {overflow:hidden; width:690px; padding-top:26px}
+.stadium li {position:relative; float:left; width:97px; height:104px; margin-bottom:26px; padding:2px 40px 0 208px; letter-spacing:-1px}
+.stadium li .img {display:block; position:absolute; left:0; top:0; width:200px; height:106px; text-align:center}
+.stadium li .img img {height:106px}
+.stadium li .txt {color:#737373; line-height:1.7; font-size:12px; font-weight:normal}
+.stadium li .txt strong {display:block}
+#s_con .info {overflow:hidden; position:relative; width:690px; padding-top:25px; background:url("../images/bg_info.jpg") no-repeat right 25px}
+#s_con .info dl {position:relative; width:594px; margin-bottom:27px; padding-left:96px}
+#s_con .info dl dt {position:absolute; left:6px; top:0}
+#s_con .info dl dd {}
+.mascot {overflow:hidden; position:relative; width:690px; height:231px; margin:15px 0 20px; border-top:1px solid #dadada; border-bottom:1px solid #dadada}
+.mascot span {display:block; position:absolute; left:6px; top:13px}
+#s_con .info .wenlock {position:absolute; left:348px; top:27px; width:167px; height:171px; margin:0; padding:0; border:1px solid #cdcdcd; border-left:0}
+#s_con .info .wenlock .thum {position:absolute; left:-255px; top:-4px}
+#s_con .info .wenlock dt {position:relative; left:0; height:20px; padding-top:8px; border-bottom:1px solid #cdcdcd; text-align:center}
+#s_con .info .wenlock dd {padding-top:14px; text-align:center}
+#s_con .info .mandeville {position:absolute; left:515px; top:27px; width:173px; height:171px; margin:0; padding:0; border:1px solid #cdcdcd; border-right:0}
+#s_con .info .mandeville .thum {position:absolute; left:-313px; top:12px}
+#s_con .info .mandeville dt {position:relative; left:0; height:20px; padding-top:8px; border-bottom:1px solid #cdcdcd; text-align:center}
+#s_con .info .mandeville dd {padding-top:14px; text-align:center}
+.bbs_photo {overflow:hidden; width:747px; margin-bottom:20px; padding:20px 0; border-bottom:1px solid #dadada}
+.bbs_photo li {float:left; width:196px; height:189px; margin-right:51px}
+.bbs_photo li .img {display:block; width:194px; height:108px; margin-bottom:7px; border:1px solid #bfbfbf; text-align:center}
+.bbs_photo li .img img {height:108px}
+.bbs_photo li .txt {display:block; padding:0 3px; color:#4b4b4b; line-height:1.55}
+.bbs_photo li .txt span {display:block; margin-top:2px; font-size:11px; color:#62688a}
+.item_list {overflow:hidden; width:695px; margin-bottom:15px; padding:18px 0 0 7px}
+.item_list li {float:left; height:52px; margin:0 15px 10px 0; border:1px solid #737373; cursor:pointer}
+.item_list li.on {border:1px solid #c9799d}
+.item_detail {overflow:hidden; width:690px}
+.item_detail h4 {margin-bottom:10px; font-size:14px; color:#737373; letter-spacing:-1px; line-height:1.33}
+.item_detail h5 {height:53px; font-size:14px; color:#737373; letter-spacing:-1px; line-height:53px}
+.item_detail .txt {margin-bottom:20px; color:#737373; line-height:1.73}
+.item_detail ul {overflow:hidden; width:690px}
+.item_detail ul li {width:690px}
+.item_detail ul li a {color:#737373; line-height:1.73}
+.item_detail .player {overflow:hidden; width:690px; margin-bottom:20px}
+.item_detail .player li {float:left; margin-right:11px; color:#737373; line-height:1.33}
+.suumary_tb {width:688px; margin-bottom:7px}
+.suumary_tb th {border:1px solid #b6b6b6; text-align:center; color:#737373}
+.suumary_tb th.item {background:#eae8f5; color:#737373; text-align:center; letter-spacing:-1px}
+.suumary_tb td {height:78px; border:1px solid #b6b6b6; color:#737373; letter-spacing:-1px; text-align:center; color:#737373}
+.suumary_tb td p {padding:0 5px; text-align:left; letter-spacing:0; line-height:1.73}
+.player_vod {overflow:hidden; width:530px; height:300px; margin-left:80px; background:#000}
+.medal_tb {width:790px; margin-bottom:7px}
+.medal_tb th {width:25%; height:31px; text-align:center; border:1px solid #b6b6b6; border-bottom:0; background:#eae8f5; color:#737373}
+.medal_tb td {height:31px; text-align:center; border:1px solid #b6b6b6; color:#737373}
+.photo_view {overflow:hidden; position:relative; width:690px; padding-top:15px}
+.m_m_960{margin-left:-975px;-webkit-animation-name:m_m_960;-moz-animation-name:m_m_960;-ms-animation-name:m_m_960;-o-animation-name:m_m_960;animation-name:m_m_960}
+@-webkit-keyframes m_m_960{0%{margin-left:0}100%{margin-left:-975px}}
+.m_m_1920{margin-left:-1950px;-webkit-animation-name:m_m_1920;-moz-animation-name:m_m_1920;-ms-animation-name:m_m_1920;-o-animation-name:m_m_1920;animation-name:m_m_1920}
+@-webkit-keyframes m_m_1920{0%{margin-left:-975px}100%{margin-left:-1950px}}
+.m_m_2880{margin-left:-2925px;-webkit-animation-name:m_m_2880;-moz-animation-name:m_m_2880;-ms-animation-name:m_m_2880;-o-animation-name:m_m_2880;animation-name:m_m_2880}
+@-webkit-keyframes m_m_2880{0%{margin-left:-1950px}100%{margin-left:-2925px}}
+.m_p_0{margin-left:0;-webkit-animation-name:m_p_0;-moz-animation-name:m_p_0;-ms-animation-name:m_p_0;-o-animation-name:m_p_0;animation-name:m_p_0}
+@-webkit-keyframes m_p_0{0%{margin-left:-975px}100%{margin-left:0}}
+.m_p_960{margin-left:-975px;-webkit-animation-name:m_p_960;-moz-animation-name:m_p_960;-ms-animation-name:m_p_960;-o-animation-name:m_p_960;animation-name:m_p_960}
+@-webkit-keyframes m_p_960{0%{margin-left:-1950px}100%{margin-left:-975px}}
+.m_p_1920{margin-left:-1950px;-webkit-animation-name:m_p_1920;-moz-animation-name:m_p_1920;-ms-animation-name:m_p_1920;-o-animation-name:m_p_1920;animation-name:m_p_1920}
+@-webkit-keyframes m_p_1920{0%{margin-left:-2925px}100%{margin-left:-1950px}}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	body {width:1000px}
+}
+@-webkit-keyframes flash{0%,50%,100%{opacity:1}25%,75%{opacity:0}}@-moz-keyframes flash{0%,50%,100%{opacity:1}25%,75%{opacity:0}}@-ms-keyframes flash{0%,50%,100%{opacity:1}25%,75%{opacity:0}}@-o-keyframes flash{0%,50%,100%{opacity:1}25%,75%{opacity:0}}@keyframes flash{0%,50%,100%{opacity:1}25%,75%{opacity:0}}.flash{-webkit-animation-name:flash;-moz-animation-name:flash;-ms-animation-name:flash;-o-animation-name:flash;animation-name:flash; -webkit-animation-duration: 2s;-moz-animation-duration: 2s;-ms-animation-duration: 2s;-o-animation-duration: 2s;animation-duration: 2s;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both}
+@-webkit-keyframes fadeIn{0%{opacity:0; }100%{opacity:1}}@-moz-keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@-ms-keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@-o-keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@keyframes fadeIn{0%{opacity:0}100%{opacity:1}}
+@-webkit-keyframes fadeOut{0%{opacity:1}100%{opacity:0}}@-moz-keyframes fadeOut{0%{opacity:1}100%{opacity:0}}@-ms-keyframes fadeOut{0%{opacity:1}100%{opacity:0}}@-o-keyframes fadeOut{0%{opacity:1}100%{opacity:0}}@keyframes fadeOut{0%{opacity:1}100%{opacity:0}}
+#last_rank .list ol li.fadeIn{filter:alpha(opacity=100); -webkit-animation-name:fadeIn;-moz-animation-name:fadeIn;-ms-animation-name:fadeIn;-o-animation-name:fadeIn;animation-name:fadeIn}
+#last_rank .list ol li.fadeOut{filter:alpha(opacity=0); -webkit-animation-name:fadeOut;-moz-animation-name:fadeOut;-ms-animation-name:fadeOut;-o-animation-name:fadeOut;animation-name:fadeOut}
+body.s #cheer_ad {overflow:hidden; float:left; position:relative; width:690px; margin:0 20px 20px 0; background:url("../images/bg_shadow.gif") repeat-x left bottom}
+body.s #cheer_ad h2 {overflow:hidden; height:30px; padding-left:9px}
+body.s #cheer_ad .area {overflow:hidden; width:688px; border:1px solid #cdcadb}
+body.s #cheer_ad .sns_login {overflow:hidden; width:645px; height:31px; padding:20px 0 0 85px}
+body.s #cheer_ad .sns_login h3 {float:left; width:56px; height:12px; margin-right:8px}
+body.s #cheer_ad .sns_login ul {overflow:hidden; float:left; height:14px; margin-right:4px}
+body.s #cheer_ad .sns_login ul li {float:left; width:14px; height:14px; margin-right:5px; cursor:pointer; text-indent:-5000em}
+body.s #cheer_ad .sns_login ul li.mbc {width:34px; background:url("../images/icon_mbc_off.gif") no-repeat}
+body.s #cheer_ad .sns_login ul li.mbc.on {width:34px; background:url("../images/icon_mbc.gif") no-repeat}
+body.s #cheer_ad .sns_login ul li.fb {background:url("../images/icon_facebook_off.gif") no-repeat}
+body.s #cheer_ad .sns_login ul li.fb.on {background:url("../images/icon_facebook.gif") no-repeat}
+body.s #cheer_ad .sns_login ul li.tw {background:url("../images/icon_twitter_off.gif") no-repeat}
+body.s #cheer_ad .sns_login ul li.tw.on {background:url("../images/icon_twitter.gif") no-repeat}
+body.s #cheer_ad .sns_login ul li.me {background:url("../images/icon_me2day_off.gif") no-repeat}
+body.s #cheer_ad .sns_login ul li.me.on {background:url("../images/icon_me2day.gif") no-repeat}
+body.s #cheer_ad .sns_login p {float:left; font-size:11px; color:#a7a7a7; letter-spacing:-1px}
+body.s #cheer_ad .sns_login input {width:13px; height:13px; margin:0 3px 0 0}
+body.s #cheer_ad .sns_login label {position:relative; top:2px}
+body.s #cheer_ad .sns_regi {overflow:hidden; position:relative; width:705px; padding:0 0 0 25px}
+body.s #cheer_ad .sns_regi .thum {display:block; float:left; width:49px; height:36px; margin-right:7px; border:1px solid #c3c3c3}
+body.s #cheer_ad textarea {float:left; width:480px; height:45px; padding:5px 8px; margin-right:6px; border:1px solid #cfcdd9; background:#f3f2f9; resize:none; font-size:12px; color:#a5a4a4; line-height:1.55}
+body.s #cheer_ad .list {overflow:hidden; width:580px; padding:28px 27px 0 83px}
+body.s #cheer_ad .list li {position:relative; width:580px; min-height:38px; height:auto !important; height:38px; margin-bottom:14px; padding-bottom:7px; border-bottom:1px solid #dededc}
+body.s #cheer_ad .list li img {position:absolute; left:-58px; top:0; width:49px; height:36px; border:1px solid #c3c3c3}
+body.s #cheer_ad .list li .info {width:500px; margin-bottom:5px; padding:0 0 0 18px; font-size:11px; font-family:'Trebuchet MS'; line-height:1.33; color:#a5a4a4}
+body.s #cheer_ad .list li .mbc {padding:0 0 0 38px; background:url("../images/icon_mbc.gif") no-repeat}
+body.s #cheer_ad .list li .fb {background:url("../images/icon_facebook.gif") no-repeat}
+body.s #cheer_ad .list li .tw {background:url("../images/icon_twitter.gif") no-repeat}
+body.s #cheer_ad .list li .me {background:url("../images/icon_me2day.gif") no-repeat}
+body.s #cheer_ad .list li .txt {color:#747474; line-height:1.55}
+.nav_schedule {overflow:hidden; width:444px; height:38px; margin-bottom:8px; padding-left:246px; background:url("../images/bg_schedule_tab.gif") repeat-x left bottom}
+.nav_schedule li {float:left; margin-right:1px}
+.txt_schedule {overflow:hidden; position:relative; width:690px; height:35px; margin:16px 0 15px}
+.txt_schedule img {display:block; margin-bottom:9px}
+.txt_schedule .date {position:absolute; right:0; bottom:0; margin:0}
+.allschedule {width:684px}
+.allschedule th {border:1px solid #a79fca; text-align:center; font-weight:normal; color:#6a6386; letter-spacing:-1px; font-size:11px}
+.allschedule th.th_item {background:#cfc9e4}
+.allschedule th.th_month {height:22px; background:#d0cbe6}
+.allschedule th.th_sum {background:#cbc5e0}
+.allschedule th.item {height:30px; background:#f4f1e9; color:#6a6386}
+.allschedule td {height:30px; border:1px solid #dcdbeb; text-align:center; color:#fff; font-size:11px}
+.allschedule td.item {background:url("../images/bg_medal.gif") no-repeat}
+.allschedule td.sum {color:#6a6386}
+.korschedule {width:688px; border-right:1px solid #a79fca}
+.korschedule th {height:34px; border:1px solid #a79fca; text-align:center; background:#cec9e4}
+.korschedule th.th_date {background:#f4f1e9; font-weight:normal; color:#6a6386}
+.korschedule td {height:30px; text-align:center; border:1px solid #dcdbeb; border-right:0; color:#6a6386}
+.korschedule td p {padding-left:13px; text-align:left}
+.korschedule td.line {border-bottom:1px solid #a79fca}
+.date_standard {position:relative; float:right; margin-top:-35px}
+#cheer_top {overflow:hidden; position:relative; width:437px; height:298px; margin-bottom:15px; padding:25px 0 0 254px; background:url("../images/bg_cheer_event.jpg") no-repeat}
+#cheer_top .txt {width:330px; height:61px; margin-bottom:33px}
+#cheer_top .gift {width:236px; height:35px; margin-bottom:16px}
+#cheer_top .how {width:231px; height:12px; margin-bottom:8px}
+#cheer_top .date {width:167px; height:12px; margin-bottom:8px}
+#cheer_top .result {width:213px; height:14px}
+#cheer_top button {position:absolute; left:325px; top:242px; width:136px; height:38px; padding:0; border:0; background:none; cursor:pointer}
+#winner_layer {display:none; overflow:hidden; position:absolute; left:20px; top:283px; width:688px; padding-bottom:4px; border:1px solid #868199; background:#aea7cb; text-align:center}
+#winner_layer h3 {height:23px; padding:12px 0 0 17px; text-align:left}
+#winner_layer .wrap {overflow:hidden; width:623px; margin:0 auto; padding:154px 29px 50px 29px; text-align:left; background:#fff}
+#winner_layer .txt {position:absolute; left:231px; top:70px}
+#winner_layer .info1 {position:absolute; left:61px; top:128px}
+#winner_layer .info2 {position:absolute; left:61px; top:148px}
+#winner_layer .btn_modify {display:block; position:absolute; left:501px; top:125px; width:134px; height:37px}
+#winner_layer .btn_close {display:block; position:absolute; right:5px; top:6px; width:25px; height:25px; padding:0; border:0; background:none; cursor:pointer}
+#winner_layer h4 {margin-bottom:14px; padding-top:19px; font-size:12px; color:#7162b1; letter-spacing:-1px; line-height:1.33; border-top:1px solid #dadada}
+#winner_layer ul {overflow:hidden; width:630px; margin-bottom:20px}
+#winner_layer ul li {float:left; margin:0 7px 0 0; color:#737373; line-height:1.75}
+#cheer_notice {padding-left:26px; color:#737373; letter-spacing:-1px; line-height:1.33}
+#cheer_notice a {position:relative; left:5px; top:-4px}
+#ad500 {overflow:hidden; width:690px; height:80px; margin-top:20px; text-align:center}
+#ad500 iframe {width:500px; height:80px; margin:0 auto}
+#column {overflow:hidden; float:left; width:730px; margin-right:20px}
+#mc {overflow:hidden; position:relative; float:left; width:355px; height:336px; margin:0 20px 13px 0}
+#mc h2 {overflow:hidden; height:26px}
+#mc .wrap {overflow:hidden; width:325px; height:293px; padding:15px 0 0 28px; background:#fff; border:1px solid #cdcadb}
+#mc .list {overflow:hidden; position:relative; width:299px; height:293px}
+#mc ul {overflow:hidden; position:absolute; left:322px; top:0; width:322px}
+#mc ul li {overflow:hidden; float:left; width:138px; height:149px; margin-right:23px; text-align:center; color:#4b4b4b; line-height:1.33; letter-spacing:-1px; cursor:pointer}
+#mc ul li .img {display:block; width:136px; height:103px; margin-bottom:9px; border:1px solid #aaa}
+#mc .layer {position:absolute; right:0; top:5px; width:81px; height:15px}
+#mc .layer button {display:block; float:left; width:16px; height:14px; padding:0; border:0; background:none; cursor:pointer}
+#mc .btn_pre {margin-right:2px}
+#mc .layer span {float:left; position:relative; width:40px; height:14px; margin-right:5px; padding:2px 0 0 0; font-size:11px; color:#62688a; line-height:1.35; text-align:right; font-weight:bold}
+#keyplayer {overflow:hidden; position:relative; float:left; width:355px; height:336px; 0 0 13px 0}
+#keyplayer h2 {overflow:hidden; height:26px}
+#keyplayer .wrap {overflow:hidden; width:325px; height:293px; padding:15px 0 0 28px; background:#fff; border:1px solid #cdcadb}
+#keyplayer .list {overflow:hidden; position:relative; width:299px; height:293px}
+#keyplayer ul {overflow:hidden; position:absolute; left:322px; top:0; width:322px}
+#keyplayer ul li {overflow:hidden; float:left; width:138px; height:149px; margin-right:23px; text-align:center; color:#4b4b4b; line-height:1.33; letter-spacing:-1px; cursor:pointer}
+#keyplayer ul li .img {display:block; width:136px; height:103px; margin-bottom:9px; border:1px solid #aaa}
+#keyplayer .layer {position:absolute; right:0; top:5px; width:81px; height:15px}
+#keyplayer .layer button {display:block; float:left; width:16px; height:14px; padding:0; border:0; background:none; cursor:pointer}
+#keyplayer .btn_pre {margin-right:2px}
+#keyplayer .layer span {float:left; position:relative; width:40px; height:14px; margin-right:5px; padding:2px 0 0 0; font-size:11px; color:#62688a; line-height:1.35; text-align:right; font-weight:bold}
+#keyplayer ul, #mc ul {-webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060); -moz-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060); -ms-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060); -o-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060); transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060); /* easeInQuint */; -webkit-animation-duration:500ms;	-moz-animation-duration:500ms;	-ms-animation-duration:500ms;	-o-animation-duration:500ms;	animation-duration:500ms; -webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both}
+@-webkit-keyframes inNext{0%{left:-322px}100%{left:0}}
+@-moz-keyframes inNext{0%{left:-322px}100%{left:0}}
+@-o-keyframes inNext{0%{left:-322px}100%{left:0}}
+@keyframes inNext{0%{left:-322px}100%{left:0}}
+@-webkit-keyframes inPre{0%{left:322px}100%{left:0}}
+@-moz-keyframes inPre{0%{left:322px}100%{left:0}}
+@-o-keyframes inPre{0%{left:322px}100%{left:0}}
+@keyframes inPre{0%{left:322px}100%{left:0}}
+@-webkit-keyframes outNext{0%{left:0}100%{left:-322px}}
+@-moz-keyframes outNext{0%{left:0}100%{left:-322px}}
+@-o-keyframes outNext{0%{left:0}100%{left:-322px}}
+@keyframes outNext{0%{left:0}100%{left:-322px}}
+@-webkit-keyframes outPre{0%{left:0}100%{left:322px}}
+@-moz-keyframes outPre{0%{left:0}100%{left:322px}}
+@-o-keyframes outPre{0%{left:0}100%{left:322px}}
+@keyframes outPre{0%{left:0}100%{left:322px}}
+.inPre{left:0 !important; -webkit-animation-name:inPre;-moz-animation-name:inPre;-ms-animation-name:inPre;-o-animation-name:inPre;animation-name:inPre; animation-delay:500ms}
+.inNext{left:0 !important;-webkit-animation-name:inNext;-moz-animation-name:inNext;-ms-animation-name:inNext;-o-animation-name:inNext;animation-name:inNext; animation-delay:500ms}
+.outPre{left:-465px !important;-webkit-animation-name:outPre;-moz-animation-name:outPre;-ms-animation-name:outPre;-o-animation-name:outPre;animation-name:outPre}
+.outNext{left:465px !important;-webkit-animation-name:outNext;-moz-animation-name:outNext;-ms-animation-name:outNext;-o-animation-name:outNext;animation-name:outNext}
+#mc_layer {display:none; overflow:hidden; z-index:200; position:absolute; left:50%; top:1000px; width:313px; height:517px; margin-left:-325px; padding:111px 91px 0 224px; background:url("../images/bg_mclayer.png") no-repeat}
+#mc_layer h2 {margin-bottom:35px; font-size:12px; color:#4b4b4b; font-weight:normal; letter-spacing:-1px; line-height:1.33}
+#mc_layer h2 em {display:block; margin-top:7px; font-size:20px; font-weight:bold}
+#mc_layer h2 .img {display:block; position:absolute; left:69px; top:112px; width:136px; height:167px; border:1px solid #aaa}
+#mc_layer h3 {margin-bottom:9px; font-size:12px; font-weight:bold; line-height:1.33}
+#mc_layer .btn_close {display:block; position:absolute; left:571px; top:56px; width:19px; height:19px; padding:0; border:0; background:none; cursor:pointer}
+#mc_layer .btn_pre {display:block; position:absolute; left:18px; top:310px; width:17px; height:33px; padding:0; border:0; background:none; cursor:pointer}
+#mc_layer .btn_next {display:block; position:absolute; right:18px; top:310px; width:17px; height:33px; padding:0; border:0; background:none; cursor:pointer}
+#career {overflow:hidden; width:313px; margin-bottom:15px}
+#career li {width:313px; margin-bottom:8px; color:#4b4b4b; line-height:1.33}
+#vod_clip {overflow:hidden; width:313px}
+#vod_clip li {width:313px; margin-bottom:8px; color:#4b4b4b; line-height:1.33}
+#vod_clip li span {display:block; float:left; margin:0 5px 15px 0}
+#vod_clip li input {display:block; position:relative; top:1px; float:left; width:15px; height:11px; padding:0; border:0; background:url("../images/icon_vod_clip.gif") no-repeat; cursor:pointer; text-indent:-5000em}
+.vr_frame {overflow:hidden; width:313px; height:176px}
+#keyplayer_layer {display:none; overflow:hidden; z-index:200; position:absolute; left:50%; top:1000px; width:313px; height:517px; margin-left:-325px; padding:111px 91px 0 224px; background:url("../images/bg_spectlayer.png") no-repeat}
+#keyplayer_layer h2 {margin-bottom:27px; font-size:12px; color:#4b4b4b; font-weight:normal; letter-spacing:-1px; line-height:1.33}
+#keyplayer_layer h2 em {display:block; margin:7px 0 6px; font-size:20px; font-weight:bold}
+#keyplayer_layer h2 p {font-weight:bold; line-height:1.33}
+#keyplayer_layer h2 .img {display:block; position:absolute; left:69px; top:112px; width:136px; height:167px; border:1px solid #aaa}
+#keyplayer_layer h3 {margin-bottom:9px; font-size:12px; font-weight:bold; line-height:1.33}
+#keyplayer_layer .btn_close {display:block; position:absolute; left:571px; top:56px; width:19px; height:19px; padding:0; border:0; background:none; cursor:pointer}
+#keyplayer_layer .btn_pre {display:block; position:absolute; left:18px; top:310px; width:17px; height:33px; padding:0; border:0; background:none; cursor:pointer}
+#keyplayer_layer .btn_next {display:block; position:absolute; right:18px; top:310px; width:17px; height:33px; padding:0; border:0; background:none; cursor:pointer}
+#nav_medal {position:absolute; right:20px; top:23px; overflow:hidden; width:260px; height:38px}
+#nav_medal ul {overflow:hidden; width:261px; height:38px}
+#nav_medal ul li {float:left; height:36px; margin-right:1px; text-align:center; border:1px solid #dadada; letter-spacing:-1px}
+#nav_medal ul li.medal {width:106px}
+#nav_medal ul li.history {width:149px}
+#nav_medal ul li.on {font-weight:bold; border-bottom:1px solid #fff}
+#nav_medal ul li a {display:block; height:36px; color:#737373; line-height:36px}
+#history_tb {overflow:hidden; width:690px; margin-top:20px}
+#history_tb th {height:34px; border:1px solid #a79fca; text-align:center; background:#d0cde8}
+#history_tb th.medal {vertical-align:top}
+#history_tb td {height:30px; border:1px solid #dcdbeb; border-top:0; color:#6a6386; text-align:center}
+#history_tb td span {display:block; padding:0 16px 0 32px; text-align:left}
+#history_tb td span.eng {background:url("../images/flag_eng.jpg") no-repeat 10px 0}
+#history_tb td span.chn {background:url("../images/flag_china.jpg") no-repeat 10px 0}
+#history_tb td span.grc {background:url("../images/flag_grc.jpg") no-repeat 10px 0}
+#history_tb td span.aus {background:url("../images/flag_aus.jpg") no-repeat 10px 0}
+#history_tb td span.usa {background:url("../images/flag_usa.jpg") no-repeat 10px 0}
+#history_tb td span.esp {background:url("../images/flag_esp.jpg") no-repeat 10px 0}
+#history_tb td span.kor {background:url("../images/flag_kor.jpg") no-repeat 10px 0}
+#history_tb td span.rus {background:url("../images/flag_rus.jpg") no-repeat 10px 0}
+#history_tb td span.can {background:url("../images/flag_can.jpg") no-repeat 10px 0}
+#history_tb td span.deu {background:url("../images/flag_deu.jpg") no-repeat 10px 0}
+#history_tb td span.mex {background:url("../images/flag_mex.jpg") no-repeat 10px 0}
+#history_tb td span.jap {background:url("../images/flag_jap.jpg") no-repeat 10px 0}
+#history_tb td span.ita {background:url("../images/flag_ita.jpg") no-repeat 10px 0}
+#history_tb td span.fin {background:url("../images/flag_fin.jpg") no-repeat 10px 0}
+#history_tb td span.nld {background:url("../images/flag_nld.jpg") no-repeat 10px 0}
+#history_tb td span.fra {background:url("../images/flag_fra.jpg") no-repeat 10px 0}
+#history_tb td span.bel {background:url("../images/flag_bel.jpg") no-repeat 10px 0}
+#history_tb td span.swe {background:url("../images/flag_swe.jpg") no-repeat 10px 0}
+#history_tb td.time {background:#f4f1e9; font-weight:bold; border-left:1px solid #a79fca}
+#history_tb td.medal {font-weight:bold}
+#history_tb td.rank {font-weight:bold}
+#history_tb td.noline {border-right:1px solid #a79fca}
+#rank_tb {overflow:hidden; width:690px; margin-top:20px}
+#rank_tb .update {margin-bottom:9px; color:#6a6386; text-align:left; line-height:1.33; letter-spacing:-1px}
+#rank_tb table {margin-bottom:13px}
+#rank_tb table th {height:34px; border:1px solid #a79fca; text-align:center; background:#d0cde8}
+#rank_tb table th.medal {vertical-align:top}
+#rank_tb table td {height:30px; border:1px solid #dcdbeb; border-top:0; color:#6a6386; text-align:center}
+#rank_tb table td span {display:block; position:relative; width:262px; height:30px; text-align:center; line-height:30px}
+#rank_tb table td span img {position:absolute; left:7px; top:7px}
+#rank_tb table td span input {width:213px; height:20px; border:1px solid #bbb; text-align:center; font-size:12px; color:#6a6386}
+#rank_tb table td.time {background:#f4f1e9; font-weight:bold; border-left:1px solid #a79fca}
+#rank_tb table td.medal {font-weight:bold}
+#rank_tb table td.medal input {width:79px; height:20px; border:1px solid #bbb; text-align:center; font-size:12px; color:#6a6386; font-weight:bold}
+#rank_tb table td.rank {font-weight:bold}
+#rank_tb table td.noline {border-right:1px solid #a79fca}
+#rank_tb table td.noline input {width:79px; height:20px; border:1px solid #bbb; text-align:center; font-size:12px; color:#6a6386}
+#rank_tb .state {overflow:hidden; width:690px; height:54px; margin-bottom:12px; background:url("../images/bg_korea_rank.jpg") no-repeat}
+#rank_tb p.rank {float:left; height:47px; padding:7px 0 0 8px}
+#rank_tb p.rank span {font-size:30px; color:#fff; line-height:1.33; font-family:'Trebuchet MS'; font-weight:bold}
+#rank_tb p.rank img {margin-right:14px; vertical-align:middle}
+#rank_tb p.medal {float:right; width:310px; height:45px; padding-top:9px}
+#rank_tb p.medal em {display:block; float:left; width:86px; font-size:30px; color:#fff; line-height:1.33; font-family:'Trebuchet MS'; font-weight:bold}
+#rank_tb p.medal em.sum {display:inline; float:left; width:40px; margin-left:-10px}
+#rank_tb .btn_submit {display:block; float:right; width:75px; height:30px}
+#nav_team {position:absolute; right:20px; top:23px; overflow:hidden; width:561px; height:38px}
+#nav_team ul {overflow:hidden; width:561px; height:38px}
+#nav_team ul li {float:left; height:36px;width:106px; margin-right:1px; text-align:center; border:1px solid #dadada; letter-spacing:-1px}
+#nav_team ul li.medal {width:106px}
+#nav_team ul li.history {width:106px}
+#nav_team ul li.on {font-weight:bold; border-bottom:1px solid #fff}
+#nav_team ul li a {display:block; height:36px; color:#737373; line-height:36px}
+#medal_tb {overflow:hidden; width:790px; margin-top:20px}
+#medal_tb .update {margin-bottom:9px; color:#6a6386; text-align:left; line-height:1.33; letter-spacing:-1px}
+#medal_tb table {margin-bottom:13px}
+#medal_tb table th {height:34px; border:1px solid #a79fca; text-align:center; background:#d6d1ea}
+#medal_tb table td {height:30px; border:1px solid #dcdbeb; border-top:0; color:#6a6386; text-align:center}
+#medal_tb table td span {display:block; position:relative; width:262px; height:30px; text-align:center; line-height:30px}
+#medal_tb table td span img {position:absolute; left:7px; top:7px}
+#medal_tb table td.medal {background:#f4f1e9; font-weight:bold; border-left:1px solid #a79fca; border-bottom:1px solid #a79fca}
+#medal_tb table td.medal {font-weight:bold}
+#medal_tb table td.rank {font-weight:bold}
+#medal_tb table td.noline {border-right:1px solid #a79fca; border-bottom:1px solid #a79fca; font-size:30px; font-weight:bold; font-family:'Trebuchet MS'}
+#medal_tb table td.move {border-right:1px solid #a79fca}
+#medal_tb table td.last {border-bottom:1px solid #a79fca}
+#medal_tb table td.part input {width:87px; height:20px; border:1px solid #ddd; color:#6a6386; line-height:20px; text-align:center}
+#medal_tb table td.con input {width:210px; height:20px; border:1px solid #ddd; color:#6a6386; line-height:20px; text-align:center}
+#medal_tb table td.player input {width:123px; height:20px; border:1px solid #ddd; color:#6a6386; line-height:20px; text-align:center}
+#medal_tb table td label {position:absolute;left:-1000%;top:0;width:0;height:0;font-size:0;line-height:0;overflow:hidden}
+#medal_tb table td .vod {position:relative; left:8px}
+#medal_tb table td select {color:#6a6386}
+#medal_tb .btn_up {display:inline-block; position:relative; top:4px; width:15px; height:8px; margin:0 8px; padding:0; border:0; background:url("../images/btn_arrow_up.gif") no-repeat; cursor:pointer; text-indent:-5000em}
+#medal_tb .btn_down {display:inline-block; position:relative; top:4px; width:15px; height:8px; margin:0 8px; padding:0; border:0; background:url("../images/btn_arrwo_dn.gif") no-repeat; cursor:pointer; text-indent:-5000em}
+#medal_tb table td.part .chk {width:13px; height:13px; margin-right:4px; border:0}
+#medal_tb .btn_submit {display:block; float:right; width:75px; height:30px}
+#medal_tb .btn_add {display:block; width:75px; height:25px; margin:19px auto 5px; padding:0; border:0; background:none; cursor:pointer}
+#medal_tb .btn_del {display:block; width:75px; height:25px; margin:0 auto; padding:0; border:0; background:none; cursor:pointer}
+#nav_vod {position:absolute; right:20px; top:23px; overflow:hidden; width:478px; height:38px}
+#nav_vod ul {overflow:hidden; width:479px; height:38px}
+#nav_vod ul li {float:left; height:36px; margin-right:1px; text-align:center; border:1px solid #dadada; letter-spacing:-1px}
+#nav_vod ul li.vod {width:106px}
+#nav_vod ul li.highlight {width:106px}
+#nav_vod ul li.special {width:106px}
+#nav_vod ul li.mc {width:149px}
+#nav_vod ul li.on {font-weight:bold; border-bottom:1px solid #fff}
+#nav_vod ul li a {display:block; height:36px; color:#737373; line-height:36px}
+#vod {overflow:hidden; width:690px; padding-top:16px}
+#vod_player {overflow:hidden; width:660px; height:420px; margin-bottom:22px; padding:0 15px; background:#1c1e2d}
+#vod_player p {height:35px; line-height:35px; font-size:11px; color:#acb3cc}
+#vod_player p em {margin-right:11px; font-size:12px; color:#eceaf7}
+#vod_part {position:relative; width:170px; height:34px; padding:0 0 0 518px; margin-bottom:18px; border:1px solid #a79fca; background:url("../images/bg_vod_part.gif") repeat-x}
+#vod_part .special {position:relative; left:-250px; overflow:hidden; width:500px; height:34px}
+#vod_part .special li {float:left; height:22px; padding:12px 6px 0 0; margin-right:8px; letter-spacing:-1px; background:url("../images/bg_vod_bar.gif") no-repeat right 13px}
+#vod_part .special li.last {padding:12px 0 0 0; background:none}
+#vod_part .special li a {line-height:1.33; color:#695f92}
+#vod_part .btn_calendar {display:block; float:left; position:relative; top:5px; width:27px; height:22px; margin-right:6px; padding:0; border:0; background:none; cursor:pointer}
+#vod_part .btn_part {display:block; float:left; position:relative; top:6px; width:106px; height:20px; padding-left:7px; border:1px solid #bbb; color:#737373; line-height:1.33; text-align:left; letter-spacing:-1px; background:#fff url("../images/bg_combo.gif") no-repeat 90px center; cursor:pointer}
+#calendar_layer {display:none; position:absolute; right:143px; top:27px; width:250px; height:250px; background:red}
+#part_layer {display:none; overflow:hidden; overflow-y:auto; position:absolute; right:31px; top:26px; width:104px; height:150px; border:1px solid #bbb; border-top:0; background:#fff; scrollbar-highlight-color: #CCCCCC;scrollbar-shadow-color: #CCCCCC; scrollbar-arrow-color: #CCCCCC;scrollbar-face-color: #FFFFFF; scrollbar-3dlight-color: #FFFFFF;scrollbar-darkshadow-color: #FFFFFF;scrollbar-track-color: #FFFFFF}
+#part_layer::-webkit-scrollbar {width:12px}
+#part_layer::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); border-radius: 10px;}
+#part_layer::-webkit-scrollbar-thumb {border-radius: 10px; -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)}
+#part_layer ul {overflow:hidden; width:100px}
+#part_layer ul li {padding-left:7px}
+#part_layer ul li a {color:#737373; line-height:25px}
+#vod_list {overflow:hidden; width:690px}
+#vod_list ul {overflow:hidden; width:747px; margin-bottom:11px; border-bottom:1px solid #dadada}
+#vod_list ul li {overflow:hidden; float:left; width:196px; height:188px; margin-right:53px; cursor:pointer; font-size:11px; color:#62688a; line-height:1.55}
+#vod_list ul li p {padding:0 3px}
+#vod_list ul li .img {display:block; width:194px; height:108px; border:1px solid #bfbfbf}
+#vod_list ul li em {display:block; margin-bottom:2px; color:#4b4b4b; font-size:12px}
+#vod h3 {width:685px; height:28px; margin-bottom:26px; padding:6px 0 0 5px; background:url("../images/bg_h3_vod.gif") repeat-x left bottom}
+#broad_people {overflow:hidden; width:671px; padding-left:19px}
+#broad_people ul {overflow:hidden; width:684px}
+#broad_people ul li {float:left; width:138px; height:167px; margin-right:33px; cursor:pointer}
+#broad_people ul li .img {display:block; width:136px; height:103px; margin-bottom:5px; border:1px solid #aaa}
+#broad_people ul li p {padding:0 2px; font-weight:bold; color:#4b4b4b; line-height:1.55}
+#broad_people ul li em {display:block; font-weight:normal}
+
+#schedule_tb {width:690px; display:table-cell}
+#schedule_tb th {height:34px; border:1px solid #a79fca; text-align:center; background:#d6d1ea}
+#schedule_tb td {height:30px; border:1px solid #dcdbeb; border-top:0; color:#6a6386; text-align:center}
+#schedule_tb td.time {background:#f4f1e9; border-left:1px solid #a79fca}
+#schedule_tb td.btn {border-right:1px solid #a79fca}
+#schedule_tb td span {display:block; height:30px; padding:0 11px; text-align:left; line-height:30px; white-space:nowrap}
+#schedule_tb td span.part {font-weight:bold}
+#schedule_tb td.last {border-bottom:1px solid #a79fca}
+#schedule_share {overflow:hidden; position:absolute; right:21px; top:24px; width:237px; height:20px}
+#schedule_share ul {width:237px; height:20px}
+#schedule_share ul li {float:left; width:16px; height:16px; margin-right:6px}
+#schedule_share ul li.tw {background:url("../images/icon_sns.gif") no-repeat 0 0}
+#schedule_share ul li.fb {background:url("../images/icon_sns.gif") no-repeat -22px 0}
+#schedule_share ul li.me {background:url("../images/icon_sns.gif") no-repeat -44px 0}
+#schedule_share ul li.yo {margin-right:11px; background:url("../images/icon_sns.gif") no-repeat -66px 0}
+#schedule_share ul li a {display:block; height:16px}
+#schedule_share ul li.scrap {width:62px; height:20px; margin-right:12px}
+#schedule_share ul li.copy {width:70px; height:20px; margin:0}
+#schedule_share ul li.scrap a, #schedule_share ul li.copy a {height:20px}
+#broadcast {overflow:hidden; position:relative; width:690px; padding-top:14px}
+#broadcast h3 {position:relative; width:690px; margin-bottom:12px; font-size:30px; color:#6a6386; font-weight:bold; line-height:1.33; font-family:'Trebuchet MS'; text-align:center}
+#broadcast h3 em {position:relative; top:5px; font-family:'Dotum'; font-size:24px}
+#broadcast h3 button {display:inline-block; position:relative; top:12px; width:9px; height:17px; padding:0; border:0; background:none;}
+#broadcast h3 .btn_pre {margin-right:14px}
+#broadcast h3 .btn_next {margin-left:14px}
+#broadcast h3 .today {position:relative; top:12px; margin-right:21px}
+#broadcast .btn_calendar {display:block; position:absolute; right:140px; top:25px; width:27px; height:22px; margin-right:6px; padding:0; border:0; background:none; cursor:pointer}
+/* 경기장 소개 */
+#stadium {overflow:hidden; position:relative; width:690px; padding-top:26px}
+#stadium .list {overflow:hidden; width:690px; margin-bottom:34px}
+#stadium .list {overflow:hidden; width:690px; padding-top:1px}
+#stadium .list li {float:left; width:171px; height:30px; margin:-1px -1px 0 0; border:1px solid #ccc9dd; background:#f0eef7; text-align:center; line-height:30px; cursor:pointer; color:#737373; letter-spacing:-1px}
+#stadium .list li.on {background:#a8a2c2; color:#fff; font-weight:bold}
+#stadium h3 {margin-bottom:15px; font-size:16px; color:#818181; font-weight:bold; letter-spacing:-1px; line-height:1.33}
+#stadium .img {overflow:hidden; position:relative; width:690px; height:389px; margin-bottom:26px}
+#stadium .img li {display:none; overflow:hidden; position:absolute; left:0; top:0; width:690px; height:389px; text-align:center}
+#stadium .img li img {}
+#stadium .items {position:relative; width:638px; margin-bottom:24px; padding-left:52px; color:#818181; line-height:2}
+#stadium .items em {position:absolute; left:0; top:0; font-weight:bold; letter-spacing:-1px}
+#stadium button {display:block; position:absolute; top:510px; width:28px; height:55px; padding:0; border:0; background:none; cursor:pointer}
+#stadium .btn_pre {left:16px}
+#stadium .btn_next {right:16px}
+/* 한국대표팀 소개 */
+#korteam {overflow:hidden; width:690px; padding-top:22px}
+#korteam h3 {height:28px; padding-left:4px; background:url("../images/bg_korteam.gif") repeat-x left bottom}
+#korteam .team_intro {overflow:hidden; width:690px; height:66px; padding:12px 7px 0 7px; background:#ecebf7 url("../images/bg_korteam.gif") repeat-x left bottom}
+#korteam .team_intro p {height:17px; margin-bottom:5px; border-bottom:1px solid #d4d3de}
+#korteam h4 {padding: 0 0 12px 5px; font-size:15px; color:#737373; line-height:1.33; background:url("../images/bg_korteam.gif") repeat-x left bottom}
+#korteam .player_frame {overflow:hidden; width:660px; padding:0 15px 30px; background:#1c1e2d}
+#korteam h5 {height:35px; line-height:35px; color:#eceaf7; font-size:12px; font-weight:normal}
+#korteam .player_frame p {padding:15px 2px 0; color:#acb3cc; line-height:1.65}
+#korteam .list {overflow:hidden; position:relative; width:657px; height:151px; padding:26px 0 0 33px}
+#korteam .list button {display:block; position:absolute; top:72px; width:9px; height:17px; padding:0; border:0; background:none; cursor:pointer}
+#korteam .list .pre {left:10px}
+#korteam .list .next {right:10px}
+#korteam .wrap {overflow:hidden; width:618px; height:151px}
+#korteam .wrap ul {overflow:hidden; width:700px}
+#korteam .wrap ul li {overflow:hidden; float:left; width:138px; height:151px; margin-right:22px; cursor:pointer; text-align:center; color:#4b4b4b; line-height:1.33}
+#korteam .wrap ul li .img {display:block; width:136px; height:103px; margin-bottom:11px; border:1px solid #aaa}
+/* 캐스터 소개 */
+#caster_layer {display:none; overflow:hidden; z-index:200; position:absolute; left:50%; top:500px; width:313px; height:517px; margin-left:-315px; padding:111px 91px 0 224px; background:url("../images/bg_mclayer.png") no-repeat}
+#caster_layer h5 {margin-bottom:35px; font-size:12px; color:#4b4b4b; font-weight:normal; letter-spacing:-1px; line-height:1.33}
+#caster_layer h5 em {display:block; margin-top:7px; font-size:20px; font-weight:bold}
+#caster_layer h5 .img {display:block; position:absolute; left:69px; top:112px; width:136px; height:167px; border:1px solid #aaa}
+#caster_layer h6 {margin-bottom:9px; font-size:12px; font-weight:bold; line-height:1.33}
+#caster_layer .btn_close {display:block; position:absolute; left:571px; top:56px; width:19px; height:19px; padding:0; border:0; background:none; cursor:pointer}
+#caster_layer .btn_pre {display:block; position:absolute; left:18px; top:310px; width:17px; height:33px; padding:0; border:0; background:none; cursor:pointer}
+#caster_layer .btn_next {display:block; position:absolute; right:18px; top:310px; width:17px; height:33px; padding:0; border:0; background:none; cursor:pointer}
+#caster_career {overflow:hidden; width:313px; margin-bottom:15px}
+#caster_career li {width:313px; margin-bottom:8px; color:#4b4b4b; line-height:1.33}
+#caster_clip {overflow:hidden; width:313px}
+#caster_clip li {width:313px; margin-bottom:8px; color:#4b4b4b; line-height:1.33}
+#caster_clip li span {display:block; float:left; margin:0 5px 15px 0}
+#caster_clip li input {display:block; position:relative; top:1px; float:left; width:15px; height:11px; padding:0; border:0; background:url("../images/icon_vod_clip.gif") no-repeat; cursor:pointer; text-indent:-5000em}
+.vr_frame {overflow:hidden; width:313px; height:176px}
+/* 인기 하이라이트 */
+#highlight {overflow:hidden; position:relative; width:250px; height:297px}
+#highlight h2 {height:26px}
+#highlight ol {overflow:hidden; width:248px; height:259px; padding-top:10px; border:1px solid #cdcadb; background:#fff}
+#highlight ol li {position:relative; width:120px; height:52px; margin-bottom:12px; padding:0 10px 0 118px}
+#highlight ol li .txt {color:#8e8e8e; line-height:1.55}
+#highlight ol li span {display:block; margin-top:1px; font-size:11px; color:#767fa0}
+#highlight ol li .img {display:block; overflow:hidden; position:absolute; left:11px; top:0; width:92px; height:50px; text-align:center; border:1px solid #9d9a94}
+#highlight ol li .img img {width:92px}
+body.s #highlight {margin-bottom:10px}
+/* 한국팀 소개 */
+#team_layer {display:none; overflow:hidden; z-index:200; position:absolute; left:50%; top:300px; width:313px; height:517px; margin-left:-315px; padding:111px 91px 0 224px; background:url("../images/bg_spectlayer.png") no-repeat}
+#team_layer h2 {height:69px; margin-bottom:27px; padding:0; border:0; font-size:12px; color:#4b4b4b; font-weight:normal; letter-spacing:-1px; line-height:1.33}
+#team_layer h2 em {display:block; margin:7px 0 6px; font-size:20px; font-weight:bold}
+#team_layer h2 p {font-weight:bold; line-height:1.33}
+#team_layer h2 .img {display:block; position:absolute; left:69px; top:112px; width:136px; height:167px; border:1px solid #aaa}
+#team_layer h3 {margin-bottom:9px; font-size:12px; font-weight:bold; line-height:1.33}
+#team_layer .btn_close {display:block; position:absolute; left:571px; top:56px; width:19px; height:19px; padding:0; border:0; background:none; cursor:pointer}
+#team_layer .btn_pre {display:block; position:absolute; left:18px; top:310px; width:17px; height:33px; padding:0; border:0; background:none; cursor:pointer}
+#team_layer .btn_next {display:block; position:absolute; right:18px; top:310px; width:17px; height:33px; padding:0; border:0; background:none; cursor:pointer}
+/* 메인 플로팅 */
+#breaking_news {overflow:hidden; z-index:200; position:absolute; left:24px; top:35px; width:660px; height:370px}
+#breaking_news p {position:absolute; left:0; top:280px; width:630px; height:78px; padding:12px 15px 0 15px; background:url("../images/bg_breaking_news.png") repeat-x}
+#breaking_news p a {color:#b4b4b4; line-height:1.7}
+#breaking_news p strong {display:block; font-size:18px; color:#fff; letter-spacing:-1px}
+/* 사이드 메뉴 */
+#side_ad {z-index:500; position:absolute; left:50%; top:0; width:1000px; margin-left:-500px}
+#side_ad .ad {overflow:hidden; position:absolute; right:-115px; top:150px; width:100px; height:200px}
+#side_ad .twi_ad {overflow:hidden; position:absolute; right:-115px; top:363px; width:100px; height:200px}
+#main_schedule {overflow:hidden; position:absolute; left:-155px; top:124px; width:140px;}
+#main_schedule h2 {height:25px}
+#main_schedule ul {overflow:hidden; width:138px; border:1px solid #1a1c2b; background:#2d3041 url("../images/bg_side.gif") no-repeat}
+#main_schedule ul li {width:118px; height:33px; padding:7px 10px 0 10px; background:url("../images/bg_side_dott.gif") repeat-x left bottom; font-size:11px; color:#8393ca; line-height:1.33; text-align:left}
+#main_schedule ul li em {display:block; overflow:hidden; width:118px; margin-bottom:2px; color:#e1e1e1; letter-spacing:-1px; white-space:nowrap; -o-text-overflow:ellipsis; text-overflow:ellipsis}
+/* 카카오톡 이벤트 */
+#kakao {overflow:hidden; position:relative; width:690px; background:url("../images/bg_kakao.jpg") no-repeat 395px 330px}
+#kakao h3 {padding-bottom:14px; margin-bottom:25px; border-bottom:1px solid #dadada}
+#kakao .summary {overflow:hidden; width:690px; height:263px; margin-bottom:15px}
+#kakao .tip {margin-bottom:78px; padding-left:22px}
+#kakao .how {margin-bottom:17px; padding:0 0 0 17px}
+/* 트위터 이벤트 */
+#twitter_event {overflow:hidden; position:relative; width:690px}
+#twitter_event h3 {padding:0 0 14px 8px; margin-bottom:25px; border-bottom:1px solid #dadada}
+#twitter_event .summary {overflow:hidden; width:690px; height:251px; margin-bottom:15px}
+#twitter_event .twi_how {overflow:hidden; width:690px; height:331px; border-bottom:1px solid #dadada; text-align:center}
+#twitter_event .twi_how iframe {width:180px !important}
+#twitter_event .twi_how img {display:block; margin:0 auto; margin-bottom:28px}
+#twitter_event .twi_how a {margin:0 auto}
+#twitter_event .follow {overflow:hidden; width:690px; height:124px; border-bottom:1px solid #dadada}
+#twitter_event .follow .txt {margin-bottom:20px; padding:24px 0 0 20px}
+#twitter_event .follow .btn {padding-right:16px; text-align:right}
+#twitter_event .follow .btn a {margin:0 6px}

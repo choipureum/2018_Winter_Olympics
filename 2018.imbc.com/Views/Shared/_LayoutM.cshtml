@@ -1,0 +1,66 @@
+﻿<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <meta charset="utf-8">    
+    <meta property="og:title" content="2018 평창 동계올림픽 | MBC">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="2018 평창 동계올림픽 | MBC">
+	<meta property="og:image" content="http://2018.imbc.com/images/m/mobile_b640.jpg">
+	<meta property="og:url" content="http://2018.imbc.com/">
+	<meta property="og:description" content="평창 동계올림픽 | MBC 핫이슈, 영상, 하이라이트, VR, 뉴스, 경기 일정 등 제공">
+	<meta name="keywords" content="MBC,imbc,평창동계올림픽">
+	<meta name="description" content="평창 동계올림픽 | MBC 핫이슈, 영상, 하이라이트, VR, 뉴스, 경기 일정 등 제공">
+	<meta name="robots" content="index,follow">
+    <title>MBC 평창 동계올림픽</title>
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="apple-touch-icon" href="http://m.imbc.com/icon.png">
+    <link rel="shortcut icon" href="http://img.imbc.com/2010_main/images/favicon.ico">
+    <script src="http://www.imbc.com/commons/libs/jquery-1.12.3.min.js"></script>
+    <script src="http://www.imbc.com/commons/libs/css_browser_selector.min.js"></script>
+    <script type="text/javascript" src="http://www.imbc.com/common/js/global_function.js"></script>
+    <script type="text/javascript" src="/js/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="/js/include.js"></script>
+    <script type="text/javascript" src="/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/js/iscroll.js"></script>
+    <script type="text/javascript" src="/js/ui.js"></script>
+    <script type="text/javascript" src="http://2018.imbc.com/p18content/data.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://www.imbc.com/commons/libs/respond.min.js" type="text/javascript"></script>
+    <script src="http://www.imbc.com/commons/libs/html5shiv.min.js" type="text/javascript"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="@Html.Raw("wrapper "+ViewBag.page)" id="wrapper">
+        <header></header>
+        <!--left_menu -->
+        <div class="left_menu"></div>
+        <div class="bg_box"></div>
+        <span class="btn_close">메뉴 닫기</span>
+        <!--left_menu -->
+        <nav id="navi"></nav>
+        @RenderBody()
+        <section class="sns"></section>
+        <footer>
+            <div class="ad-banner">
+                <iframe style="width:100%" scrolling="no" frameborder="0" marginheight="0" marginwidth="0"
+                        src="http://ads.imbc.com/RealMedia/ads/adstream_sx.ads/mobile.imbc/web/chang@Bottom3" title="광고">
+                    <a href="http://ads.imbc.com/RealMedia/ads/click_nx.ads/mobile.imbc/web/chang@Bottom3"><img src="http://ads.imbc.com/RealMedia/ads/adstream_nx.ads/mobile.imbc/web/chang@Bottom3" alt="광고"></a>
+                </iframe>
+            </div>
+            <img src="/images/m/footer_mbc.png" alt="" style="width:105px;margin:0 auto 15px;display: block; ">본 콘텐츠의 저작권은 MBC에 있습니다. <br>Copyright(c) Since 1996, MBC&iMBC All rights reserved.
+        </footer>
+    </div>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81416310-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-81416310-4');
+    </script>
+</body>
+</html>

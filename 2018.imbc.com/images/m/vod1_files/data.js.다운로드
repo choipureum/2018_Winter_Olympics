@@ -1,0 +1,50 @@
+﻿var hotIssue = [
+	
+	{
+		title : "92개국·2천925명 출전…평창올림픽, 역대 최대 규모",
+		img : "http://2018.imbc.com/p18content/__icsFiles/afieldfile/2018/01/30/31.jpg",
+                txt : "평창동계올림픽이 역대 최대 규모로 치러집니다.",
+		url : "http://2018.imbc.com/News/View?idx=4512882&opt=I&sort=0&page=2",
+		mUrl : "http://2018.imbc.com/m/news/View?idx=4512882&opt=I&page=2&sort=0"
+	},
+	
+	{
+		title : "IOC, 평창행 러시아 개인 자격 출전 선수 169명 최종 승인",
+		img : "http://2018.imbc.com/p18content/__icsFiles/afieldfile/2018/01/29/30.jpg",
+                txt : "국제올림픽위원회(IOC)가 28일(한국시간) 러시아 선수 169명의 2018 평창동계올림픽 참가를 최종적으로 승인했다.",
+		url : "http://2018.imbc.com/News/View?idx=4511838&opt=I&sort=0&page=2",
+		mUrl : "http://2018.imbc.com/m/news/View?idx=4511838&opt=I&page=2&sort=0"
+	},
+	
+	{
+		title : "[영광의 순간] 2010년 벤쿠버 동계올림픽부터 최고의 연기를 선사한 피겨 여왕 김연아",
+		img : "http://2018.imbc.com/p18content/__icsFiles/afieldfile/2018/01/26/29.jpg",
+                txt : "동계올림픽 역사에서 빠질 수 없는 김연아! 은반 위의 요정! 퀸 연아!",
+		url : "http://2018.imbc.com/Vod?bid=1003608100019100000&itemid=1226143",
+		mUrl : "http://vodmall.imbc.com/player/player2014/popupPlayer.html?itemid=1226143&broID=1003608100019100000"
+	},
+	
+	{
+		title : "‘한국의 세련미’ 새겨 넣은 평창 메달 뜯어보기",
+		img : "http://2018.imbc.com/p18content/__icsFiles/afieldfile/2018/01/26/23.jpg",
+                txt : "평창 동계올림픽 대회에 참가하는 선수들이 목에 걸 메달은 자세히 보아야 그 의미를 알 수 있다.",
+		url : "http://2018.imbc.com/News/View?idx=225649&opt=E&sort=0&page=5",
+		mUrl : "http://2018.imbc.com/m/news/View?idx=225649&opt=E&page=5&sort=0"
+	},
+	
+	{
+		title : "[영광의 순간] 2014년 소치 동계올림픽 여자 3000m 계주",
+		img : "http://2018.imbc.com/p18content/__icsFiles/afieldfile/2018/01/24/26.jpg",
+                txt : "다시 봐도 짜릿한 여자 쇼트트랙 대표팀의 금메달! 4년 만에 중국에 설욕한 한국 빙상의 힘!",
+		url : "http://2018.imbc.com/Vod?bid=1003608100017100000&itemid=1226139",
+		mUrl : "http://vodmall.imbc.com/player/player2014/popupPlayer.html?itemid=1226139&broID=1003608100017100000"
+	},
+	
+	{
+		title : "",
+		img : "",
+                txt : "",
+		url : "",
+		mUrl : ""
+	}
+];

@@ -1,0 +1,100 @@
+/*********** mian ***********/
+
+/*==========container==========*/
+section{position: relative;width: 100%;margin-bottom: 48px;}
+.vod-wrap, .news-wrap, .info-wrap{overflow: hidden;}
+
+/*HOTISSUE*/
+section.hot-wrap{width: 100%;height: 548px;padding-top: 10px;background: #fff url("../images/bg-main-hot.png") no-repeat center 10px;}
+.hot-wrap h3.tit-con{margin: 25px 0 12px;;}
+.hot-area{position: absolute;top:66px;left: 0;width: 100%;height: 432px;overflow: hidden;}
+.hot-area .slide{width: 100%;height: 100%;overflow: hidden;}
+.hot-area .slide a{display:none;float:left;width: 100%;height: 432px;}
+.hot-area .slide a.on{display: block;}
+.hot-area .vod-area{float:left;width: 768px;height: 100%;}
+.hot-area .vod-area img, .hot-area .vod-area iframe{width: 100%;}
+.hot-area .txt-wrap{float: left;width: 276px;padding:53px 30px;}
+.hot-area .txt-wrap .title{font-family: 'notokr-medium';font-size:30px;color:#fff;line-height: 40px;letter-spacing: -1.5px;}
+.hot-area .txt-wrap .txt{margin-top: 19px;font-family: 'notokr-demilight';font-size: 18px;color:#c4e2f3;line-height: 28px;letter-spacing: -1px;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-box-orient:vertical;word-wrap:break-word;-webkit-line-clamp:3;}
+.hot-wrap .img-label{position: absolute;top: 96px;right: 283px;width: 79px;height: 6px;background: url("../images/img-label.png") no-repeat center;z-index: 10;}
+.hot-wrap .img-character{position: absolute;bottom: 21px;right: -15px;width: 203px;height: 183px;background: url("../images/img-character-v3.png") no-repeat center;z-index: 10}
+.hot-wrap .btn-box{position: absolute;top: 10px;right: 0;width: 113px;height: 56px;overflow: hidden;}
+.hot-wrap .btn-box .btn{float:left;width: 56px;height: 56px;background: url("../images/btn-hot.jpg") no-repeat center;;background-position: 0;cursor: pointer;}
+.hot-wrap .btn-box .btn.prev{margin-right: 1px;background-position: 0 0;}
+.hot-wrap .btn-box .btn.prev:hover{background-position: 0 -56px;}
+.hot-wrap .btn-box .btn.next{background-position: -56px 0;}
+.hot-wrap .btn-box .btn.next:hover{background-position: -56px -56px;}
+.hot-wrap .slide-num{position: absolute;bottom: 110px;right: 286px;font-family:Verdana,'Verdana';font-size: 10px;color:#c4e2f3;line-height: 1;}
+.hot-wrap .slide-num strong{margin-right: 4px;font-size:18px;color:#fff;font-weight: normal;}
+.hot-wrap .indicator{position: absolute;right: 366px;bottom: 25px;height: 35px;}
+.hot-wrap .indicator .indi{position: relative;display: inline-block;margin-right: 10px;text-align: center;}
+.hot-wrap .indicator .indi .vline{position: absolute;top: 0;left: 4.5px;display: inline-block;width: 1px;height: 26px;background: none;}
+.hot-wrap .indicator .btn{width: 10px;height: 10px;margin-top: 25px;border:1px solid #fff;border-radius: 50%;background: transparent;cursor: pointer;}
+.hot-wrap .indicator .indi.on .vline{background: #fff;}
+.hot-wrap .indicator .indi.on .btn{background: #fff;}
+.hot-wrap .indicator .ico-playstop{width: 8px;height: 9px;margin-top: 25px;background: url("../images/ico-playstop.png") no-repeat center;background-position: 0 0;}
+.hot-wrap .indicator .ico-playstop.ico-play{width: 8px;height: 10px;background-position: 0 -9px;}
+
+
+
+/*뉴스*/
+.news-wrap .sec-area .tit-con{margin-bottom: 12px;}
+.new-list li:hover .img:after{top: 0;left: 0;width: 100%;height: 100%;border:1px solid #0090d4;background: none;}
+.new-list li:hover .title,  .list-type li:hover .txt-wrap .title b{color:#0090d4;text-decoration: underline;}
+.new-list .img{height: 250px;}
+.new-list .img:after{top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.1);z-index: 20;}
+.new-list .num{margin-left: -1px;}
+.new-list .num:before{display: none;}
+.ad-banner{width: 828px;height: 90px;margin-top: 28px;background: #EBEBEB;}
+
+/*많이 본 뉴스*/
+.tit-news{display: inline-block;width: 100%;margin-top: 4px;margin-bottom: 12px;}
+.news-lots{padding: 19px 10px 21px 0; border-top:1px solid #000;border-bottom: 1px solid #E5E5E5;}
+.news-lots li{position: relative;padding:0 0 0 28px;margin-bottom: 16px;}
+.news-lots li:last-child{margin-bottom: 0;}
+.news-lots li a{display: block;width: 100%;height: 100%;}
+.news-lots li .rank{position: absolute;top: 4px;left: 0;width: 16px;height: 22px;background-image: url("../images/txt-num.png");background-repeat: no-repeat;}
+.news-lots li .num1{background-position: 0 0;}
+.news-lots li .num2{background-position: 0 -22px;}
+.news-lots li .num3{background-position: 0 -44px;}
+.news-lots li .num4{background-position: 0 -66px;}
+.news-lots li .num5{background-position: 0 -88px;}
+.news-lots li .num6{background-position: 0 -110px;}
+.news-lots li .num7{background-position: 0 -132px;}
+.news-lots li .title, .news-lots li .title strong, .news-lots li .title b{max-height: 48px; font-family: 'notokr-medium';font-size:16px;color:#222;line-height: 24px;font-weight: normal;}
+.news-lots li:hover .title, .news-lots li:hover .title b{color:#0090d4;text-decoration: underline;}
+
+/*하단배너*/
+.info-wrap{width: 1123px;height: 228px;}
+.info-wrap a{display: block;width: 100%;height: 100%;background: url("../images/img-info-v4.png") no-repeat center;font-size: 0;text-indent: -9999em;}
+
+/*SNS*/
+.insta-area{padding:20px;border:1px solid #E5E5E5;box-sizing: border-box;overflow: hidden;}
+.insta-area li{width: 250px;height: 250px;}
+.insta-area li:nth-child(2){margin: 0 18px;}
+.sns-area{width: 250px;height: 292px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

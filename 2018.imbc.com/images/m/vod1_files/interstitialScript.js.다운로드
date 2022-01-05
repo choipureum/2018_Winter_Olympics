@@ -1,0 +1,68 @@
+var _document=document;
+var _refer=_document.referrer;
+
+var _patt=/(http(s)?:\/\/)?\w+(\.\w+)+/gi;
+var _listSession=String(window.location).split("/")[5];
+var _redirectUrl=String(window.location);
+
+/* 2011.06.09 이창민 */
+var _clipUrl=_redirectUrl.split("/")[7];//URL에서 clip을 담음.
+var _programUrl=_redirectUrl.split("/")[6];//URL에서 프로그램명을 담음.
+/* 2011.06.09 이창민 */
+
+var _nC=window.location.search.substr(1).split("nC=")[1];
+var _SearchEngine=new Array("http://search.daum.net","http://search.naver.com","http://search.nate.com","http://kr.search.yahoo.com");
+var _Session=new Array("drama","ent");
+var _clipSession=new Array("clip","sketch","tv","news","svod","common_page","2015mbc");
+var matchFlag=false;
+
+try{
+	_result=(_refer.match(_patt)[0]);
+}catch(err){
+		_result="";
+}
+
+if(_result!="http://www.imbc.com"){
+	for(var i=0;i<_SearchEngine.length;i++){
+		if(_result==_SearchEngine[i]){
+			if (_programUrl!="greatestlove"){//url에 프로그래명이 최고의 사랑이 아니면 광고를 보여주도록 함.
+				for(var j=0;j<_clipSession.length;j++){
+					if(_clipUrl == _clipSession[j]){ 
+						matchFlag=false;
+						break;
+					}else{ //url에 clip이 포함 되어 있지 않으면 광고를 보여주도록 함.
+						matchFlag=true;
+					}
+				}
+			}
+		}
+	}
+}
+
+if(matchFlag){
+	if(_listSession==_Session[0]||_listSession==_Session[1]){
+		setCookieInterstitial("REDIRECTURL",_redirectUrl,60*60*24*1000);
+		setCookieInterstitial("SESSION",_listSession,60*60*24*1000);
+		location.href="http://www.imbc.com/include/interstitial_Ad.html";
+	}else{
+		delCookieInterstitial("SESSION");
+	}
+}else{
+	delCookieInterstitial("SESSION");
+}
+	
+function setCookieInterstitial(C,E,D){
+	var A="";
+	if(D>0){
+		var B=new Date();
+		B.setTime(B.getTime()+D);
+		A=" expires="+B.toString()+";";
+	}
+	_document.cookie=(C+"="+escape(E)+"; path=/;"+A);
+}
+
+function delCookieInterstitial(B){
+	var A=new Date();
+	A.setDate(A.getDate()-1);
+	_document.cookie=B+"=;expires="+A.toGMTString();
+}

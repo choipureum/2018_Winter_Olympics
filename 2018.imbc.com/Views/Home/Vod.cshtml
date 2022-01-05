@@ -1,0 +1,189 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutSub.cshtml";
+    ViewBag.Title = "영상";
+    ViewBag.page = "vod";
+    var hotlist = ViewBag.hotlist as ContentList;
+}
+<div class="sec-wrap">
+    <div class="vod-top">
+        <div id="mbcPlayer" class="vod-area"></div>
+        <div class="txt-area">
+            <p id="p_title" class="txt"></p><span id="span_hit" class="num"></span>
+        </div>
+        <div class="hot-wrap">
+            <h3 class="tit">HOT 클립</h3>
+            <div class="hot-area">
+                <div class="hot-slide">
+                    <ul id="hotClip">
+                        @foreach (var item in hotlist.List)
+                        {
+                            <li>
+                                <a href="javascript:setVodView('@item.BroadcastID', '@item.itemid')">
+                                    <img src="@item.ImgUrl_Normal" alt="@item.ContentTitle">
+                                    <p class="num">@item.HitCount</p>
+                                    <p class="txt ellipsis">@item.ContentTitle</p>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <span class="slide-num"></span>
+                <div class="btn-box">
+                    <button type="button" class="btn prev">이전 영상 보기</button>
+                    <button type="button" class="btn next">다음 영상 보기</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <section class="section vod-wrap">
+        <h3 class="tit-con">최신영상</h3>
+        <div id="div_list" class="sec-area">
+            @Html.Partial("VodList")
+        </div>
+        <div class="sec-right">
+            <div class="ad-square">
+                <iframe style="width:250px; height:250px" noresize scrolling="no" frameborder="0" marginheight="0" marginwidth="0"
+                        src="http://ads.imbc.com/RealMedia/ads/adstream_sx.ads/www.imbc.com/chang@TopRight" title="광고">
+                    <a href="http://ads.imbc.com/RealMedia/ads/click_nx.ads/www.imbc.com/chang@TopRight">
+                        <img src="http://ads.imbc.com/RealMedia/ads/adstream_nx.ads/www.imbc.com/chang@TopRight" alt="광고">
+                    </a>
+                </iframe>
+            </div>
+            <div class="sns-area" id="snsArea"></div>
+        </div>
+    </section>
+</div>
+<script type="text/javascript" src="http://vodmall.imbc.com/player/player2014/lib/lib.js"></script>
+<script type="text/javascript" src="http://vodmall.imbc.com/player/player2014/ui/mbcplayer.js"></script>
+<script type="text/javascript">
+
+    window.onload = init;
+
+    var player;
+    var broadcastInfo;
+    var isInit = false;
+
+    var broID = "@ViewBag.bid";
+    var itemID = "@ViewBag.itemid";
+
+    function init() {
+
+        addPlayer("mbcPlayer");
+        if (broID != "" && itemID != "") {
+            setVodView(broID, itemID); //데이터받은후 처리
+        }
+    }
+    function setVodView(bid, itemid) {
+
+        $.ajax({
+            type: "get",
+            url: "/home/ContentInfo?bid=" + bid,
+            dataType: "json",
+            success: function (data) {
+                $("#p_title").html(data.ContentTitle);
+                $("#span_hit").html(data.HitCount);
+                changeVod(bid, itemid, true);
+                $("#vodList").find('li').removeClass('on');
+                $("#liid_" + itemid).addClass('on');
+
+                itemID = itemid;
+            }
+        });
+    }
+
+    function addPlayer(divID) {
+        //jarvisSrc="http://vodmall.imbc.com/player/player2014/lib/";
+        var playerDelegate = function () { };
+        playerDelegate.prototype = {
+            init: function () {
+                playerReady();
+            },
+            change: function () {
+                //vodChange();
+            },
+            start: function () {
+                //vodStart();
+            },
+            openPopup: function () {
+                openPopup();
+
+            },
+            complete: function () {
+                //vodComplete();
+            },
+            hdChange: function (hd) {
+                player.changeHD(hd);
+
+            },
+            vodStart: function () {
+                player.addCommerce();
+
+            }
+        };
+
+        player = jarvis.mbcPlayer;
+        player.playerPath = "/swf/FlashPlayer.swf";
+        player.apiPath = "/util/clonelink.ashx";
+
+        player.init("f_Player", true, false);
+
+        player.info.type = "PRE_VOD";
+        player.writePlayerWithUI(divID, new playerDelegate(), false, true);
+        //alert(player.info.type);
+    }
+
+    function playerReady() {
+        isInit = true;
+        if (broID != "" && itemID != "") {
+            //if (!IsMobileAgent()) {
+            changeVod(broID, itemID);
+            //}
+            broID = "";
+            itemID = "";
+        }
+    }
+
+    function changeVod(_broID, _itemID, autoPlay) {
+
+        //document.getElementById("playmlb-content").focus();
+        if (autoPlay === undefined) {
+            autoPlay = false;
+        }
+
+        if (isInit == false) {
+            broID = _broID;
+            itemID = _itemID;
+        } else {
+            var broadcastDelegate = function () { };
+            broadcastDelegate.prototype = {
+                complete: function () {
+                    broadcastInfoChange();
+                }
+            };
+            player.changeBroadcast(_broID, _itemID, true, autoPlay, new broadcastDelegate());
+            //프로그램코드,영상코드,광고유무,자동재생유무,delegate
+        }
+    }
+
+    function broadcastInfoChange() {
+        broadcastInfo = player.info.broadcastInfo;
+    }
+
+    function openPopup() {
+        var path = "http://vodmall.imbc.com/player/player2014/";
+        var popPath = path + "popupPlayer.html?broID=" + player.info.broID + "&itemID=" + player.info.itemID + "&useEndPopup=N" + "&customADCode=" + player.info.getCustomADCode();
+        window.open(popPath, '다시보기팝업', 'scrollbars=no,toolbar=no,resizable=yes,width=720,height=480,left=0,top=0');
+    }
+
+    function goPage(page) {
+        $.post(
+            '@Url.Action("VodList", "Home")', { page: page, size: 9, itemid: itemID},
+            function (response) {
+                $("#div_list").html('');
+                $("#div_list").html(response);
+            }
+        );
+    }
+</script>

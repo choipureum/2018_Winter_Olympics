@@ -1,0 +1,161 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutM_2nd.cshtml";
+    ViewBag.page = "sub sub-vod";
+    var hotlist = ViewBag.hotlist as ContentList;
+}
+
+<section class="vod-visual">
+    <div class="swiper-container" id="sliderWrap">
+        <div class="swiper-wrapper">
+            @foreach (var item in hotlist.List)
+            {
+                <div class="swiper-slide">
+                    <a href="http://vodmall.imbc.com/player/player2014/popupPlayer.html?itemid=@item.itemid&broID=@item.BroadcastID" target="_blank">
+                        <span class="img"><img src="@item.ImgUrl_Normal" alt="@item.ContentTitle"></span><p class="txt ellipsis"><span class="hotclip">핫클립</span><span class="tit">@item.ContentTitle</span><span class="count">@item.HitCount</span></p>
+                    </a>
+                </div>
+            }
+        </div>
+        <div class="swiper-pagination swiper-pagination1"></div>
+        <div class="btn-right swiper-btn swiper-button-next">오른쪽으로 넘기기</div>
+    </div>
+</section>
+<section class="vod">
+    <!-- <h3>최신영상</h3> -->
+    <div class="tab">
+        <div class="menu" id="vodMenu">
+            <div class="vod-menu">
+                <ul>
+                    <li id="gubun_0" onclick="javascript:changeGubun(0);" class="on">전체</li>
+                    <li id="gubun_3" onclick="javascript:changeGubun(3);">스페셜</li>
+                    <li id="gubun_1" onclick="javascript:changeGubun(1);">하이라이트</li>
+                    <li id="gubun_7" onclick="javascript:changeGubun(7);">영광의 순간</li>
+                    <li id="gubun_2" onclick="javascript:changeGubun(2);">다시보기</li>
+                </ul>
+            </div>
+        </div>
+        <div class="select">
+            <select name="sel_type" id="sel_type" onchange="javascript: chType(this.value);">
+                <option value="">종목선택</option>
+                <option value="알파인">알파인스키</option>
+                <option value="바이애슬론">바이애슬론</option>
+                <option value="봅슬레이">봅슬레이</option>
+                <option value="크로스컨트리">크로스컨트리스키</option>
+                <option value="컬링">컬링</option>
+                <option value="피겨">피겨스케이팅</option>
+                <option value="프리스타일">프리스타일스키</option>
+                <option value="아이스하키">아이스하키</option>
+                <option value="루지">루지</option>
+                <option value="노르딕복합">노르딕복합</option>
+                <option value="쇼트트랙">쇼트트랙 스피드스케이팅</option>
+                <option value="스켈레톤">스켈레톤</option>
+                <option value="스키점프">스키점프</option>
+                <option value="스노보드">스노보드</option>
+                <option value="스피드">스피드 스케이팅</option>
+            </select>
+            <ul class="sort">
+                <li id="order_1" onclick="javascript:chOrder(1);" class="tab tab1 on">최신순</li>
+                <li id="order_2" onclick="javascript:chOrder(2);" class="tab tab2">인기순</li>
+            </ul>
+        </div>
+    </div>
+    <div class="wrap-vod">
+        <img id="img_novod" src="http://2018.imbc.com/images/m/vod-default.png" alt="등록된 영상이 없습니다" style="width: 332px;margin:0 auto;display: none;">
+        <ul id="ul_list">
+            @Html.Partial("mVodList2")
+        </ul>
+        <button class="b_more" onclick="javascript: btnMore();"><span>더보기</span></button>
+    </div>
+</section>
+<script type="text/javascript">
+    var page = 1;
+    var size = 6;
+    var totalcnt = @hotlist.TotalCount;
+
+    if (page * size >= totalcnt) {
+        $(".b_more").hide();
+    }
+
+    var g = 0;
+    var o = 1;
+    var t = "";
+
+    function changeGubun(gubun) {
+
+        $(".vod-menu ul li").removeClass("on");
+        $("#gubun_" + gubun).addClass("on");
+        $(".sort li").removeClass("on");
+        $("#order_1").addClass("on");
+        $("#sel_type").val("");
+
+        g = gubun;
+        o = 1;
+        t = "";
+        page = 1;
+
+        setVodList();
+    }
+
+
+    function chOrder(num) {
+
+        $(".sort li").removeClass("on");
+        $("#order_" + num).addClass("on");
+
+        page = 1;
+        o = num;
+
+        setVodList();
+    }
+
+    function chType(val) {
+        page = 1;
+        t = val;
+
+        setVodList();
+
+    }
+
+    function btnMore() {
+        page++;
+        $.post(
+            '@Url.Action("mVodList2", "Home")', { page: page, size: size, order:o, gubun:g, type:t },
+            function (response) {          
+                $("#ul_list").append(response);
+
+                if (page * size >= totalcnt) {
+                    $(".b_more").hide();
+                } else {
+                    $(".b_more").show();
+                }
+            }
+        );
+    }
+
+    function setVodList() {
+        $.post(
+            '@Url.Action("mVodList2", "Home")', { page: page, size: size, order:o, gubun:g, type:t },
+            function (response) {
+                if (response.trim() == "") {
+                    $("#ul_list").html('');
+                    $(".b_more").hide();
+                    //$("#img_novod").show();
+                    document.getElementById("img_novod").style.display = "block";
+                } else {
+                    //$("#img_novod").hide();
+                    document.getElementById("img_novod").style.display = "none";
+                    $("#ul_list").html('');
+                    $("#ul_list").append(response);
+
+                    if (page * size >= totalcnt) {
+                        $(".b_more").hide();
+                    } else {
+                        $(".b_more").show();
+                    }
+                }
+            }
+        );
+    }
+
+</script>

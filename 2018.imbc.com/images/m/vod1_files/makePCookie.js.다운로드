@@ -1,0 +1,112 @@
+function Nethru_getCookieVal(offset)
+{
+	var endstr = document.cookie.indexOf (";", offset);
+	if (endstr == -1)
+		endstr = document.cookie.length;
+	return unescape(document.cookie.substring(offset, endstr));
+}
+
+function Nethru_SetCookie(name, value){
+   var argv = Nethru_SetCookie.arguments;
+   var argc = Nethru_SetCookie.arguments.length;
+   var expires = (2 < argc) ? argv[2] : null;
+   var path = (3 < argc) ? argv[3] : null;
+   var domain = (4 < argc) ? argv[4] : null;
+   var secure = (5 < argc) ? argv[5] : false;
+
+  // alert("DOMAIN = " + domain);
+   document.cookie = name + "=" + escape (value) +
+        ((expires == null) ? "" : ("; expires="+expires.toGMTString())) +
+     ((path == null) ? "" : ("; path=" + path)) +
+     ((domain == null) ? "" : ("; domain=" + domain)) +
+        ((secure == true) ? "; secure" : "");
+
+//	alert(document.cookie);
+}
+
+function Nethru_GetCookie(name){
+   var arg = name + "=";
+   var alen = arg.length;
+   var clen = document.cookie.length;
+   var i = 0;
+   while (i < clen)
+      {
+      var j = i + alen;
+      if (document.cookie.substring(i, j) == arg)
+         return Nethru_getCookieVal (j);
+      i = document.cookie.indexOf(" ", i) + 1;
+      if (i == 0)
+         break;
+      }
+  return null;
+}
+
+function Nethru_makePersistentCookie(name,length,path,domain)
+{
+    var today = new Date();
+    var expiredDate = new Date(2100,1,1);
+    var cookie;
+	var value;
+
+    cookie = Nethru_GetCookie(name);
+    if ( cookie ) {
+//		alert(cookie);
+        return 1;
+	}
+
+	var values = new Array();
+	for ( i=0; i < length ; i++ ) {
+		values[i] = "" + Math.random();
+	}
+
+	value = today.getTime();
+
+	// use first decimal
+	for ( i=0; i < length ; i++ ) {
+		value += values[i].charAt(2);
+	}
+
+    Nethru_SetCookie(name,value,expiredDate,path,domain);
+}
+
+function Nethru_getDomain() {
+	var _host   = document.domain;
+	var so      = _host.split('.');
+	var dm    = so[so.length-2] + '.' + so[so.length-1];
+	return (so[so.length-1].length == 2) ? so[so.length-3] + '.' + dm : dm;
+}
+
+var Nethru_domain  = Nethru_getDomain();
+
+Nethru_makePersistentCookie("PCID",10,"/",Nethru_domain);
+
+
+
+// 해상도르 알려줄 서버와 페이지 정의
+
+var logserver = "www.imbc.com";
+var logpath = "/nethrumonitor.html?";
+var logdelim = "&";
+
+//사용자 컴의 해상도 알아오기
+
+var vn_screenx = screen.availWidth; 					// 화면스크린 넓이
+var vn_screeny = screen.availHeight; 					// 화면스크린 높이
+var vn_screenc = screen.colorDepth; 					// 화면 색상
+
+var resolution_value = vn_screenx + "*" + vn_screeny;
+var color_value = vn_screenc;
+	
+//메뉴 이름 title로부터 알아오기
+
+//var mname = document.title;
+
+//메뉴 이름 form 에서 알아오기
+//var mname = document.form_name.value;
+
+// 새 해상도 정보 웹로그에 남겨주기 - iframe 으로 URL 을 Call 해 줌....
+
+//서버부하로 잠시 리마크
+
+//var chkUrl = "http://" + logserver + logpath + "resolution=" + resolution_value + logdelim + "color=" + color_value;
+//document.writeln("<img width=0 height=0 src=\"" + chkUrl + "\" style='position:absolute;top:0;left:0'>");

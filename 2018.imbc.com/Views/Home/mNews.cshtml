@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutM_2nd.cshtml";
+    ViewBag.page = "sub sub-news";
+}
+
+
+
+<div class="w-sort">
+    <ul class="sort">
+        @if (ViewBag.cursort == 0)
+        {
+            <li onclick="javascript: chSort(0);" class="tab tab1 on">최신순</li>
+            <li onclick="javascript: chSort(1);" class="tab tab2">인기순</li>
+        }
+        else
+        {
+            <li onclick="javascript: chSort(0);" class="tab tab1">최신순</li>
+            <li onclick="javascript: chSort(1);" class="tab tab2 on">인기순</li>
+        }
+    </ul>
+</div>
+<section class="news">
+    <ul id="ul_list" class="wrap-news">
+        @Html.Partial("mNewsList")
+    </ul>
+    <button class="b_more" onclick="javascript: btnMore();"><span>더보기</span></button>
+</section>
+
+<script type="text/javascript">
+    var page = @ViewBag.curpage;
+    var size = 5;
+    var sort = @ViewBag.cursort;    
+
+    if (page != "1") {
+        $(document).scrollTop($(document).height());        
+    }
+
+    function btnMore() {
+        page++;
+        $.post(
+            '@Url.Action("mNewsList", "Home")', { page: page, size: size, sort: sort},
+            function (response) {
+                $("#ul_list").append(response);
+            }
+        );
+
+        if (page * size >= totalcnt) {
+            $(".b_more").hide();
+        }
+    }
+
+    function chSort(num) {
+        page = 1;
+        sort = num;
+        $.post(
+            '@Url.Action("mNewsList", "Home")', { page: page, size: size, sort: sort},
+            function (response) {
+                $("#ul_list").html(response);
+            }
+        );
+    }
+
+    function goView(url) {
+        location.href = url + "&page=" + page + "&sort=" + sort;
+    }
+</script>

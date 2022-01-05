@@ -1,0 +1,216 @@
+document.title  = changeTitle();
+function changeTitle(){
+	var sCurLoc = String(document.location).toLowerCase();
+
+	if(sCurLoc=="http://vodmall.imbc.com/player/onair.aspx"){
+		return "온에어 - iMBC.com" ;
+	}
+	else if(sCurLoc=="http://vodmall.imbc.com/player/onairplus.aspx"){
+		return "나혼자산다24 - iMBC.com" ;
+	}
+	else if(sCurLoc=="http://vodmall.imbc.com/player/musicplus.aspx"){
+		return "해요TV+ - iMBC.com" ;
+	}
+	else if(sCurLoc=="http://vodmall.imbc.com/player/onairsports.aspx"){
+		return "iMBC스포츠 - iMBC.com" ;
+	}
+	else if(sCurLoc=="http://vodmall.imbc.com/player/player.aspx"){
+		return "다시보기 - iMBC.com" ;
+	}		
+	else if(sCurLoc=="http://vodmall.imbc.com/best.aspx"){
+		return "실시간 베스트 10 - iMBC 다시보기";
+	}
+	else if(sCurLoc=="http://vodmall.imbc.com/onair.aspx"){
+		return "방영 프로그램 - iMBC 다시보기" ;
+	}
+	else if(sCurLoc=="http://vodmall.imbc.com/offair.aspx"){
+		return "종영 프로그램 - iMBC 다시보기 " ;
+	}
+	else if(sCurLoc=="http://vodmall.imbc.com/genre/genre_main.aspx"){
+		return "장르별 -  iMBC 다시보기 " ;
+	}	
+	else if(sCurLoc=="http://vodmall.imbc.com/free/clip.aspx"){
+		return "클립 - iMBC 다시보기" ;
+	}
+	else if(sCurLoc=="http://vodmall.imbc.com/search/year.aspx"){
+		return "전체보기 - iMBC 다시보기" ;
+	}
+	else if(sCurLoc=="http://vodmall.imbc.com/sale/sale.aspx"){
+		return "할인 - iMBC 다시보기" ;
+	}
+	else if(sCurLoc.indexOf("vodmall.imbc.com/star/")>0){
+		return "스타 - iMBC 다시보기 " ;
+	}
+	else if(sCurLoc.indexOf("vodmall.imbc.com/search/search")>0){
+		return "검색 - iMBC 다시보기";
+	}
+	else if(sCurLoc.indexOf("vodmall.imbc.com")>0){
+		return "다시보기 - iMBC.com";
+	}
+	else if(sCurLoc.indexOf("talk.imbc.com/news/")>0){
+		return "연예 - iMBC 톡엔톡";
+	}
+	else if(sCurLoc.indexOf("talk.imbc.com/board/")>0){
+		return "게시판톡 - iMBC 톡엔톡";
+	}
+	else if(sCurLoc.indexOf("talk.imbc.com/tvinfo/")>0){
+		return "tv속 정보 - iMBC 톡엔톡";
+	}
+	else if(sCurLoc.indexOf("talk.imbc.com/photo/")>0){
+		return "포토 - iMBC 톡엔톡";
+	}
+	else if(sCurLoc.indexOf("talk.imbc.com/review/")>0){
+		return "방송리뷰 - iMBC 톡엔톡";
+	}
+	else if(sCurLoc.indexOf("talk.imbc.com/star/")>0){
+		return "스타라운지 - iMBC 톡엔톡";
+	}
+	else if(sCurLoc.indexOf("talk.imbc.com/event/")>0){
+		return "이벤트 - iMBC 톡엔톡";
+	}
+	else if(sCurLoc.indexOf("talk.imbc.com/")>0){
+		return "톡엔톡 - iMBC 톡엔톡";
+	}
+	else if(sCurLoc.indexOf("www.imbc.com/broad/tv/")>0){
+		if(document.title.replace(/^\s*|\s*$/g, '').length>0){
+				return document.title;
+		}
+		else{
+			if(sCurLoc.indexOf("www.imbc.com/broad/tv/drama/")>0){
+					return "드라마 - iMBC.com";
+			}
+			if(sCurLoc.indexOf("www.imbc.com/broad/tv/ent/")>0){
+					return "예능 - iMBC.com";
+			}
+			if(sCurLoc.indexOf("www.imbc.com/broad/tv/culture/")>0){
+					return "시사교양 - iMBC.com";
+			}
+		}
+		return "TV - iMBC.com";
+	}
+	else if(sCurLoc.indexOf("www.imbc.com/broad/radio/")>0){
+		if(document.title.replace(/^\s*|\s*$/g, '').length>0){
+				return document.title;
+		}
+		else{
+			if(sCurLoc.indexOf("www.imbc.com/broad/radio/fm4u/")>0){
+					return "FM4U - iMBC.com";
+			}
+			if(sCurLoc.indexOf("www.imbc.com/broad/radio/fm/")>0){
+					return "표준 FM - iMBC.com";
+			}
+			if(sCurLoc.indexOf("www.imbc.com/broad/radio/minimbc/")>0){
+					return "MBC mini - iMBC.com";
+			}
+		}
+		return "라디오  - iMBC.com";
+	}
+	else if(sCurLoc=="http://member.imbc.com/login/login.aspx"){
+		return "로그인 - iMBC.com" ;
+	}		
+	else if(sCurLoc=="https://member.imbc.com/user/modifykormember.aspx"){
+		return "내 정보 - iMBC.com" ;
+	}
+	else if(sCurLoc.indexOf("member.imbc.com/eventagree/default.aspx")>0){
+		return "개인정보 3자 제공 동의 안내";
+	}
+	else if(sCurLoc.indexOf("member.imbc.com/")>0){
+		return "회원가입 - iMBC.com";
+	}
+	else if(sCurLoc.indexOf("icash.imbc.com")>0){
+		return "문화캐시 - iMBC.com" ;
+	}
+	else if(sCurLoc=="http://mypage.imbc.com/main.aspx"){
+		return "문화캐시 - iMBC.com" ;
+	}
+	else if(sCurLoc.indexOf("www.imbc.com/help/sitemap/")>0){
+		return "사이트맵 - iMBC.com";
+	}
+	else if(sCurLoc.indexOf("guide.imbc.com/tv/")>0){
+		return "TV 편성표 - iMBC.com";
+	}
+	else if(sCurLoc.indexOf("guide.imbc.com/stfm/")>0){
+		return "표준 FM 편성표 - iMBC.com";
+	}
+	else if(sCurLoc.indexOf("guide.imbc.com/fm4u/")>0){
+		return "FM4U 편성표 - iMBC.com";
+	}
+	else if(sCurLoc.indexOf("guide.imbc.com/fm4u/")>0){
+		return "특집 프로그램 다시보기 - iMBC.com";
+	}
+	else if(sCurLoc.indexOf("help.imbc.com/exselffaqa.asp")>0){
+		return "FAQ 상세 - iMBC 고객센터";
+	}
+	else if(sCurLoc.indexOf("help.imbc.com/exselffaqs.asp")>0){
+		return "서비스별 FAQ - iMBC 고객센터";
+	}
+	else if(sCurLoc.indexOf("help.imbc.com/exselffaq.asp")>0){
+		return "서비스별 FAQ - iMBC 고객센터";
+	}
+	else if(sCurLoc.indexOf("help.imbc.com/notice.html")>0){
+		return "공지사항 - iMBC 고객센터";
+	}
+	else if(sCurLoc.indexOf("help.imbc.com/rules/service.html")>0){
+		return "서비스 이용 약관 - iMBC 고객센터";
+	}
+	else if(sCurLoc.indexOf("help.imbc.com/rules/service_paid.html")>0){
+		return "유료 서비스 이용 약관 - iMBC 고객센터";
+	}
+	else if(sCurLoc.indexOf("help.imbc.com/rules/service_free.html")>0){
+		return "자유이용권 이용 약관 - iMBC 고객센터";
+	}
+	else if(sCurLoc.indexOf("help.imbc.com/rules/service_conting.html")>0){
+		return "콘팅 이용 약관 - iMBC 고객센터";
+	}
+	else if(sCurLoc.indexOf("help.imbc.com/rules/privacy.html")>0){
+		return "개인정보 처리방침 - iMBC 고객센터";
+	}
+	else if(sCurLoc.indexOf("help.imbc.com/exmailquestion.asp")>0){
+		return "1:1 메일보내기 - iMBC 고객센터";
+	}
+	else if(sCurLoc.indexOf("help.imbc.com")>0){
+		return "고객센터 - iMBC.com";
+	}
+	else if(sCurLoc.indexOf("playmlb.imbc.com")>0){
+		return document.title;
+	}
+	else if(sCurLoc.indexOf("tv.imbc.com")>0){
+		return document.title;
+	}
+	else if(sCurLoc.indexOf("bbchoice.imbc.com")>0){
+		return document.title;
+	}
+	else if(sCurLoc.indexOf("dokdopeace.imbc.com")>0){
+		return document.title;
+	}
+	else if(sCurLoc.indexOf("ann.imbc.com")>0){
+		return document.title;
+	}
+	else if(sCurLoc.indexOf("withmbc.imbc.com/announcer/")>0){
+		return document.title;
+	}
+	else if(sCurLoc.indexOf("www.imbc.com/notice/")>0){
+		return document.title;
+	}
+	else if(sCurLoc.indexOf("economy.imbc.com")>0){
+		return document.title;
+	}
+	else if(sCurLoc.indexOf("sochi.imbc.com")>0){
+		return document.title;
+	}
+	else if(sCurLoc.indexOf("nanum.imbc.com")>0){
+		return document.title;
+	}
+	else if(sCurLoc.indexOf("www.imbc.com/event/onairplus")>0){
+		return document.title;
+	}	
+	else if(sCurLoc.indexOf("heyo.imbc.com")>0){
+		return document.title;
+	}
+        else if(sCurLoc.indexOf("http://2018.imbc.com")>0){
+		return "2018 평창 동계올림픽 | MBC";
+	}
+	else{
+		return "TV보다 더 큰 세상 iMBC.com";
+	}		
+}

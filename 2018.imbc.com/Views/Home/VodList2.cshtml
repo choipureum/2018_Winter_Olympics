@@ -1,0 +1,35 @@
+﻿@using _2018.imbc.com.Models
+@{
+    var vodlist = ViewBag.vodlist as ContentList;
+}
+
+@if (vodlist.TotalCount > 0)
+{
+
+<ul class="vod-list list-type" id="vodList">
+    @foreach (var item in vodlist.List)
+    {
+        string cls = "";
+        if (item.itemid == ViewBag.itemid) { cls = "on"; }
+
+        <li id="liid_@item.itemid" class="@cls">
+            <a href="javascript:setVodView('@item.BroadcastID', '@item.itemid')">
+                <div class="img">
+                    <img src="@item.ImgUrl_Normal" alt="@item.ContentTitle">
+                </div>
+                <div class="txt-wrap">
+                    <p class="title ellipsis2">@item.ContentTitle</p>
+                    <p class="num">@item.HitCount</p>
+                </div>
+            </a>
+        </li>
+    }
+</ul>
+<div class="paging">
+    @Html.Raw(ViewBag.pageHtml)
+</div>
+}
+else
+{
+    <div class="vod-none">등록된 영상이 없습니다.</div>
+}

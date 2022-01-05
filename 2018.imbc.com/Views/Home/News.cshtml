@@ -1,0 +1,72 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutSub_2nd.cshtml";
+    ViewBag.Title = "뉴스";
+    ViewBag.page = "news";
+    ViewBag.page2 = "news";
+    var list = ViewBag.list as EnewsList;
+}
+
+<div class="sec-wrap">
+    <div class="sec-area">
+        <div class="news-tab">
+            <a href="javascript:goPage(1, 0);" @Html.Raw(ViewBag.ordercls1)>최신순</a>
+            <a href="javascript:goPage(1, 1);" @Html.Raw(ViewBag.ordercls2)>인기순</a>
+        </div>
+        <div class="news-wrap">
+            <ul id="newsList">
+                @foreach (EnewsInfo item in list)
+                {
+                    if (item.Nickname == "IMNEWS")
+                    {
+                    <li>
+                        <a href="/News/View?idx=@item.Idx&opt=I&sort=@ViewBag.sort&page=@ViewBag.pagenum">
+                            <div class="img"><img src="@item.ImgUrl" alt="@item.Title"></div>
+                            <div class="txt-wrap">
+                                <p class="title ellipsis">@item.Title</p>
+                                <p class="txt ellipsis2"></p>
+                                <p class="date">@item.PublicationDate</p>
+                            </div>
+                        </a>
+                    </li>
+                    }
+                    else
+                    {
+                    <li>
+                        <a href="/News/View?idx=@item.Idx&opt=E&sort=@ViewBag.sort&page=@ViewBag.pagenum">
+                            <div class="img"><img src="http://talkimg.imbc.com/TVianUpload/TVian/TViews/image/@item.ImgUrl" alt="@item.Title"></div>
+                            <div class="txt-wrap">
+                                <p class="title ellipsis">@item.Title</p>
+                                <p class="txt ellipsis2">@item.Summary</p>
+                                <p class="date">@item.PublicationDate</p>
+                            </div>
+                        </a>
+                    </li>
+                    }
+                }
+            </ul>
+            <div class="paging" id="pagination">
+                @Html.Raw(ViewBag.pageHtml)
+            </div>
+        </div>
+    </div>
+    <div class="sec-right">
+        <div class="ad-square">
+            <iframe style="width:250px; height:250px" noresize scrolling="no" frameborder="0" marginheight="0" marginwidth="0"
+                    src="http://ads.imbc.com/RealMedia/ads/adstream_sx.ads/www.imbc.com/chang@TopRight" title="광고">
+                <a href="http://ads.imbc.com/RealMedia/ads/click_nx.ads/www.imbc.com/chang@TopRight">
+                    <img src="http://ads.imbc.com/RealMedia/ads/adstream_nx.ads/www.imbc.com/chang@TopRight" alt="광고">
+                </a>
+            </iframe>
+        </div>
+        <div class="sns-area" id="snsArea"></div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function goPage(page, sort) {
+        location.href = "/News?page=" + page + "&sort=" + sort;
+    }
+</script>
+

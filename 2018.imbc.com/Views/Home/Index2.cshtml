@@ -1,0 +1,261 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_Layout_2nd.cshtml";
+    var rnewslist = ViewBag.rnewslist as EnewsList;
+    var lnewslist = ViewBag.lnewslist as List<LNewsList>;
+    var tlist = ViewBag.tlist as NoticeList;
+    var medalList = ViewBag.medalList as List<MedalCount>;
+    var kcount = ViewBag.kcount as MedalCount;
+    var slist = ViewBag.slist as ScheduleList;
+}
+<div id="wrapArea" class="wrap-area">
+    <header id="header" class="header sub"></header>
+
+    <nav id="navWrap" class="nav-wrap"></nav>
+
+    <div id="container" class="main">
+        <section class="section noti-wrap">
+
+            @if (tlist.OnAir == "Y")
+            {
+                <div class="onair-area">
+                    <div class="noti-left">
+                        <a href="http://vodmall.imbc.com/player/onairsports_ch2.aspx" class="link-onair" target="_blank"><img src="/images/btn-onair.png" alt="ON AIR 생중계 보기"></a>
+                    </div>
+                    <div class="noti-right">
+                        <div class="slide">
+                            @foreach (NoticeInfo item in tlist.List)
+                            {
+                                <p class="title ellipsis">@item.Title</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <!-- 기본 공지 롤링-->
+                <div class="noti-area">
+                    <div class="noti-left">
+                        <img src="/images/txt-noti.png" class="txt-noti" alt="NOTICE" />
+                    </div>
+                    <div class="noti-right">
+                        <div class="slide">
+                            @foreach (NoticeInfo item in tlist.List)
+                            {
+                                <p class="title ellipsis">@item.Title</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </section>
+
+        <section class="section broad-wrap">
+            <div class="today-area"><a href="/scheduleList"><p class="date">@ViewBag.dt</p></a></div>
+            <div class="broad-area">
+                <button type="button" class="btn prev">이전 보기</button>
+                <button type="button" class="btn next">다음 보기</button>
+                <ul class="slide">
+                    @foreach (ScheduleInfo item in slist)
+                    {
+                        <li class="type type@(item.SportType)">
+                            <div class="time">@item.StartTime</div>
+                            <div class="txt-wrap">
+                                <div class="img"></div>
+                                <p class="title">@item.SportName</p>
+                                <p class="con ellipsis">@item.DetailSportName</p>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </section>
+
+        <section class="section hot-wrap">
+            <h3 class="tit-con"><img src="/images/tit-hot.png" alt="HOT ISSUE"></h3>
+            <div class="btn-box">
+                <button type="button" class="btn prev">이전 종목 보기</button>
+                <button type="button" class="btn next">다음 종목 보기</button>
+            </div>
+            <div class="hot-area" id="hotArea">
+                <div class="slide"></div>
+            </div>
+            <div class="img-label"></div>
+            <div class="img-character"></div>
+            <div class="indicator">
+                <span class="indi-area"></span>
+                <button type="button" class="ico-playstop">자동 재생, 정지</button>
+            </div>
+            <span class="slide-num"></span>
+        </section>
+
+        <!--오픈 전  class="rank-wrap"  open / removeClass-->
+        <!--오픈 후  class="rank-wrap open"  open/ addClass-->
+        <section class="section rank-wrap">
+            <div class="tit-wrap">
+                <h3 class="tit-con"><img src="/images/tit-rank.png" alt="메달 상위 순위"></h3>
+                <a href="javascript:alert('메달 순위 집계 시 제공 예정입니다.')" class="link-full">전체보기</a>
+            </div>
+            <div class="sec-area">
+                <dl class="list-name">
+                    <dt class="first">순위</dt>
+                    <dt class="second">국가명</dt>
+                    <dt class="equal gold"><span class="round rud1"></span><strong>금</strong></dt>
+                    <dt class="equal"><span class="round rud2"></span><strong>은</strong></dt>
+                    <dt class="equal last"><span class="round rud3"></span><strong>동</strong></dt>
+                    <dt class="first">순위</dt>
+                    <dt class="second">국가명</dt>
+                    <dt class="equal gold"><span class="round rud1"></span><strong>금</strong></dt>
+                    <dt class="equal"><span class="round rud2"></span><strong>은</strong></dt>
+                    <dt class="equal"><span class="round rud3"></span><strong>동</strong></dt>
+                </dl>
+                <div class="rank-default"><img src="/images/rank-default.png" alt="PyeongChang 2018™ (대회 시작 후 메달 상위 순위집계시 제공 예정입니다)"></div>
+                <div class="rank-con">
+                    @{
+                        int k = 0;
+                        foreach (MedalCount item in medalList)
+                        {
+                            <dl>
+                                <dd class="first"><span class="txt-rank num@(item.Rank)">@item.Rank</span></dd>
+                                <dd class="second"><span class="img"><img src="http://2018.imbc.com/images/flags/flag_@(item.NationalID).jpg" alt="@item.NationalName 국기"></span><p class="nation ellipsis">@item.NationalName</p></dd>
+                                <dd class="equal">@item.Gold</dd>
+                                <dd class="equal">@item.Silver</dd>
+                                <dd class="equal">@item.Bronze</dd>
+                            </dl>
+                            k++;
+                            if (k == 6) { break; }
+                        }
+                    }
+                </div>
+            </div>
+            <div class="sec-right rank-ko">
+                <div class="rank-ko-default">
+                    <div class="txt-ko">
+                        <strong class="rank-ko1"><span class="txt">금메달</span>-</strong><strong class="rank-ko2"><span class="txt">은메달</span>-</strong><strong class="rank-ko3"><span class="txt">동메달</span>-</strong>
+                    </div>
+                    <p class="txt">‘대한민국’ 메달 순위 집계시 제공 예정입니다.</p>
+                </div>
+                <div class="rank-ko-wrap">
+                    <div class="txt-ko">
+                        <strong class="rank-ko1"><span class="txt">금메달</span>@kcount.Gold</strong><strong class="rank-ko2"><span class="txt">은메달</span>@kcount.Silver</strong><strong class="rank-ko3"><span class="txt">동메달</span>@kcount.Bronze</strong>
+                    </div>
+                    <div class="txt-wrap">
+                        <span class="text first">대한민국 전체 순위</span>
+                        <strong class="num">@kcount.Rank</strong>
+                        <span class="text last">위</span>
+                        <span class="date">@kcount.uptTime</span>
+                    </div>
+                    <a href="/vod?glory=1" class="link-glory"><img src="/images/link-glory.png" alt="HOT 영광의 순간"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section vod-wrap">
+            <div class="tit-wrap">
+                <h3 class="tit-con"><img src="/images/tit-vod.png" alt="영상"></h3>
+                <a href="javascript:chOrder(1);" id="order_1" class="btn-vod new on">최신순</a><a href="javascript:chOrder(2);" id="order_2" class="btn-vod hot">인기순</a>
+                <a href="/vod" class="link-full">전체보기</a>
+            </div>
+            <div class="sec-area">
+                <ul id="ul_vod" class="vod-list list-type">
+                    @Html.Partial("IndexVod")
+                </ul>
+            </div>
+            <div class="sec-right">
+                <div class="ad-square">
+                    <script src="http://www.imbc.com/2010_main/js/main_square_ad.js"></script>
+                </div>
+            </div>
+        </section>
+
+        <section class="section news-wrap">
+            <div class="sec-area">
+                <h3 class="tit-con"><img src="/images/tit-news.png" alt="2018 평창 뉴스"></h3>
+                <a href="/news" class="link-full">전체보기</a>
+                <ul class="new-list list-type">
+                    @foreach (EnewsInfo item in rnewslist)
+                    {
+                        <li>
+                            <a href="/News/View?idx=@item.Idx&opt=I">
+                                <div class="img">
+                                    <img src="http://talkimg.imbc.com/TVianUpload/TVian/TViews/image/@item.ImgUrl" alt="@item.Title">
+                                </div>
+                                <div class="txt-wrap">
+                                    <p class="title ellipsis2">@item.Title</p>
+                                    <p class="num">@item.PublicationDate</p>
+                                </div>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+                <div class="ad-banner">
+                    <iframe style="width:828px; height:90px" noresize scrolling="no" frameborder="0" marginheight="0" marginwidth="0"
+                            src="http://ads.imbc.com/RealMedia/ads/adstream_sx.ads/www.imbc.com/chang@Bottom" title="광고">
+                        <a href="http://ads.imbc.com/RealMedia/ads/click_nx.ads/www.imbc.com/chang@Bottom">
+                            <img src="http://ads.imbc.com/RealMedia/ads/adstream_nx.ads/www.imbc.com/chang@Bottom" alt="광고">
+                        </a>
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="sec-right">
+                <h4 class="tit-news"><img src="/images/tit-newslot.png" alt="많이 본 뉴스"></h4>
+                <ul class="news-lots">
+                    @{
+                        int i = 1;
+                        foreach (LNewsList item in lnewslist)
+                        {
+                            if (item.Opt == "E")
+                            {
+                                <li>
+                                    <a href="/News/View?idx=@item.Idx&opt=E">
+                                        <span class="@Html.Raw(" rank num" + i)">@i.</span>
+                                        <p class="title ellipsis2">@item.Title</p>
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="/News/View?idx=@item.Idx&opt=I">
+                                        <span class="@Html.Raw(" rank num" + i)">@i.</span>
+                                        <p class="title ellipsis2">@item.Title</p>
+                                    </a>
+                                </li>
+                            }
+                            i++;
+                        }
+                    }
+                </ul>
+            </div>
+        </section>
+
+        <section class="section sns-wrap">
+            <h3 class="tit-con"><img src="/images/tit-mbcinsta.png" alt="#평창 인스타그램"></h3>
+            <div class="sec-area">
+                <ul class="insta-area" id="instaArea"></ul>
+            </div>
+            <div class="sec-right">
+                <div class="sns-area" id="snsArea"></div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function chOrder(o) {
+        $(".btn-vod").removeClass("on");
+        $("#order_" + o).addClass("on");
+
+        $.post(
+            '@Url.Action("IndexVod", "Home")', { order: o},
+            function (response) {
+                $("#ul_vod").html('');
+                $("#ul_vod").html(response);
+            }
+        );
+    }
+
+</script>

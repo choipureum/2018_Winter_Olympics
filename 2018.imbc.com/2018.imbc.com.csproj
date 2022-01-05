@@ -1,0 +1,985 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95D3A727-9438-41AB-8D76-5FDA6E37EE4A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_2018.imbc.com</RootNamespace>
+    <AssemblyName>2018.imbc.com</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IMBC.FW, Version=1.0.3986.19646, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vote2017.imbc.com\Vote2017\bin\IMBC.FW.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.PLPARAMLib">
+      <HintPath>..\..\clip.imbc.com\clip.imbc.com\bin\Interop.PLPARAMLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PLParamNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\COM+\PLParamNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Blls\NewsBiz.cs" />
+    <Compile Include="Blls\NoticeBiz.cs" />
+    <Compile Include="Blls\ScheduleBiz.cs" />
+    <Compile Include="Blls\Util.cs" />
+    <Compile Include="Blls\VodBiz.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PCrhksflController.cs" />
+    <Compile Include="Dals\NewsDal.cs" />
+    <Compile Include="Dals\NoticeDal.cs" />
+    <Compile Include="Dals\ScheduleDal.cs" />
+    <Compile Include="Dals\VodDal.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NewsInfo.cs" />
+    <Compile Include="Models\NoticeInfo.cs" />
+    <Compile Include="Models\ScheduleInfo.cs" />
+    <Compile Include="Models\VodInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="util\cloneLink.ashx.cs">
+      <DependentUpon>cloneLink.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="about\index.html" />
+    <Content Include="allschedule\index.html" />
+    <Content Include="common\admin\css\reset.css" />
+    <Content Include="common\admin\css\style.css" />
+    <Content Include="common\admin\images\btn_row_add.gif" />
+    <Content Include="common\admin\images\btn_row_del.gif" />
+    <Content Include="common\admin\images\btn_submit.gif" />
+    <Content Include="common\admin\images\h2_kor_team.gif" />
+    <Content Include="common\admin\images\h2_medal.gif" />
+    <Content Include="common\admin\images\h2_medal_people.gif" />
+    <Content Include="common\admin\images\h2_plan.gif" />
+    <Content Include="common\admin\images\th_bronzemedal.gif" />
+    <Content Include="common\admin\images\th_date.gif" />
+    <Content Include="common\admin\images\th_day_1.gif" />
+    <Content Include="common\admin\images\th_day_10.gif" />
+    <Content Include="common\admin\images\th_day_11.gif" />
+    <Content Include="common\admin\images\th_day_12.gif" />
+    <Content Include="common\admin\images\th_day_2.gif" />
+    <Content Include="common\admin\images\th_day_25.gif" />
+    <Content Include="common\admin\images\th_day_26.gif" />
+    <Content Include="common\admin\images\th_day_27.gif" />
+    <Content Include="common\admin\images\th_day_28.gif" />
+    <Content Include="common\admin\images\th_day_29.gif" />
+    <Content Include="common\admin\images\th_day_3.gif" />
+    <Content Include="common\admin\images\th_day_30.gif" />
+    <Content Include="common\admin\images\th_day_31.gif" />
+    <Content Include="common\admin\images\th_day_4.gif" />
+    <Content Include="common\admin\images\th_day_5.gif" />
+    <Content Include="common\admin\images\th_day_6.gif" />
+    <Content Include="common\admin\images\th_day_7.gif" />
+    <Content Include="common\admin\images\th_day_8.gif" />
+    <Content Include="common\admin\images\th_day_9.gif" />
+    <Content Include="common\admin\images\th_game.gif" />
+    <Content Include="common\admin\images\th_goldmedal.gif" />
+    <Content Include="common\admin\images\th_history_country.gif" />
+    <Content Include="common\admin\images\th_history_date.gif" />
+    <Content Include="common\admin\images\th_history_rank.gif" />
+    <Content Include="common\admin\images\th_history_time.gif" />
+    <Content Include="common\admin\images\th_items.gif" />
+    <Content Include="common\admin\images\th_medal_bronze.gif" />
+    <Content Include="common\admin\images\th_medal_gold.gif" />
+    <Content Include="common\admin\images\th_medal_silver.gif" />
+    <Content Include="common\admin\images\th_medal_sum.gif" />
+    <Content Include="common\admin\images\th_month_7th.gif" />
+    <Content Include="common\admin\images\th_month_8th.gif" />
+    <Content Include="common\admin\images\th_rank.gif" />
+    <Content Include="common\admin\images\th_rank_country.gif" />
+    <Content Include="common\admin\images\th_rank_sum.gif" />
+    <Content Include="common\admin\images\th_silvermedal.gif" />
+    <Content Include="common\admin\images\th_team_con.gif" />
+    <Content Include="common\admin\images\th_team_medal.gif" />
+    <Content Include="common\admin\images\th_team_part.gif" />
+    <Content Include="common\admin\images\th_team_player.gif" />
+    <Content Include="common\admin\images\th_time.gif" />
+    <Content Include="common\common.css" />
+    <Content Include="common\common.js" />
+    <Content Include="common\common2.js" />
+    <Content Include="common\commonO.js" />
+    <Content Include="common\fonts.css" />
+    <Content Include="common\fonts\NotoKR-Bold\generator_config.txt" />
+    <Content Include="common\fonts\NotoKR-Bold\notokr-bold-demo.html" />
+    <Content Include="common\fonts\NotoKR-Bold\notokr-bold.svg" />
+    <Content Include="common\fonts\NotoKR-Bold\specimen_files\easytabs.js" />
+    <Content Include="common\fonts\NotoKR-Bold\specimen_files\easytabs.min.js" />
+    <Content Include="common\fonts\NotoKR-Bold\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="common\fonts\NotoKR-Bold\specimen_files\grid_12-825-55-15.min.css" />
+    <Content Include="common\fonts\NotoKR-Bold\specimen_files\specimen_stylesheet.css" />
+    <Content Include="common\fonts\NotoKR-Bold\specimen_files\specimen_stylesheet.min.css" />
+    <Content Include="common\fonts\NotoKR-Bold\stylesheet.css" />
+    <Content Include="common\fonts\NotoKR-Bold\stylesheet.min.css" />
+    <Content Include="common\fonts\NotoKR-DemiLight\generator_config.txt" />
+    <Content Include="common\fonts\NotoKR-DemiLight\notokr-demilight-demo.html" />
+    <Content Include="common\fonts\NotoKR-DemiLight\notokr-demilight.svg" />
+    <Content Include="common\fonts\NotoKR-DemiLight\specimen_files\easytabs.js" />
+    <Content Include="common\fonts\NotoKR-DemiLight\specimen_files\easytabs.min.js" />
+    <Content Include="common\fonts\NotoKR-DemiLight\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="common\fonts\NotoKR-DemiLight\specimen_files\grid_12-825-55-15.min.css" />
+    <Content Include="common\fonts\NotoKR-DemiLight\specimen_files\specimen_stylesheet.css" />
+    <Content Include="common\fonts\NotoKR-DemiLight\specimen_files\specimen_stylesheet.min.css" />
+    <Content Include="common\fonts\NotoKR-DemiLight\stylesheet.css" />
+    <Content Include="common\fonts\NotoKR-DemiLight\stylesheet.min.css" />
+    <Content Include="common\fonts\NotoKR-Medium\generator_config.txt" />
+    <Content Include="common\fonts\NotoKR-Medium\notokr-medium-demo.html" />
+    <Content Include="common\fonts\NotoKR-Medium\notokr-medium.svg" />
+    <Content Include="common\fonts\NotoKR-Medium\specimen_files\easytabs.js" />
+    <Content Include="common\fonts\NotoKR-Medium\specimen_files\easytabs.min.js" />
+    <Content Include="common\fonts\NotoKR-Medium\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="common\fonts\NotoKR-Medium\specimen_files\grid_12-825-55-15.min.css" />
+    <Content Include="common\fonts\NotoKR-Medium\specimen_files\specimen_stylesheet.css" />
+    <Content Include="common\fonts\NotoKR-Medium\specimen_files\specimen_stylesheet.min.css" />
+    <Content Include="common\fonts\NotoKR-Medium\stylesheet.css" />
+    <Content Include="common\fonts\NotoKR-Medium\stylesheet.min.css" />
+    <Content Include="common\fonts\NotoKR-Regular\generator_config.txt" />
+    <Content Include="common\fonts\NotoKR-Regular\notokr-regular-demo.html" />
+    <Content Include="common\fonts\NotoKR-Regular\notokr-regular.svg" />
+    <Content Include="common\fonts\NotoKR-Regular\specimen_files\easytabs.js" />
+    <Content Include="common\fonts\NotoKR-Regular\specimen_files\easytabs.min.js" />
+    <Content Include="common\fonts\NotoKR-Regular\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="common\fonts\NotoKR-Regular\specimen_files\grid_12-825-55-15.min.css" />
+    <Content Include="common\fonts\NotoKR-Regular\specimen_files\specimen_stylesheet.css" />
+    <Content Include="common\fonts\NotoKR-Regular\specimen_files\specimen_stylesheet.min.css" />
+    <Content Include="common\fonts\NotoKR-Regular\stylesheet.css" />
+    <Content Include="common\fonts\NotoKR-Regular\stylesheet.min.css" />
+    <Content Include="common\main.css" />
+    <Content Include="common\main.ui.js" />
+    <Content Include="common\main.ui2.js" />
+    <Content Include="common\main2.css" />
+    <Content Include="common\news.data.js" />
+    <Content Include="common\sub.css" />
+    <Content Include="common\sub.ui.js" />
+    <Content Include="common\sub2.css" />
+    <Content Include="common\sub2.ui.js" />
+    <Content Include="common\vod.data.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\font.css" />
+    <Content Include="css\style-v2.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\style_n.css" />
+    <Content Include="css\swiper.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="font\noto-bold.svg" />
+    <Content Include="font\noto-italic.svg" />
+    <Content Include="font\noto-regular.svg" />
+    <Content Include="font\notokr-black.svg" />
+    <Content Include="font\notokr-demilight.svg" />
+    <Content Include="font\notokr-light.svg" />
+    <Content Include="font\notokr-medium.svg" />
+    <Content Include="font\notokr-regular.svg" />
+    <Content Include="font\notokr-thin.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\about_top.jpg" />
+    <Content Include="images\arr_down.jpg" />
+    <Content Include="images\arr_right.png" />
+    <Content Include="images\bar-news.png" />
+    <Content Include="images\bar-vod-sub.jpg" />
+    <Content Include="images\bar-vod.jpg" />
+    <Content Include="images\bg-about-v2.jpg" />
+    <Content Include="images\bg-about-v3.jpg" />
+    <Content Include="images\bg-about.jpg" />
+    <Content Include="images\bg-count-full.png" />
+    <Content Include="images\bg-count.png" />
+    <Content Include="images\bg-default-v2.jpg" />
+    <Content Include="images\bg-default-v3.jpg" />
+    <Content Include="images\bg-default.jpg" />
+    <Content Include="images\bg-ko-rank-v2.png" />
+    <Content Include="images\bg-ko-rank.jpg" />
+    <Content Include="images\bg-main-hot.png" />
+    <Content Include="images\bg-medalRank.png" />
+    <Content Include="images\bg-medalRank2.jpg" />
+    <Content Include="images\bg-nav-on.png" />
+    <Content Include="images\bg-nav-on2.png" />
+    <Content Include="images\bg-nav.png" />
+    <Content Include="images\bg-popup.png" />
+    <Content Include="images\bg-today.png" />
+    <Content Include="images\bg-vod.jpg" />
+    <Content Include="images\bg-vodOn.png" />
+    <Content Include="images\bg-vr-ban.png" />
+    <Content Include="images\bg-vr-end.png" />
+    <Content Include="images\bg-vr-prev.png" />
+    <Content Include="images\bg-vr.png" />
+    <Content Include="images\bg_visual.jpg" />
+    <Content Include="images\btn-broad.png" />
+    <Content Include="images\btn-close-pop.png" />
+    <Content Include="images\btn-confirm.png" />
+    <Content Include="images\btn-gameL.png" />
+    <Content Include="images\btn-gameR.png" />
+    <Content Include="images\btn-glory.png" />
+    <Content Include="images\btn-go-news.png" />
+    <Content Include="images\btn-go-vod.png" />
+    <Content Include="images\btn-hot.jpg" />
+    <Content Include="images\btn-onair.png" />
+    <Content Include="images\btn-paging.jpg" />
+    <Content Include="images\btn-sch.jpg" />
+    <Content Include="images\btn-select-down.png" />
+    <Content Include="images\btn-select-up.png" />
+    <Content Include="images\btn-vod.png" />
+    <Content Include="images\btn_close.png" />
+    <Content Include="images\btn_down.png" />
+    <Content Include="images\btn_menu.jpg" />
+    <Content Include="images\btn_more.png" />
+    <Content Include="images\btn_up.png" />
+    <Content Include="images\ceremony.png" />
+    <Content Include="images\check.png" />
+    <Content Include="images\depth2.jpg" />
+    <Content Include="images\dot.jpg" />
+    <Content Include="images\footer_mbc.png" />
+    <Content Include="images\g-day.png" />
+    <Content Include="images\ico-date-on.png" />
+    <Content Include="images\ico-date.png" />
+    <Content Include="images\ico-fb.png" />
+    <Content Include="images\ico-gamType.png" />
+    <Content Include="images\ico-imginsta.png" />
+    <Content Include="images\ico-insta.png" />
+    <Content Include="images\ico-items.jpg" />
+    <Content Include="images\ico-medal01.png" />
+    <Content Include="images\ico-medal02.png" />
+    <Content Include="images\ico-medal03.png" />
+    <Content Include="images\ico-num-w.png" />
+    <Content Include="images\ico-num.png" />
+    <Content Include="images\ico-picto.jpg" />
+    <Content Include="images\ico-play-vod.png" />
+    <Content Include="images\ico-play-vodOn.png" />
+    <Content Include="images\ico-playstop.png" />
+    <Content Include="images\ico-round.png" />
+    <Content Include="images\ico-sns.png" />
+    <Content Include="images\ico-tab.png" />
+    <Content Include="images\ico-tw.png" />
+    <Content Include="images\ico_cal.png" />
+    <Content Include="images\ico_eye.png" />
+    <Content Include="images\ico_home.png" />
+    <Content Include="images\ico_info.png" />
+    <Content Include="images\ico_news.png" />
+    <Content Include="images\ico_play.png" />
+    <Content Include="images\ico_rank.png" />
+    <Content Include="images\ico_talk.png" />
+    <Content Include="images\ico_vod.png" />
+    <Content Include="images\images\22.png" />
+    <Content Include="images\images\bg-main-hot.jpg" />
+    <Content Include="images\images\bg-main-hot.png" />
+    <Content Include="images\images\btn-game.png" />
+    <Content Include="images\images\btn-gameL.png" />
+    <Content Include="images\images\btn-gameR.png" />
+    <Content Include="images\images\d.png" />
+    <Content Include="images\images\date1.png" />
+    <Content Include="images\images\date10.png" />
+    <Content Include="images\images\date11.png" />
+    <Content Include="images\images\date12.png" />
+    <Content Include="images\images\date13.png" />
+    <Content Include="images\images\date14.png" />
+    <Content Include="images\images\date15.png" />
+    <Content Include="images\images\date16.png" />
+    <Content Include="images\images\date17.png" />
+    <Content Include="images\images\date18.png" />
+    <Content Include="images\images\date2.png" />
+    <Content Include="images\images\date3.png" />
+    <Content Include="images\images\date4.png" />
+    <Content Include="images\images\date5.png" />
+    <Content Include="images\images\date6.png" />
+    <Content Include="images\images\date7.png" />
+    <Content Include="images\images\date8.png" />
+    <Content Include="images\images\date9.png" />
+    <Content Include="images\images\dd %282%29.png" />
+    <Content Include="images\images\dd.png" />
+    <Content Include="images\images\ddd %282%29.png" />
+    <Content Include="images\images\ddd.png" />
+    <Content Include="images\images\dddd.png" />
+    <Content Include="images\images\F.png" />
+    <Content Include="images\images\ff.png" />
+    <Content Include="images\images\fff.png" />
+    <Content Include="images\images\ffgdf.png" />
+    <Content Include="images\images\I.png" />
+    <Content Include="images\images\ico-face.png" />
+    <Content Include="images\images\ico-insta.png" />
+    <Content Include="images\images\ico-items01.jpg" />
+    <Content Include="images\images\ico-items02.jpg" />
+    <Content Include="images\images\ico-items03.jpg" />
+    <Content Include="images\images\ico-items04.jpg" />
+    <Content Include="images\images\ico-items05.jpg" />
+    <Content Include="images\images\ico-items06.jpg" />
+    <Content Include="images\images\ico-items07.jpg" />
+    <Content Include="images\images\ico-items08.jpg" />
+    <Content Include="images\images\ico-items09.jpg" />
+    <Content Include="images\images\ico-items10.jpg" />
+    <Content Include="images\images\ico-items11.jpg" />
+    <Content Include="images\images\ico-items12.jpg" />
+    <Content Include="images\images\ico-items13.jpg" />
+    <Content Include="images\images\ico-items14.jpg" />
+    <Content Include="images\images\ico-items15.jpg" />
+    <Content Include="images\images\ico-tit-arrow.png" />
+    <Content Include="images\images\ico-twit.png" />
+    <Content Include="images\images\img-character.png" />
+    <Content Include="images\images\Layer 79.png" />
+    <Content Include="images\images\logo-off.jpg" />
+    <Content Include="images\images\logo-on.jpg" />
+    <Content Include="images\images\nav-about.png" />
+    <Content Include="images\images\nav-sch.png" />
+    <Content Include="images\images\nav-vod.png" />
+    <Content Include="images\images\num_03.png" />
+    <Content Include="images\images\num_06.png" />
+    <Content Include="images\images\num_08.png" />
+    <Content Include="images\images\num_10.png" />
+    <Content Include="images\images\num_12.png" />
+    <Content Include="images\images\num_14.png" />
+    <Content Include="images\images\num_16.png" />
+    <Content Include="images\images\pause.png" />
+    <Content Include="images\images\pp.png" />
+    <Content Include="images\images\ppp.png" />
+    <Content Include="images\images\pppp.png" />
+    <Content Include="images\images\ppppp.png" />
+    <Content Include="images\images\S.png" />
+    <Content Include="images\images\sch-items_03.jpg" />
+    <Content Include="images\images\sch-items_06.jpg" />
+    <Content Include="images\images\sch-items_08.jpg" />
+    <Content Include="images\images\sch-items_10.jpg" />
+    <Content Include="images\images\sch-items_12.jpg" />
+    <Content Include="images\images\sch-items_14.jpg" />
+    <Content Include="images\images\sch-items_16.jpg" />
+    <Content Include="images\images\sch-items_18.jpg" />
+    <Content Include="images\images\sch-items_20.jpg" />
+    <Content Include="images\images\sch-items_22.jpg" />
+    <Content Include="images\images\sch-items_24.jpg" />
+    <Content Include="images\images\sch-items_26.jpg" />
+    <Content Include="images\images\sch-items_28.jpg" />
+    <Content Include="images\images\sch-items_30.jpg" />
+    <Content Include="images\images\sch-items_32.jpg" />
+    <Content Include="images\images\sch-items_34.jpg" />
+    <Content Include="images\images\Shape 6 copy 2 %282%29.png" />
+    <Content Include="images\images\Shape 6 copy 2.png" />
+    <Content Include="images\images\Shape 6 copy 3.png" />
+    <Content Include="images\images\Shape 6 copy d3.png" />
+    <Content Include="images\images\txt-num.jpg" />
+    <Content Include="images\images\노르딕복합 copy.png" />
+    <Content Include="images\images\노르딕복합.png" />
+    <Content Include="images\images\루지.png" />
+    <Content Include="images\images\루지1.png" />
+    <Content Include="images\images\바이애슬론 .png" />
+    <Content Include="images\images\바이애슬론 1.png" />
+    <Content Include="images\images\봅슬레이.png" />
+    <Content Include="images\images\봅슬레이1.png" />
+    <Content Include="images\images\쇼스스 copy.png" />
+    <Content Include="images\images\쇼스스.png" />
+    <Content Include="images\images\스노보드 copy.png" />
+    <Content Include="images\images\스노보드.png" />
+    <Content Include="images\images\스켈레톤 copy.png" />
+    <Content Include="images\images\스켈레톤.png" />
+    <Content Include="images\images\스키점프 copy.png" />
+    <Content Include="images\images\스키점프.png" />
+    <Content Include="images\images\스피드스케이팅 copy.png" />
+    <Content Include="images\images\스피드스케이팅.png" />
+    <Content Include="images\images\아이스하키.png" />
+    <Content Include="images\images\아이스하키1.png" />
+    <Content Include="images\images\알파인스키 .png" />
+    <Content Include="images\images\알파인스키1 .png" />
+    <Content Include="images\images\컬링.png" />
+    <Content Include="images\images\컬링1.png" />
+    <Content Include="images\images\크로스컨트리 .png" />
+    <Content Include="images\images\크로스컨트리 1.png" />
+    <Content Include="images\images\프리스타일스키.png" />
+    <Content Include="images\images\프리스타일스키1.png" />
+    <Content Include="images\images\피겨스케이팅 .png" />
+    <Content Include="images\images\피겨스케이팅 1.png" />
+    <Content Include="images\img-character-v2.png" />
+    <Content Include="images\img-character-v3.png" />
+    <Content Include="images\img-character.png" />
+    <Content Include="images\img-info-v2.jpg" />
+    <Content Include="images\img-info-v3.png" />
+    <Content Include="images\img-info-v4.png" />
+    <Content Include="images\img-info.png" />
+    <Content Include="images\img-label.png" />
+    <Content Include="images\img-link-sch.png" />
+    <Content Include="images\img-vodRank.png" />
+    <Content Include="images\info_tit1.jpg" />
+    <Content Include="images\info_tit2.jpg" />
+    <Content Include="images\info_tit3.jpg" />
+    <Content Include="images\info_tit4.jpg" />
+    <Content Include="images\info_tit5.jpg" />
+    <Content Include="images\intro_bar.jpg" />
+    <Content Include="images\item_more.png" />
+    <Content Include="images\item_more_on.png" />
+    <Content Include="images\left_bar.png" />
+    <Content Include="images\link-app.jpg" />
+    <Content Include="images\link-arrow.png" />
+    <Content Include="images\link-glory.png" />
+    <Content Include="images\link1.jpg" />
+    <Content Include="images\link2.jpg" />
+    <Content Include="images\logo-default.jpg" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\logo_mbc.png" />
+    <Content Include="images\logo_pyeongchang.png" />
+    <Content Include="images\medal.png" />
+    <Content Include="images\m\about_top.jpg" />
+    <Content Include="images\m\all-game.png" />
+    <Content Include="images\m\allrank.png" />
+    <Content Include="images\m\arr_down.jpg" />
+    <Content Include="images\m\arr_right.png" />
+    <Content Include="images\m\bg-charac.jpg" />
+    <Content Include="images\m\bg-vr-v2.jpg" />
+    <Content Include="images\m\bg_visual.jpg" />
+    <Content Include="images\m\btn-onair.jpg" />
+    <Content Include="images\m\btn_close.png" />
+    <Content Include="images\m\btn_down.png" />
+    <Content Include="images\m\btn_menu.jpg" />
+    <Content Include="images\m\btn_more.png" />
+    <Content Include="images\m\btn_up.png" />
+    <Content Include="images\m\ceremony.png" />
+    <Content Include="images\m\check.png" />
+    <Content Include="images\m\depth2.jpg" />
+    <Content Include="images\m\dot.jpg" />
+    <Content Include="images\m\down-apple.jpg" />
+    <Content Include="images\m\down-google.png" />
+    <Content Include="images\m\footer_mbc.png" />
+    <Content Include="images\m\g-day.png" />
+    <Content Include="images\m\hand-r.png" />
+    <Content Include="images\m\ico-bronze-s.png" />
+    <Content Include="images\m\ico-bronze.png" />
+    <Content Include="images\m\ico-date.png" />
+    <Content Include="images\m\ico-fb.png" />
+    <Content Include="images\m\ico-gold-s.png" />
+    <Content Include="images\m\ico-gold.png" />
+    <Content Include="images\m\ico-insta.png" />
+    <Content Include="images\m\ico-silver.png" />
+    <Content Include="images\m\ico-sliver-s.png" />
+    <Content Include="images\m\ico-tw.png" />
+    <Content Include="images\m\ico_cal.png" />
+    <Content Include="images\m\ico_eye.png" />
+    <Content Include="images\m\ico_home.png" />
+    <Content Include="images\m\ico_info.png" />
+    <Content Include="images\m\ico_news.png" />
+    <Content Include="images\m\ico_play.png" />
+    <Content Include="images\m\ico_rank.png" />
+    <Content Include="images\m\ico_talk.png" />
+    <Content Include="images\m\ico_vod.png" />
+    <Content Include="images\m\ico_vr.png" />
+    <Content Include="images\m\img-vr.jpg" />
+    <Content Include="images\m\info_tit1.jpg" />
+    <Content Include="images\m\info_tit2.jpg" />
+    <Content Include="images\m\info_tit3.jpg" />
+    <Content Include="images\m\info_tit4.jpg" />
+    <Content Include="images\m\info_tit5.jpg" />
+    <Content Include="images\m\info_tit5_v2.jpg" />
+    <Content Include="images\m\intro_bar.jpg" />
+    <Content Include="images\m\item_more.png" />
+    <Content Include="images\m\item_more_on.png" />
+    <Content Include="images\m\korea.jpg" />
+    <Content Include="images\m\left_bar.png" />
+    <Content Include="images\m\link1.jpg" />
+    <Content Include="images\m\link1_v2.jpg" />
+    <Content Include="images\m\link2.jpg" />
+    <Content Include="images\m\link2_v2.jpg" />
+    <Content Include="images\m\link2_v3.jpg" />
+    <Content Include="images\m\logo_mbc.png" />
+    <Content Include="images\m\logo_pyeongchang.png" />
+    <Content Include="images\m\logo_pyeongchang_v2.png" />
+    <Content Include="images\m\mbc_logo.png" />
+    <Content Include="images\m\mbc_sns.png" />
+    <Content Include="images\m\medal.png" />
+    <Content Include="images\m\news1.jpg" />
+    <Content Include="images\m\news2.jpg" />
+    <Content Include="images\m\news3.jpg" />
+    <Content Include="images\m\news4.jpg" />
+    <Content Include="images\m\news5.jpg" />
+    <Content Include="images\m\news_default.jpg" />
+    <Content Include="images\m\now-off.png" />
+    <Content Include="images\m\now-on.png" />
+    <Content Include="images\m\picto1.png" />
+    <Content Include="images\m\picto10.png" />
+    <Content Include="images\m\picto10_on.png" />
+    <Content Include="images\m\picto11.png" />
+    <Content Include="images\m\picto11_on.png" />
+    <Content Include="images\m\picto12.png" />
+    <Content Include="images\m\picto12_on.png" />
+    <Content Include="images\m\picto13.png" />
+    <Content Include="images\m\picto13_on.png" />
+    <Content Include="images\m\picto14.png" />
+    <Content Include="images\m\picto14_on.png" />
+    <Content Include="images\m\picto15.png" />
+    <Content Include="images\m\picto15_on.png" />
+    <Content Include="images\m\picto1_on.png" />
+    <Content Include="images\m\picto2.png" />
+    <Content Include="images\m\picto2_on.png" />
+    <Content Include="images\m\picto3.png" />
+    <Content Include="images\m\picto3_on.png" />
+    <Content Include="images\m\picto4.png" />
+    <Content Include="images\m\picto4_on.png" />
+    <Content Include="images\m\picto5.png" />
+    <Content Include="images\m\picto5_on.png" />
+    <Content Include="images\m\picto6.png" />
+    <Content Include="images\m\picto6_on.png" />
+    <Content Include="images\m\picto7.png" />
+    <Content Include="images\m\picto7_on.png" />
+    <Content Include="images\m\picto8.png" />
+    <Content Include="images\m\picto8_on.png" />
+    <Content Include="images\m\picto9.png" />
+    <Content Include="images\m\picto9_on.png" />
+    <Content Include="images\m\sch-bar.png" />
+    <Content Include="images\m\sch-news.jpg" />
+    <Content Include="images\m\sch-vod.jpg" />
+    <Content Include="images\m\schedule_more.png" />
+    <Content Include="images\m\schedule_more_v2.jpg" />
+    <Content Include="images\m\select_bg.png" />
+    <Content Include="images\m\sns_bar.jpg" />
+    <Content Include="images\m\tab-bar.jpg" />
+    <Content Include="images\m\table_bg.png" />
+    <Content Include="images\m\table_bg2.jpg" />
+    <Content Include="images\m\table_bg2.png" />
+    <Content Include="images\m\tit-news.png" />
+    <Content Include="images\m\tit-vod.png" />
+    <Content Include="images\m\tit_hot.png" />
+    <Content Include="images\m\tit_hotclip.png" />
+    <Content Include="images\m\v1.jpg" />
+    <Content Include="images\m\v2.jpg" />
+    <Content Include="images\m\v3.jpg" />
+    <Content Include="images\m\v4.jpg" />
+    <Content Include="images\m\view-list.jpg" />
+    <Content Include="images\m\visual1.jpg" />
+    <Content Include="images\m\visual2.jpg" />
+    <Content Include="images\m\visual_off.png" />
+    <Content Include="images\m\visual_on.png" />
+    <Content Include="images\m\vod1.html" />
+    <Content Include="images\m\vod1.jpg" />
+    <Content Include="images\m\vod1_files\131589023472914743.png" />
+    <Content Include="images\m\vod1_files\131614195200687395.png" />
+    <Content Include="images\m\vod1_files\131617452713485471.png" />
+    <Content Include="images\m\vod1_files\131617514612378826.png" />
+    <Content Include="images\m\vod1_files\23.jpg" />
+    <Content Include="images\m\vod1_files\26.jpg" />
+    <Content Include="images\m\vod1_files\29.jpg" />
+    <Content Include="images\m\vod1_files\30.jpg" />
+    <Content Include="images\m\vod1_files\31.jpg" />
+    <Content Include="images\m\vod1_files\3_11.jpg" />
+    <Content Include="images\m\vod1_files\6_11.jpg" />
+    <Content Include="images\m\vod1_files\AKR20180131106600007_02_i.jpg" />
+    <Content Include="images\m\vod1_files\chang%40Bottom3.html" />
+    <Content Include="images\m\vod1_files\dtqxhflsyvyg636530080880075165.jpg" />
+    <Content Include="images\m\vod1_files\font.css" />
+    <Content Include="images\m\vod1_files\footer_mbc.png" />
+    <Content Include="images\m\vod1_files\g-day.png" />
+    <Content Include="images\m\vod1_files\glo_1801_640100.jpg" />
+    <Content Include="images\m\vod1_files\link1_v2.jpg" />
+    <Content Include="images\m\vod1_files\link2_v3.jpg" />
+    <Content Include="images\m\vod1_files\mbc_sns.png" />
+    <Content Include="images\m\vod1_files\style.css" />
+    <Content Include="images\m\vod1_files\swiper.min.css" />
+    <Content Include="images\m\vod2.jpg" />
+    <Content Include="images\m\vod3.jpg" />
+    <Content Include="images\m\vod4.jpg" />
+    <Content Include="images\m\vod_bg.png" />
+    <Content Include="images\m\vod_off.png" />
+    <Content Include="images\m\vod_on.png" />
+    <Content Include="images\m\vod_v1.png" />
+    <Content Include="images\m\vod_v2.png" />
+    <Content Include="images\m\white_bar.jpg" />
+    <Content Include="images\nav-about.png" />
+    <Content Include="images\nav-news.png" />
+    <Content Include="images\nav-sch.png" />
+    <Content Include="images\nav-vod.png" />
+    <Content Include="images\news-defualt.jpg" />
+    <Content Include="images\news1.jpg" />
+    <Content Include="images\news2.jpg" />
+    <Content Include="images\news3.jpg" />
+    <Content Include="images\news4.jpg" />
+    <Content Include="images\news5.jpg" />
+    <Content Include="images\picto1.png" />
+    <Content Include="images\picto10.png" />
+    <Content Include="images\picto10_on.png" />
+    <Content Include="images\picto11.png" />
+    <Content Include="images\picto11_on.png" />
+    <Content Include="images\picto12.png" />
+    <Content Include="images\picto12_on.png" />
+    <Content Include="images\picto13.png" />
+    <Content Include="images\picto13_on.png" />
+    <Content Include="images\picto14.png" />
+    <Content Include="images\picto14_on.png" />
+    <Content Include="images\picto15.png" />
+    <Content Include="images\picto15_on.png" />
+    <Content Include="images\picto1_on.png" />
+    <Content Include="images\picto2.png" />
+    <Content Include="images\picto2_on.png" />
+    <Content Include="images\picto3.png" />
+    <Content Include="images\picto3_on.png" />
+    <Content Include="images\picto4.png" />
+    <Content Include="images\picto4_on.png" />
+    <Content Include="images\picto5.png" />
+    <Content Include="images\picto5_on.png" />
+    <Content Include="images\picto6.png" />
+    <Content Include="images\picto6_on.png" />
+    <Content Include="images\picto7.png" />
+    <Content Include="images\picto7_on.png" />
+    <Content Include="images\picto8.png" />
+    <Content Include="images\picto8_on.png" />
+    <Content Include="images\picto9.png" />
+    <Content Include="images\picto9_on.png" />
+    <Content Include="images\rank-arrow.png" />
+    <Content Include="images\rank-default.png" />
+    <Content Include="images\sch-items.jpg" />
+    <Content Include="images\sch-title.png" />
+    <Content Include="images\schedule_more.png" />
+    <Content Include="images\sns_bar.jpg" />
+    <Content Include="images\table_bg.png" />
+    <Content Include="images\table_bg2.jpg" />
+    <Content Include="images\table_bg2.png" />
+    <Content Include="images\tit-hot.png" />
+    <Content Include="images\tit-insta.png" />
+    <Content Include="images\tit-mbcinsta.png" />
+    <Content Include="images\tit-news.png" />
+    <Content Include="images\tit-newslot.png" />
+    <Content Include="images\tit-nvod.png" />
+    <Content Include="images\tit-rank.png" />
+    <Content Include="images\tit-vod.png" />
+    <Content Include="images\tit_hot.png" />
+    <Content Include="images\tit_hotclip.png" />
+    <Content Include="images\txt-date-v2.png" />
+    <Content Include="images\txt-date.png" />
+    <Content Include="images\txt-gam-name.png" />
+    <Content Include="images\txt-noti.png" />
+    <Content Include="images\txt-num-rank.png" />
+    <Content Include="images\txt-num.png" />
+    <Content Include="images\txt-openday-v2.png" />
+    <Content Include="images\txt-openday.png" />
+    <Content Include="images\visual1.jpg" />
+    <Content Include="images\visual2.jpg" />
+    <Content Include="images\visual_off.png" />
+    <Content Include="images\visual_on.png" />
+    <Content Include="images\vod1.jpg" />
+    <Content Include="images\vod2.jpg" />
+    <Content Include="images\vod3.jpg" />
+    <Content Include="images\vod4.jpg" />
+    <Content Include="images\vod_bg.png" />
+    <Content Include="images\vod_off.png" />
+    <Content Include="images\vod_on.png" />
+    <Content Include="images\vod_v1.png" />
+    <Content Include="images\vod_v2.png" />
+    <Content Include="images\white_bar.jpg" />
+    <Content Include="js\data.js" />
+    <Content Include="js\include-v2.js" />
+    <Content Include="js\include.js" />
+    <Content Include="js\iscroll.js" />
+    <Content Include="js\jquery.countdown.min.js" />
+    <Content Include="js\swiper.js" />
+    <Content Include="js\swiper.min.js" />
+    <Content Include="js\ui-v2.js" />
+    <Content Include="js\ui.js" />
+    <Content Include="lib\XMLHttpRequest.swf" />
+    <Content Include="swf\FlashPlayer.swf" />
+    <Content Include="swf\ImbcPlayer.swf" />
+    <Content Include="swf\ImbcPlayer_sv.swf" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="common\fonts\NotoKR-Bold\notokr-bold.eot" />
+    <Content Include="common\fonts\NotoKR-Bold\notokr-bold.ttf" />
+    <Content Include="common\fonts\NotoKR-Bold\notokr-bold.woff" />
+    <Content Include="common\fonts\NotoKR-Bold\notokr-bold.woff2" />
+    <Content Include="common\fonts\NotoKR-DemiLight\notokr-demilight.eot" />
+    <Content Include="common\fonts\NotoKR-DemiLight\notokr-demilight.ttf" />
+    <Content Include="common\fonts\NotoKR-DemiLight\notokr-demilight.woff" />
+    <Content Include="common\fonts\NotoKR-DemiLight\notokr-demilight.woff2" />
+    <Content Include="common\fonts\NotoKR-Medium\notokr-medium.eot" />
+    <Content Include="common\fonts\NotoKR-Medium\notokr-medium.ttf" />
+    <Content Include="common\fonts\NotoKR-Medium\notokr-medium.woff" />
+    <Content Include="common\fonts\NotoKR-Medium\notokr-medium.woff2" />
+    <Content Include="common\fonts\NotoKR-Regular\notokr-regular.eot" />
+    <Content Include="common\fonts\NotoKR-Regular\notokr-regular.ttf" />
+    <Content Include="common\fonts\NotoKR-Regular\notokr-regular.woff" />
+    <Content Include="common\fonts\NotoKR-Regular\notokr-regular.woff2" />
+    <Content Include="font\noto-bold.eot" />
+    <Content Include="font\noto-bold.ttf" />
+    <Content Include="font\noto-bold.woff" />
+    <Content Include="font\noto-italic.eot" />
+    <Content Include="font\noto-italic.ttf" />
+    <Content Include="font\noto-italic.woff" />
+    <Content Include="font\noto-regular.eot" />
+    <Content Include="font\noto-regular.ttf" />
+    <Content Include="font\noto-regular.woff" />
+    <Content Include="font\notokr-black.eot" />
+    <Content Include="font\notokr-black.ttf" />
+    <Content Include="font\notokr-black.woff" />
+    <Content Include="font\notokr-bold.eot" />
+    <Content Include="font\notokr-bold.ttf" />
+    <Content Include="font\notokr-bold.woff" />
+    <Content Include="font\notokr-demilight.eot" />
+    <Content Include="font\notokr-demilight.ttf" />
+    <Content Include="font\notokr-demilight.woff" />
+    <Content Include="font\notokr-light.eot" />
+    <Content Include="font\notokr-light.ttf" />
+    <Content Include="font\notokr-light.woff" />
+    <Content Include="font\notokr-medium.eot" />
+    <Content Include="font\notokr-medium.ttf" />
+    <Content Include="font\notokr-medium.woff" />
+    <Content Include="font\notokr-regular.eot" />
+    <Content Include="font\notokr-regular.ttf" />
+    <Content Include="font\notokr-regular.woff" />
+    <Content Include="font\notokr-thin.eot" />
+    <Content Include="font\notokr-thin.ttf" />
+    <Content Include="font\notokr-thin.woff" />
+    <Content Include="images\m\vod1_files\analytics.js.다운로드" />
+    <Content Include="images\m\vod1_files\checkTitle.js.다운로드" />
+    <Content Include="images\m\vod1_files\css_browser_selector.min.js.다운로드" />
+    <Content Include="images\m\vod1_files\data.js.다운로드" />
+    <Content Include="images\m\vod1_files\drama_program_go_n.js.다운로드" />
+    <Content Include="images\m\vod1_files\global_function.js.다운로드" />
+    <Content Include="images\m\vod1_files\include.js.다운로드" />
+    <Content Include="images\m\vod1_files\interstitialScript.js.다운로드" />
+    <Content Include="images\m\vod1_files\iscroll.js.다운로드" />
+    <Content Include="images\m\vod1_files\jquery-1.12.3.min.js.다운로드" />
+    <Content Include="images\m\vod1_files\jquery.countdown.min.js.다운로드" />
+    <Content Include="images\m\vod1_files\js" />
+    <Content Include="images\m\vod1_files\makePCookie.js.다운로드" />
+    <Content Include="images\m\vod1_files\sub_DWCode.js.다운로드" />
+    <Content Include="images\m\vod1_files\swiper.min.js.다운로드" />
+    <Content Include="images\m\vod1_files\ui.js.다운로드" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutSub.cshtml" />
+    <Content Include="Views\Home\Vod.cshtml" />
+    <Content Include="util\cloneLink.ashx" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Home\VodList.cshtml" />
+    <Content Include="Views\Home\mIndex.cshtml" />
+    <Content Include="Views\Shared\_LayoutM.cshtml" />
+    <Content Include="Views\Home\mVod.cshtml" />
+    <Content Include="Views\Home\mVodList.cshtml" />
+    <Content Include="Views\Home\mNews.cshtml" />
+    <Content Include="Views\Home\mNewsList.cshtml" />
+    <Content Include="Views\Home\mNewsView.cshtml" />
+    <Content Include="Views\Home\NewsView.cshtml" />
+    <Content Include="Views\Shared\_Layout_2nd.cshtml" />
+    <Content Include="Views\Home\Index2.cshtml" />
+    <Content Include="Views\Home\IndexVod.cshtml" />
+    <Content Include="Views\PCrhksfl\Notice.cshtml" />
+    <Content Include="Views\PCrhksfl\Medal.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutSub_2nd.cshtml" />
+    <Content Include="Views\Home\MedalRank.cshtml" />
+    <Content Include="Views\Home\Vod2.cshtml" />
+    <Content Include="Views\Home\VodList2.cshtml" />
+    <Content Include="Views\PCrhksfl\Schedule.cshtml" />
+    <Content Include="Views\Home\ScheduleList.cshtml" />
+    <Content Include="Views\Home\ScheduleListPage.cshtml" />
+    <Content Include="Views\Shared\_LayoutM_2nd.cshtml" />
+    <Content Include="Views\Home\mIndex2.cshtml" />
+    <Content Include="Views\Home\mVod2.cshtml" />
+    <Content Include="Views\Home\mVodList2.cshtml" />
+    <Content Include="Views\Home\mMedalRank.cshtml" />
+    <Content Include="Views\Home\mScheduleList.cshtml" />
+    <Content Include="Views\Home\mScheduleListPage.cshtml" />
+    <Content Include="Views\Home\test.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

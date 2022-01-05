@@ -1,0 +1,143 @@
+﻿@using _2018.imbc.com.Models
+@{
+    var vodList = ViewBag.vodlist as ContentList;
+    var rnewslist = ViewBag.rnewslist as EnewsList;
+    var lnewslist = ViewBag.lnewslist as List<LNewsList>;
+}
+
+
+<div id="wrapArea" class="wrap-area">
+    <header id="header" class="header"></header>
+
+    <nav id="navWrap" class="nav-wrap"></nav>
+
+    <div id="container" class="main">
+        <section class="section hot-wrap">
+            <h3 class="tit-con"><img src="/images/tit-hot.png" alt="HOT ISSUE"></h3>
+            <div class="btn-box">
+                <button type="button" class="btn prev">이전 종목 보기</button>
+                <button type="button" class="btn next">다음 종목 보기</button>
+            </div>
+            <div class="hot-area" id="hotArea">
+                <div class="slide"></div>
+            </div>
+            <div class="img-label"></div>
+            <div class="img-character"></div>
+            <div class="indicator">
+                <span class="indi-area"></span>
+                <button type="button" class="ico-playstop">자동 재생, 정지</button>
+            </div>
+            <span class="slide-num"></span>
+        </section>
+
+        <section class="section vod-wrap">
+            <h3 class="tit-con"><img src="/images/tit-nvod.png" alt="최신 영상"></h3>
+            <a href="/vod" class="link-full">전체보기</a>
+            <div class="sec-area">
+                <ul class="vod-list list-type">
+                    @foreach (ContentInfo item in vodList.List)
+                    {
+                        <li>
+                            <a href="/vod?bid=@item.BroadcastID&itemid=@item.itemid">
+                                <div class="img">
+                                    <img src="@item.ImgUrl_Normal" alt="@item.ContentTitle">
+                                </div>
+                                <div class="txt-wrap">
+                                    <p class="title ellipsis2">@item.ContentTitle</p>
+                                    <p class="num">@item.HitCount</p>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="sec-right">
+                <div class="ad-square">
+                    <iframe style="width:250px; height:250px" noresize scrolling="no" frameborder="0" marginheight="0" marginwidth="0"
+                            src="http://ads.imbc.com/RealMedia/ads/adstream_sx.ads/www.imbc.com/chang@TopRight" title="광고">
+                        <a href="http://ads.imbc.com/RealMedia/ads/click_nx.ads/www.imbc.com/chang@TopRight">
+                            <img src="http://ads.imbc.com/RealMedia/ads/adstream_nx.ads/www.imbc.com/chang@TopRight" alt="광고">
+                        </a>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="section news-wrap">
+            <div class="sec-area">
+                <h3 class="tit-con"><img src="/images/tit-news.png" alt="2018 평창 뉴스"></h3>
+                <a href="/news" class="link-full">전체보기</a>
+                <ul class="new-list list-type">
+                    @foreach (EnewsInfo item in rnewslist)
+                    {
+                        <li>                            
+                            <a href="/News/View?idx=@item.Idx&opt=I">
+                                <div class="img">
+                                    <img src="http://talkimg.imbc.com/TVianUpload/TVian/TViews/image/@item.ImgUrl" alt="@item.Title">
+                                </div>
+                                <div class="txt-wrap">
+                                    <p class="title ellipsis2">@item.Title</p>
+                                    <p class="num">@item.PublicationDate</p>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <div class="ad-banner">
+                    <iframe style="width:828px; height:90px" noresize scrolling="no" frameborder="0" marginheight="0" marginwidth="0"
+                            src="http://ads.imbc.com/RealMedia/ads/adstream_sx.ads/www.imbc.com/chang@Bottom" title="광고">
+                        <a href="http://ads.imbc.com/RealMedia/ads/click_nx.ads/www.imbc.com/chang@Bottom">
+                            <img src="http://ads.imbc.com/RealMedia/ads/adstream_nx.ads/www.imbc.com/chang@Bottom" alt="광고">
+                        </a>
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="sec-right">
+                <h4 class="tit-news"><img src="/images/tit-newslot.png" alt="많이 본 뉴스"></h4>
+                <ul class="news-lots">
+                    @{
+                        int i = 1;
+                        foreach (LNewsList item in lnewslist)
+                        {
+                            if (item.Opt == "E")
+                            {
+                                <li>
+                                    <a href="/News/View?idx=@item.Idx&opt=E">
+                                        <span class="@Html.Raw("rank num" + i)">@i.</span>
+                                        <p class="title ellipsis2">@item.Title</p>
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="/News/View?idx=@item.Idx&opt=I">
+                                        <span class="@Html.Raw("rank num" + i)">@i.</span>
+                                        <p class="title ellipsis2">@item.Title</p>
+                                    </a>
+                                </li>
+                            }
+                            i++;
+                        }
+                    }
+                </ul>
+            </div>
+        </section>
+
+        <section class="section info-wrap">
+            <a href="about/index.html">
+                세번의 도전, 15년의 기다림으로 결실을 맺은 2018 평창 동계올림픽<br>
+                개최 기간 2018.02.09~02.05(17일간)<br>
+                개최 장소 평창 · 강릉 · 정선<br>
+                자세히 보기
+            </a>
+        </section>
+
+    </div>
+</div>
+<script type="text/javascript">
+    function winPop(url) {
+        window.open(url, '_blank', 'width=1080px, height=480px,scrollbars=yes, resizable=yes,  resizable=yes');
+    }
+</script>

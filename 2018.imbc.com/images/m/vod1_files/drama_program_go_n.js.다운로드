@@ -1,0 +1,41 @@
+function goLastProgURL(strUrl)
+{
+	if (strUrl != "0")
+	{
+		if (strUrl.lastIndexOf("::") > 0)
+		{
+			strMoveUrl = strUrl.split("::");
+			window.open(strMoveUrl[0],"LastProgWin","toolbar=no,location=no,directories=no,status=no,menubar=yes,scrollbars=yes,resizable=no,width=750,height=577");
+		}
+		else
+		{
+			window.location.href = strUrl;			
+		}
+	}
+}
+	
+function fDramaProgramGo() {
+		document.writeln("<!-- 프로그램리스트 스크립트 -->");
+		document.write("<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>");
+		document.write("<TR><td align='center'>");
+		document.writeln("<select onChange=goLastProgURL(selLastProg.value) name=selLastProg class=poll style='HEIGHT: 22px; WIDTH: 132px'>");
+		document.writeln("<option selected>프로그램바로가기</option>");
+		document.writeln("<option>--------------</option>");
+		document.writeln("");
+		document.writeln("<option value=http://www.imbc.com/broad/tv/drama/roadno1/index.html>로드넘버원</option>");
+		document.writeln("");
+		document.writeln("<option value=http://www.imbc.com/broad/tv/drama/dongyi/index.html>동이</option>");
+		document.writeln("");
+		document.writeln("<option value=http://www.imbc.com/broad/tv/drama/suro/index.html>김수로</option>");
+		document.writeln("");
+		document.writeln("<option value=http://www.imbc.com/broad/tv/drama/goldfish/index.html>황금물고기</option>");
+		document.writeln("");
+		document.writeln("<option value=http://www.imbc.com/broad/tv/drama/pink/index.html>분홍립스틱</option>");
+		document.writeln("");
+		document.writeln("<option value=http://www.imbc.com/broad/tv/drama/dandelion/index.html>민들레가족</option>");
+		document.writeln("");
+		document.writeln("<option value=http://www.imbc.com/broad/tv/drama/cantstop/index.html>멈출수없어</option>");
+		document.writeln("");
+		document.writeln("</select>");
+		document.write("</td></TR></table>");
+	}

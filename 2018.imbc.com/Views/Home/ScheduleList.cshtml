@@ -1,0 +1,192 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutSub_2nd.cshtml";
+    ViewBag.Title = "전체 경기 일정";
+    ViewBag.page = "scheduleList";
+    ViewBag.page2 = "schedule";
+
+}
+
+<div class="sec-wrap">
+    <div class="sec-area">
+        <div class="schedule-tab">
+            <a href="http://2018.imbc.com/schedule/" class="on">주요 방송 일정</a>
+            <a href="http://2018.imbc.com/allschedule/">전체 경기 일정</a>
+        </div>
+        <h3 class="tit-con">MBC 중계 일정/결과</h3>
+        <div class="sch-wrap">
+            <div class="sch-top">
+                <button type="button" class="btn prev">이전 보기</button>
+                <div class="sch-date">
+                    <ul id="schDate">
+                        <li class="dt1"><a href="javascript:chDate('2018-02-08')"><span class="icon date1">8 목</span></a></li>
+                        <li class="dt2"><a href="javascript:chDate('2018-02-09')"><span class="icon date2">9 금</span></a></li>
+                        <li class="dt3"><a href="javascript:chDate('2018-02-10')"><span class="icon date3">10 토</span></a></li>
+                        <li class="dt4"><a href="javascript:chDate('2018-02-11')"><span class="icon date4">11 일</span></a></li>
+                        <li class="dt5"><a href="javascript:chDate('2018-02-12')"><span class="icon date5">12 월</span></a></li>
+                        <li class="dt6"><a href="javascript:chDate('2018-02-13')"><span class="icon date6">13 화</span></a></li>
+                        <li class="dt7"><a href="javascript:chDate('2018-02-14')"><span class="icon date7">14 수</span></a></li>
+                        <li class="dt8"><a href="javascript:chDate('2018-02-15')"><span class="icon date8">15 목</span></a></li>
+                        <li class="dt9"><a href="javascript:chDate('2018-02-16')"><span class="icon date9">16 금</span></a></li>
+                        <li class="dt10"><a href="javascript:chDate('2018-02-17')"><span class="icon date10">17 토</span></a></li>
+                        <li class="dt11"><a href="javascript:chDate('2018-02-18')"><span class="icon date11">18 일</span></a></li>
+                        <li class="dt12"><a href="javascript:chDate('2018-02-19')"><span class="icon date12">19 월</span></a></li>
+                        <li class="dt13"><a href="javascript:chDate('2018-02-20')"><span class="icon date13">20 화</span></a></li>
+                        <li class="dt14"><a href="javascript:chDate('2018-02-21')"><span class="icon date14">21 수</span></a></li>
+                        <li class="dt15"><a href="javascript:chDate('2018-02-22')"><span class="icon date15">22 목</span></a></li>
+                        <li class="dt16"><a href="javascript:chDate('2018-02-23')"><span class="icon date16">23 금</span></a></li>
+                        <li class="dt17"><a href="javascript:chDate('2018-02-24')"><span class="icon date17">24 토</span></a></li>
+                        <li class="dt18"><a href="javascript:chDate('2018-02-25')"><span class="icon date18">25 일</span></a></li>
+                    </ul>
+                </div>
+                <button type="button" class="btn next">다음 보기</button>
+            </div>
+            <div class="sch-area">
+                <div class="table-area">
+                    <table class="sch-today">
+                        <caption>2018년 2월 8일~25일까지 날짜별 주요 방송 일정</caption>
+                        <colgroup>
+                            <col width="102px">
+                            <col width="141px">
+                            <col width="auto">
+                            <col width="155px">
+                        </colgroup>
+                        <thead>
+                        <th>시간</th>
+                        <th>종목</th>
+                        <th>결과</th>
+                        <th>주요 영상/뉴스</th>
+                        </thead>
+                        <tbody id="tbody_list">
+                            @Html.Partial("ScheduleListPage")
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="sec-right">
+        <div class="ad-square">
+            <script src="http://www.imbc.com/2010_main/js/main_square_ad.js"></script>
+        </div>
+        <div class="sns-area" id="snsArea">
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var obj = $('.sch-wrap');
+        var rolling_items = obj.find('.sch-date');
+        var btn_prev = obj.find('.sch-top .prev');
+        var btn_next = obj.find('.sch-top .next');
+        var item = rolling_items.find('#schDate');
+        var list = item.find('li');
+        var list_len = list.length;
+        var m = parseFloat(list.css('width'));
+        var n = parseFloat(list.css('margin-right'));
+        var viewing = 10;
+        var cnt = 0;
+        var x = (m + n) * viewing;
+        var y = Math.ceil(list_len / viewing);//2
+        var z = x * y;
+
+        item.css('width', z + 'px');
+
+        btn_next.on('click', function () {
+            nextAction();
+        });
+
+        btn_prev.on('click', function () {
+            prevAction();
+        });
+
+
+
+
+        function nextAction() {
+
+            if (cnt == y - 1) {
+                item.css('margin-left', 0);
+                cnt = 0;
+            } else {
+                var x1 = parseFloat(item.css('margin-left'));
+                var y1 = x1 - x;
+                item.css('margin-left', y1 + 'px');
+                cnt++;
+            }
+        }
+        function prevAction() {
+            if (cnt == 0) {
+                item.css('margin-left', -z + x + 'px');
+                cnt = y - 1;
+            } else {
+                var x1 = parseFloat(item.css('margin-left'));
+                var y1 = x1 + x;
+                item.css('margin-left', y1 + 'px');
+                cnt--;
+            }
+        }
+
+        var day = "@ViewBag.dtDay".substring(8,10);
+        var dtnum = 1;
+        if (day == "09") dtnum = 2;
+        else if (day == "10") dtnum = 3;
+        else if (day == "11") dtnum = 4;
+        else if (day == "12") dtnum = 5;
+        else if (day == "13") dtnum = 6;
+        else if (day == "14") dtnum = 7;
+        else if (day == "15") dtnum = 8;
+        else if (day == "16") dtnum = 9;
+        else if (day == "17") dtnum = 10;
+        else if (day == "18") dtnum = 11;
+        else if (day == "19") dtnum = 12;
+        else if (day == "20") dtnum = 13;
+        else if (day == "21") dtnum = 14;
+        else if (day == "22") dtnum = 15;
+        else if (day == "23") dtnum = 16;
+        else if (day == "24") dtnum = 17;
+        else if (day == "25") dtnum = 18;
+
+        if (dtnum > 11) nextAction();
+
+        $("#schDate .dt"+dtnum).addClass("on");
+
+    });
+
+    function chDate(dt) {
+        var day = dt.substring(8,10);
+        var dtnum = 1;
+        if (day == "09") dtnum = 2;
+        else if (day == "10") dtnum = 3;
+        else if (day == "11") dtnum = 4;
+        else if (day == "12") dtnum = 5;
+        else if (day == "13") dtnum = 6;
+        else if (day == "14") dtnum = 7;
+        else if (day == "15") dtnum = 8;
+        else if (day == "16") dtnum = 9;
+        else if (day == "17") dtnum = 10;
+        else if (day == "18") dtnum = 11;
+        else if (day == "19") dtnum = 12;
+        else if (day == "20") dtnum = 13;
+        else if (day == "21") dtnum = 14;
+        else if (day == "22") dtnum = 15;
+        else if (day == "23") dtnum = 16;
+        else if (day == "24") dtnum = 17;
+        else if (day == "25") dtnum = 18;
+
+        $("#schDate li").removeClass("on");
+        $("#schDate .dt" + dtnum).addClass("on");
+
+        $.post(
+            '@Url.Action("ScheduleListPage", "Home")', { dtDay: dt},
+            function (response) {
+                $("#tbody_list").html('');
+                $("#tbody_list").html(response);
+            }
+        );
+    }
+</script>

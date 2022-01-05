@@ -1,0 +1,66 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutSub_2nd.cshtml";
+    ViewBag.Title = "뉴스";
+    ViewBag.page = "news";
+    ViewBag.page2 = "news";
+    var info = ViewBag.info as NewsSimple;
+}
+
+<div class="sec-wrap">
+    <div class="sec-area">
+        <div class="news-wrap">
+            <div class="article-header">
+                <p class="title">@info.title</p>
+                <div class="news-info">
+                    @if (info.NickName == "IMNEWS")
+                    {
+                        <span class="date first">@info.author</span>
+                    }
+                    <span class="date">@info.pubDate</span>
+                </div>
+            </div>
+            <div class="article-content">
+                @if (info.NickName == "IMNEWS")
+                {
+                    if (info.IsVideo == 1)
+                    {
+                        <center>
+                            <iframe frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="width: 561px; height: 365px; line-height: 21.7px;" src="http://vodmall.imbc.com/player/player2014/popupPlayer.html?isLive=N&useAd=N&vodURL=@info.vodurl.Replace("http://", "rtmp://").Replace("/playlist.m3u8", "")&isAutoPlay=N&initImage=@info.NewsImg"></iframe>
+                        </center><br /><br />
+                    }
+                    else
+                    {
+                        <center>
+                            <img src="@info.NewsImg" />
+                        </center><br /><br />
+                    }
+                }
+                <!--IMNEWS.-->
+                @Html.Raw(info.content)
+            </div>
+            <div class="list-area">
+                <a href="/News?page=@ViewBag.pagenum&sort=@ViewBag.sort" class="link-list">목록</a>
+            </div>
+        </div>
+    </div>
+    <div class="sec-right">
+        <div class="ad-square">
+            <script src="http://www.imbc.com/2010_main/js/main_square_ad.js"></script>
+        </div>
+        <div class="sns-area" id="snsArea"></div>
+    </div>
+</div>
+@if (info.NickName == "IMNEWS")
+{
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56832179-1"></script>
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-56832179-1');
+
+    </script>
+}
+

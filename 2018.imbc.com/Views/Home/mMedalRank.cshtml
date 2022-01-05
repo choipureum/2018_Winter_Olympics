@@ -1,0 +1,65 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutM_2nd.cshtml";
+    ViewBag.page = "sub sub-medal";
+
+    var vodList = ViewBag.vodlist as ContentList;
+    var medalList = ViewBag.medalList as List<MedalCount>;
+    var kcount = ViewBag.kcount as MedalCount;
+}
+
+<section class="medal-rank">
+    <div class="medal-korea">
+        <span class="flag"><img src="/images/m/korea.jpg" alt="금메달"></span>
+        <span class="rank"><strong>@kcount.Rank</strong>위</span>
+        <span class="name">대한민국</span>
+        <ul>
+            <li><img src="/images/m/ico-gold.png" alt="금메달">@kcount.Gold</li>
+            <li><img src="/images/m/ico-silver.png" alt="은메달">@kcount.Silver</li>
+            <li><img src="/images/m/ico-bronze.png" alt="동메달">@kcount.Bronze</li>
+        </ul>
+    </div>
+    <div class="update">
+        <span>최종 업데이트 : @kcount.uptTime.Substring(0, 4).@kcount.uptTime.Substring(5, 2).@kcount.uptTime.Substring(8, 2) @kcount.uptTime.Substring(11, 2):@(kcount.uptTime.Substring(14, 2))</span>
+        <a href="https://www.pyeongchang2018.com/ko/game-time/results/OWG2018/ko/general/medal-standings.htm" class="allrank" target="_blank">전체 순위보기</a>
+    </div>
+    <table class="ranking">
+        <caption class="blind">2018 평창 동계올림픽 대회 메달 순위</caption>
+        <colgroup>
+            <col width="15%">
+            <col width="*">
+            <col width="13%">
+            <col width="13%">
+            <col width="13%">
+            <col width="14%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">순위</th>
+                <th scope="col">국가</th>
+                <th scope="col"><img src="/images/m/ico-gold-s.png" alt="금메달"></th>
+                <th scope="col"><img src="/images/m/ico-sliver-s.png" alt="은메달"></th>
+                <th scope="col"><img src="/images/m/ico-bronze-s.png" alt="동메달"></th>
+                <th scope="col">합계</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int k = 0;
+                foreach (MedalCount item in medalList)
+                {
+                    <tr>
+                        <td class="number">@(item.Rank)</td>
+                        <td class="nation"><img src="http://2018.imbc.com/images/flags/flag_@(item.NationalID).jpg" alt="@item.NationalName 국기"><span class="nation-name">@item.NationalName</span></td>
+                        <td class="medal-gold">@item.Gold</td>
+                        <td class="medal-silver">@item.Silver</td>
+                        <td class="medal-bronze">@item.Bronze</td>
+                        <td class="sum">@item.Total</td>
+                    </tr>
+                    k++;
+                    if (k == 20) { break; }
+                }
+            }
+        </tbody>
+    </table>
+</section>

@@ -1,0 +1,824 @@
+function getSubDWCodeNm(code)
+{
+if (code=='AG10001')
+     return 'MBC를시작페이지로';               
+else if (code=='AG10002')
+     return '툴바설치';                   
+else if (code=='AG10003')
+     return 'mini설치';                   
+else if (code=='AG10004')
+     return '시각장애인';                 
+else if (code=='AG10005')
+     return '로그인';  
+else if (code=='AG10006')
+     return '로그아웃';  
+else if (code=='AG10007')
+     return '회원가입';  
+else if (code=='AG10008')
+     return '마이페이지';  
+else if (code=='AG10009')
+     return '마이페이지';  
+else if (code=='AG10010')
+     return '정액권구입';  
+else if (code=='AG10011')
+     return '고객센터';  
+else if (code=='AG10012')
+     return 'MBC로고';  
+else if (code=='AG10013')
+     return '온에어-TV';  
+else if (code=='AG10014')
+     return '온에어-표준FM';  
+else if (code=='AG10015')
+     return '온에어-FM4U';  
+else if (code=='AG10016')
+     return '편성표';  
+else if (code=='AG10017')
+     return '프로모션배너';  
+else if (code=='AG10018')
+     return '검색창키워드';  
+else if (code=='AG10019')
+     return '프로모션키워드';  
+else if (code=='AG10020')
+     return '홈';  
+else if (code=='AG10021')
+     return '다시보기';  
+else if (code=='AG10022')
+     return '톡앤톡';  
+else if (code=='AG10023')
+     return 'TV-드라마프로그램';   
+else if (code=='AG10024')
+     return 'TV-예능프로그램';  
+else if (code=='AG10025')
+     return 'TV-시사교양프로그램';  
+else if (code=='AG10026')
+     return 'TV-스포츠프로그램';  
+else if (code=='AG10027')
+     return 'TV-TV메인바로가기';  
+else if (code=='AG10028')
+     return '라디오-표준FM프로그램';  
+else if (code=='AG10029')
+     return '라디오-FM4U프로그램';  
+else if (code=='AG10030')
+     return '라디오-라디오메인바로가기';  
+else if (code=='AG10031')
+     return '뉴스';  
+else if (code=='AG10032')
+     return 'MBC와함께';  
+else if (code=='AG10033')
+     return '영화';  
+else if (code=='AG10034')
+     return '음악';  
+else if (code=='AG10035')
+     return '게임';  
+else if (code=='AG10036')
+     return '콘팅';  
+else if (code=='AG10037')
+     return '찾아라그곳';  
+else if (code=='AG10038')
+     return '해피코리아';  
+else if (code=='AG10039')
+     return 'TV(타이틀)';  
+else if (code=='AG10040')
+     return 'TV프로그램';  
+else if (code=='AG10041')
+     return '톡온에어바로가기';  
+else if (code=='AG10042')
+     return '표준FM (타이틀)';  
+else if (code=='AG10043')
+     return '표준FM프로그램';  
+else if (code=='AG10044')
+     return 'FM4U(타이틀)';  
+else if (code=='AG10045')
+     return 'FM4U프로그램';  
+else if (code=='AG10046')
+     return '종합-포토뉴스';  
+else if (code=='AG10047')
+     return '종합-텍스트뉴스';  
+else if (code=='AG10048')
+     return '스포츠-포토뉴스';  
+else if (code=='AG10049')
+     return '스포츠-텍스트뉴스';  
+else if (code=='AG10154')
+     return '연예-포토뉴스';  
+else if (code=='AG10155')
+     return '연예-텍스트뉴스';  
+else if (code=='AG10152')
+     return '모바일 버전';  
+else if (code=='AG10050')
+     return '많이 본 영상';  
+else if (code=='AG10051')
+     return '뉴스(타이틀)';  
+else if (code=='AG10052')
+     return '공지사항(타이틀)';  
+else if (code=='AG10053')
+     return '공지사항';  
+else if (code=='AG10147')
+     return 'M톡(타이틀)';  
+else if (code=='AG10148')
+     return 'M톡(콘텐츠)';  
+else if (code=='AG10054')
+     return 'MBC와함께(타이틀)';  
+else if (code=='AG10055')
+     return 'MBC와함께';  
+else if (code=='AG10056')
+     return '서비스바로가기';  
+else if (code=='AG10057')
+     return '제휴쇼핑몰';  
+else if (code=='AG10058')
+     return '오늘의특가';  
+else if (code=='AG10059')
+     return '추천상품';  
+else if (code=='AG10060')
+     return '텍스트';  
+else if (code=='AG10061')
+     return '포토';  
+else if (code=='AG10062')
+     return 'MBC회사소개';  
+else if (code=='AG10063')
+     return '방송광고';  
+else if (code=='AG10064')
+     return '웹광고및제휴';  
+else if (code=='AG10065')
+     return '영상자료판매';  
+else if (code=='AG10066')
+     return 'MBC시청자센터';  
+else if (code=='AG10067')
+     return 'MBC클린센터';  
+else if (code=='AG10068')
+     return '이용약관';  
+else if (code=='AG10069')
+     return '개인정보취급방침';  
+else if (code=='AG10070')
+     return '법적고지';  
+else if (code=='AG10071')
+     return '고객센터';  
+else if (code=='AG10072')
+     return '서비스전체보기';  
+else if (code=='AG10073')
+     return 'AboutMBC';  
+else if (code=='AG10074')
+     return 'MBC채용';  
+else if (code=='AG10075')
+     return '시청자센터';  
+else if (code=='AG10076')
+     return 'MBC사회공헌';  
+else if (code=='AG10077')
+     return '프로그램정보통';  
+else if (code=='AG10078')
+     return 'MBC아나운서';  
+else if (code=='AG10079')
+     return 'MBC글로벌마케팅';  
+else if (code=='AG10080')
+     return 'MBC공연+티켓';  
+else if (code=='AG10081')
+     return 'MBCDMB';  
+else if (code=='AG10082')
+     return '방송광고안내';  
+else if (code=='AG10083')
+     return '영상자료판매';  
+else if (code=='AG10084')
+     return '데이터방송';  
+else if (code=='AG10085')
+     return '방송기술HDMBC';  
+else if (code=='AG10086')
+     return 'MBCDrive';  
+else if (code=='AG10087')
+     return 'MBC라디오1318모니터';  
+else if (code=='AG10088')
+     return 'MBC문화동산';  
+else if (code=='AG10089')
+     return 'MBC외주제작센터';  
+else if (code=='AG10090')
+     return 'MBC드림센터';  
+else if (code=='AG10091')
+     return '방송과커뮤니케이션';  
+else if (code=='AG10092')
+     return '부산MBC';  
+else if (code=='AG10093')
+     return '대구MBC';  
+else if (code=='AG10094')
+     return '광주MBC';  
+else if (code=='AG10095')
+     return '대전MBC';  
+else if (code=='AG10096')
+     return '전주MBC';  
+else if (code=='AG10097')
+     return '창원MBC';  
+else if (code=='AG10098')
+     return '춘천MBC';  
+else if (code=='AG10099')
+     return '청주MBC';  
+else if (code=='AG10100')
+     return '제주MBC';  
+else if (code=='AG10101')
+     return '울산MBC';  
+else if (code=='AG10102')
+     return '강릉MBC';  
+else if (code=='AG10103')
+     return '진주MBC';  
+else if (code=='AG10104')
+     return '목포MBC';  
+else if (code=='AG10105')
+     return '여수MBC';  
+else if (code=='AG10106')
+     return '안동MBC';  
+else if (code=='AG10107')
+     return '원주MBC';  
+else if (code=='AG10108')
+     return '충주MBC';  
+else if (code=='AG10109')
+     return '삼척MBC';  
+else if (code=='AG10110')
+     return '포항MBC';  
+else if (code=='AG10111')
+     return 'MBC프로덕션';  
+else if (code=='AG10112')
+     return 'MBC미디어텍';  
+else if (code=='AG10113')
+     return 'MBC아카데미';  
+else if (code=='AG10114')
+     return 'MBC미술센터';  
+else if (code=='AG10115')
+     return 'iMBC';     
+else if (code=='AG10116')
+     return 'MBC+미디어';   
+else if (code=='AG10117')
+     return 'MBC드라마넷';  
+else if (code=='AG10118')
+     return 'MBC에브리원';  
+else if (code=='AG10119')
+     return 'MBC라이프';    
+else if (code=='AG10120')
+     return 'MBCSPORTS';    
+else if (code=='AG10121')
+     return 'MBC게임';      
+else if (code=='AG10122')
+     return 'MBCAMERICA';   
+else if (code=='AG10123')
+     return 'MBCPlayBe';    
+else if (code=='AG10124')
+     return '꿈나무축구재단';  
+else if (code=='AG10125')
+     return 'MBCNET';       
+else if (code=='AG10126')
+     return '연예뉴스';     
+else if (code=='AG10127')
+     return '화제의 1분';   
+else if (code=='AG10128')
+     return '텍스트';       
+else if (code=='AG10129')
+     return '메인탑';       
+else if (code=='AG10130')
+     return '플로팅 바 배너';  
+else if (code=='AG10131')
+     return '오늘의 프로그램';  
+else if (code=='AG10132')
+     return '다시보기';     
+else if (code=='AG10133')
+     return '화제의 1분';   
+else if (code=='AG10134')
+     return '촬영장 소식';  
+else if (code=='AG10135')
+     return 'TV속 정보';    
+else if (code=='AG10135')
+     return 'TV속 정보';    
+else if (code=='AG10146')
+     return '방송 협찬 상품';         
+else if (code=='AG10137')
+     return '음악';         
+else if (code=='AG10138')
+     return '게임';         
+else if (code=='AG10139')
+     return '방송프로모션배너';  
+else if (code=='AG10140')
+     return '트위터 바로가기';  
+else if (code=='AG10141')
+     return '페이스북 바로가기';  
+else if (code=='AG10142')
+     return '테마배너';     
+else if (code=='AG10143')
+     return '모바일 APP';   
+ else if (code == 'AC10001')
+     return '연예,스포츠,정보';
+ else if (code == 'AC10002')
+     return '게시판톡';
+ else if (code == 'AC10003')
+     return '포토';
+ else if (code == 'AC10004')
+     return '방송리뷰';
+ else if (code == 'AC10005')
+     return '스타라운지';
+ else if (code == 'AC10006')
+     return '톡온에어';
+ else if (code == 'AC10007')
+     return '이벤트';
+ else if (code == 'AC10008')
+     return '이미지';
+ else if (code == 'AC10009')
+     return '타이틀+내용';
+ else if (code == 'AC10010')
+     return '소제목1';
+ else if (code == 'AC10011')
+     return '소제목2';
+ else if (code == 'AC10012')
+     return '소제목3';
+ else if (code == 'AC10014')
+     return '이미지+프로그램명+바로가기';
+ else if (code == 'AC10015')
+     return '이미지';
+ else if (code == 'AC10016')
+     return '텍스트';
+ else if (code == 'AC10017')
+     return '이미지';
+ else if (code == 'AC10018')
+     return '텍스트';
+ else if (code == 'AC10019')
+     return '이미지';
+ else if (code == 'AC10020')
+     return '텍스트';
+ else if (code == 'AC10021')
+     return '서비스바로가기';
+ else if (code == 'AC10022')
+     return '추천톡앤톡';
+ else if (code == 'AC10023')
+     return '';
+ else if (code == 'AC10024')
+     return '포토';
+ else if (code == 'AC10025')
+     return '팟캐스트';
+ else if (code == 'AC10026')
+     return '서비스바로가기';
+ else if (code == 'AC10027')
+     return '';
+ else  if (code == 'AB10001')
+     return '실시간베스트10';
+ else if (code == 'AB10002')
+     return '방영';
+ else if (code == 'AB10003')
+     return '종영';
+ else if (code == 'AB10004')
+     return '장르';
+ else if (code == 'AB10005')
+     return '스타';
+ else if (code == 'AB10006')
+     return '할인';
+ else if (code == 'AB10007')
+     return '콘팅';
+ else if (code == 'AB10008')
+     return '검색';
+ else if (code == 'AB10009')
+     return '';
+ else if (code == 'AB10010')
+     return '';
+ else if (code == 'AB10011')
+     return '다시보기';
+ else if (code == 'AB10012')
+     return '영화';
+ else if (code == 'AB10013')
+     return '';
+ else if (code == 'AB10014')
+     return '이미지';
+ else if (code == 'AB10015')
+     return '포토';
+ else if (code == 'AB10016')
+     return '';
+ else if (code == 'AF10001')
+     return '톡엔톡 베스트-연예';
+ else if (code == 'AF10002')
+     return '톡엔톡 베스트-게시판';
+ else if (code == 'AF10003')
+     return '톡엔톡 베스트-리뷰';
+ else if (code == 'AF10004')
+     return '톡엔톡 베스트-정보';
+ else if (code == 'AF10005')
+     return 'MBC뉴스-주요뉴스';
+ else if (code == 'AF10006')
+     return 'MBC뉴스-많이본뉴스';
+ else if (code == 'AF10007')
+     return 'MBC뉴스-핫코너';
+ else if (code == 'AF10008')
+     return 'MBC뉴스-정보';
+ else if (code == 'AF10009')
+     return '투데이인기동영상-다시보기';
+ else if (code == 'AF10010')
+     return '투데이인기동영상-화제의1분';
+ else if (code == 'AF10011')
+     return '방영프로그램바로가기-드라마';
+ else if (code == 'AF10012')
+     return '방영프로그램바로가기-예능';
+ else if (code == 'AF10013')
+     return '방영프로그램바로가기-시사교양';
+ else if (code == 'AF10014')
+     return '방영프로그램바로가기-라디오';
+ else if (code == 'AF10015')
+     return '새소식';
+ else if (code == 'AF10016')
+     return 'M서포터즈';
+ else if (code == 'AF10017')
+     return '시사교양 핫이슈';
+ else if (code == 'AA10141')
+     return '뉴스';
+ else if (code == 'AB10017')
+     return '월간자유이용권';
+ else if (code == 'AB10018')
+     return '7일자유이용권';
+ else if (code == 'AB10019')
+     return '일일자유이용권';
+ else if (code == 'AB10020')
+     return '';
+ else if (code == 'PA01001')
+     return '다시보기(상단)';
+ else if (code == 'PA01002')
+     return '시청자의견(상단)';
+ else if (code == 'PA01003')
+     return '최신업데이트';
+ else if (code == 'PA01004')
+     return '영상스케치';
+ else if (code == 'PA01005')
+     return '현장포토';
+ else if (code == 'PA01006')
+     return '조연출의 따끈따끈한 현장일기';
+ else if (code == 'PA01007')
+     return '보도자료';
+ else if (code == 'PA01008')
+     return '드라마 속 장소정보';
+ else if (code == 'PA01009')
+     return '웹페이퍼 포스터';
+ else if (code == 'PA01011')
+     return '다시보기';
+ else if (code == 'PA01012')
+     return '예고보기';
+ else if (code == 'PA01015')
+     return '시청자의견';
+ else if (code == 'PA01016')
+     return '알려줘요이상품';
+ else if (code == 'PA01017')
+     return '살맛납니다 TV FUN';
+ else if (code == 'PA01018')
+     return '나 이럴때 살맛난다';
+ else if (code == 'PA01019')
+     return '결혼의 조건?';
+ else if (code == 'PA01024')
+     return '기획의도';
+ else if (code == 'PA01025')
+     return '제작진';
+ else if (code == 'PA01026')
+     return '등장인물';
+ else if (code == 'PA02002')
+     return '최신업데이트';
+ else if (code == 'PA02003')
+     return '영상스케치현장포토';
+ else if (code == 'PA02004')
+     return '이벤트';
+ else if (code == 'PA03001')
+     return '최신업데이트1';
+ else if (code == 'PA03002')
+     return '최신업데이트2';
+ else if (code == 'PA03003')
+     return '최신업데이트3';
+ else if (code == 'PA03004')
+     return '최신업데이트4';
+ else if (code == 'PA03005')
+     return '현장포토1';
+ else if (code == 'PA03006')
+     return '현장포토2';
+ else if (code == 'PA03007')
+     return '현장포토3';
+ else if (code == 'PA03008')
+     return '현장포토4';
+ else if (code == 'PA03009')
+     return '현장포토5';
+ else if (code == 'PA03010')
+     return '영상스케치1';
+ else if (code == 'PA03011')
+     return '영상스케치2';
+ else if (code == 'PA03012')
+     return '영상스케치3';
+ else if (code == 'PA03013')
+     return '영상스케치4';
+ else if (code == 'PA03014')
+     return '영상스케치5';
+ else if (code == 'PA03015')
+     return '어제많이본프로그램1';
+ else if (code == 'PA03016')
+     return '어제많이본프로그램2';
+ else if (code == 'PA03017')
+     return '어제많이본프로그램3';
+ else if (code == 'PA03018')
+     return '어제많이본프로그램4';
+ else if (code == 'PA03019')
+     return '어제많이본프로그램5';
+ else if (code == 'PL01001')
+     return '다시보기(상단)';
+ else if (code == 'PL01002')
+     return '시청자의견(상단)';
+ else if (code == 'PL01003')
+     return '최신업데이트';
+ else if (code == 'PL01004')
+     return '영상스케치';
+ else if (code == 'PL01005')
+     return '현장포토';
+ else if (code == 'PL01006')
+     return '보도자료';
+ else if (code == 'PL01007')
+     return '제작진노트';
+ else if (code == 'PL01008')
+     return '웹페이퍼';
+ else if (code == 'PL01009')
+     return '다시보기';
+ else if (code == 'PL01010')
+     return '예고보기';
+ else if (code == 'PL01011')
+     return '시청자의견';
+ else if (code == 'PL01012')
+     return '알려줘요이상품';
+ else if (code == 'PL01013')
+     return '이벤트전체';
+ else if (code == 'PL01014')
+     return '여자의변신은무죄';
+ else if (code == 'PL01015')
+     return '기획의도';
+ else if (code == 'PL01016')
+     return '제작진';
+ else if (code == 'PL01017')
+     return '등장인물';
+ else if (code == 'PL02001')
+     return '오늘의추천메뉴';
+ else if (code == 'PL02002')
+     return '최신업데이트';
+ else if (code == 'PL02003')
+     return '영상스케치현장포토';
+ else if (code == 'PL02004')
+     return '이벤트';
+ else if (code == 'PL03001')
+     return '최신업데이트1';
+ else if (code == 'PL03002')
+     return '최신업데이트2';
+ else if (code == 'PL03003')
+     return '최신업데이트3';
+ else if (code == 'PL03004')
+     return '최신업데이트4';
+ else if (code == 'PL03005')
+     return '현장포토1';
+ else if (code == 'PL03006')
+     return '현장포토2';
+ else if (code == 'PL03007')
+     return '현장포토3';
+ else if (code == 'PL03008')
+     return '현장포토4';
+ else if (code == 'PL03009')
+     return '현장포토5';
+ else if (code == 'PL03010')
+     return '영상스케치1';
+ else if (code == 'PL03011')
+     return '영상스케치2';
+ else if (code == 'PL03012')
+     return '영상스케치3';
+ else if (code == 'PL03013')
+     return '영상스케치4';
+ else if (code == 'PL03014')
+     return '영상스케치5';
+ else if (code == 'PL03015')
+     return '어제많이본프로그램1';
+ else if (code == 'PL03016')
+     return '어제많이본프로그램2';
+ else if (code == 'PL03017')
+     return '어제많이본프로그램3';
+ else if (code == 'PL03018')
+     return '어제많이본프로그램4';
+ else if (code == 'PL03019')
+     return '어제많이본프로그램5';
+ else if (code == 'CF01001')
+     return 'mini메시지';
+ else if (code == 'CF01002')
+     return '사연과신청곡';
+ else if (code == 'CF01003')
+     return '테마랭킹파크';
+ else if (code == 'CF01004')
+     return 'The간식';
+ else if (code == 'CF01005')
+     return '밑줄긋기';
+ else if (code == 'CF01006')
+     return '월요일';
+ else if (code == 'CF01007')
+     return '화요일';
+ else if (code == 'CF01008')
+     return '수요일';
+ else if (code == 'CF01009')
+     return '목요일';
+ else if (code == 'CF01010')
+     return '금요일';
+ else if (code == 'CF01011')
+     return '토요일';
+ else if (code == 'CF01012')
+     return '토-친친핫트랙';
+ else if (code == 'CF01013')
+     return '일요일';
+ else if (code == 'CF01014')
+     return '일-지음샐러드';
+ else if (code == 'CF02001')
+     return '알립니다';
+ else if (code == 'CF02002')
+     return '코너소개';
+ else if (code == 'CF02003')
+     return '듣는선곡표';
+ else if (code == 'CF02004')
+     return '다시듣기';
+ else if (code == 'CF02005')
+     return '포토바이친친';
+ else if (code == 'CF02006')
+     return '보이는라디오';
+ else if (code == 'CF02007')
+     return 'mini다운로드';
+ else if (code == 'WG01001')
+     return 'mini메세지';
+ else if (code == 'WG01002')
+     return '매일사연';
+ else if (code == 'WG01003')
+     return '미고사';
+ else if (code == 'WG01004')
+     return '알립니다';
+ else if (code == 'WG01005')
+     return '월요일';
+ else if (code == 'WG01006')
+     return '수요일';
+ else if (code == 'WG01007')
+     return '목요일';
+ else if (code == 'WG01008')
+     return '금요일';
+ else if (code == 'WG01009')
+     return '토요일';
+ else if (code == 'WG01011')
+     return '화요일';
+ else if (code == 'WG01012')
+     return '일요일';
+ else if (code == 'WG02001')
+     return '알립니다';
+ else if (code == 'WG02002')
+     return '2010연중기획';
+ else if (code == 'WG02003')
+     return '요리보고조리보고';
+ else if (code == 'WG02004')
+     return '월간여성시대';
+ else if (code == 'WG02005')
+     return '여성시대발자취';
+ else if (code == 'WG02006')
+     return '보이는라디오';
+ else if (code == 'PL01018')
+     return '드라마OST 이벤트';
+ else if (code == 'PL01019')
+     return '내가 만약 가은이라면';
+ else if (code == 'WG01010')
+     return '배너-여성이지킨다';
+	else if (code=='MH10001') return '모바일';
+	else if (code=='MH10002') return '시각장애인용';
+	else if (code=='MH10003') return 'ENGLISH';
+	else if (code=='MH10004') return '로그인';
+	else if (code=='MH10005') return '로그아웃';
+	else if (code=='MH10006') return '회원가입';
+	else if (code=='MH10007') return '마이페이지';
+	else if (code=='MH10008') return '정액권구입';
+	else if (code=='MH10009') return '고객센터';
+	else if (code=='MH10010') return '프로모션 키워드';
+	else if (code=='MH10011') return 'MBC로고';
+	else if (code=='MH10012') return '별별추천';
+	else if (code=='MH10013') return 'TV';
+	else if (code=='MH10014') return '동영상';
+	else if (code=='MH10015') return '라디오';
+	else if (code=='MH10016') return '뉴스';
+	else if (code=='MH10017') return '연예스포츠';
+	else if (code=='MH10018') return 'MBC와함께';
+	else if (code=='MH10019') return 'MBC허브';
+	else if (code=='MH10020') return '방송상품';
+	else if (code=='MH10021') return '더보기';
+	else if (code=='MH10022') return '프로모션배너';
+	else if (code=='MH10023') return 'TV';
+	else if (code=='MH10024') return '온에어플러스';
+	else if (code=='MH10127') return '뮤직플러스';
+	else if (code=='MH10025') return '표준 FM';
+	else if (code=='MH10026') return 'FM4U';
+	else if (code=='MH10027') return '메인탑좌측';
+	else if (code=='MH10028') return '메인탑우측상';
+	else if (code=='MH10029') return '메인탑우측하';
+	else if (code=='MH10030') return '메인탑플로팅';
+	else if (code=='MH10031') return '메인탑동영상';
+	else if (code=='MH10032') return '프로모션 메인탑';
+	else if (code=='MH10033') return '종합-포토뉴스';
+	else if (code=='MH10034') return '종합-텍스트뉴스';
+	else if (code=='MH10035') return '연예-포토뉴스';
+	else if (code=='MH10036') return '스포츠-포토뉴스';
+	else if (code=='MH10037') return '스포츠-텍스트뉴스';
+	else if (code=='MH10038') return '스페셜영상';
+	else if (code=='MH10039') return '연예스포츠 바로가기';
+	else if (code=='MH10040') return '연예스포츠 뉴스';
+	else if (code=='MH10041') return '오늘의 프로그램 바로가기';
+	else if (code=='MH10042') return 'TV프로그램';
+	else if (code=='MH10043') return '별별추천 바로가기';
+	else if (code=='MH10044') return '추천인사이드';
+	else if (code=='MH10045') return '내가 좋아하는 프로그램';
+	else if (code=='MH10046') return '내가 좋아하는 스타';
+	else if (code=='MH10047') return '운영자추천프로그램';
+	else if (code=='MH10048') return '운영자추천스타';
+	else if (code=='MH10049') return '화제의 1분';
+	else if (code=='MH10050') return '다시보기';
+	else if (code=='MH10051') return '방송상품 바로가기';
+	else if (code=='MH10052') return '방송상품';
+	else if (code=='MH10053') return 'T숍 바로가기';
+	else if (code=='MH10054') return 'T숍';
+	else if (code=='MH10055') return '게임';
+	else if (code=='MH10056') return '영화';
+	else if (code=='MH10057') return '배너';
+	else if (code=='MH10058') return '엠톡 바로가기';
+	else if (code=='MH10059') return '엠톡 콘텐츠';
+	else if (code=='MH10060') return 'MBC와 함께 바로가기';
+	else if (code=='MH10061') return 'MBC와 함께 콘텐츠';
+	else if (code=='MH10062') return '글로벌미디어 바로가기';
+	else if (code=='MH10063') return '프로그램 정보통 바로가기';
+	else if (code=='MH10064') return '언어운사';
+	else if (code=='MH10065') return '콘텐츠';
+	else if (code=='MH10066') return '허브 바로가기';
+	else if (code=='MH10067') return '지역MBC명으로 보기';
+	else if (code=='MH10068') return '최신콘텐츠로 보기';
+	else if (code=='MH10069') return '공지사항 바로가기';
+	else if (code=='MH10070') return '공지사항';
+	else if (code=='MH10071') return 'MBC회사소개';
+	else if (code=='MH10072') return 'MBC 영문소개';
+	else if (code=='MH10073') return 'iMBC 소개';
+	else if (code=='MH10074') return '협찬 및 간접광고';
+	else if (code=='MH10075') return '영상자료판매';
+	else if (code=='MH10076') return '이용약관';
+	else if (code=='MH10077') return '개인정보취급방침';
+	else if (code=='MH10078') return '법적고지';
+	else if (code=='MH10079') return 'MBC 클린센터';
+	else if (code=='MH10080') return '고객센터';
+	else if (code=='MH10081') return '서비스전체보기';
+	else if (code=='MH10082') return 'AboutMBC';
+	else if (code=='MH10083') return 'MBC채용';
+	else if (code=='MH10084') return '시청자센터';
+	else if (code=='MH10085') return 'MBC사회공헌';
+	else if (code=='MH10086') return '프로그램정보통';
+	else if (code=='MH10087') return 'MBC아나운서';
+	else if (code=='MH10088') return 'MBC심의정보 시스템';
+	else if (code=='MH10089') return 'MBC글로벌마케팅';
+	else if (code=='MH10090') return 'MBC공연+티켓';
+	else if (code=='MH10091') return 'MBCDMB';
+	else if (code=='MH10092') return '영상자료판매';
+	else if (code=='MH10093') return '데이터방송';
+	else if (code=='MH10094') return '방송기술HDMBC';
+	else if (code=='MH10095') return 'MBCDrive';
+	else if (code=='MH10096') return 'MBC문화동산';
+	else if (code=='MH10097') return 'MBC드라미아';
+	else if (code=='MH10098') return 'MBC외주제작';
+	else if (code=='MH10099') return 'MBC드림센터';
+	else if (code=='MH10100') return '방송과커뮤니케이션';
+	else if (code=='MH10101') return '부산MBC';
+	else if (code=='MH10102') return '대구MBC';
+	else if (code=='MH10103') return '광주MBC';
+	else if (code=='MH10104') return '대전MBC';
+	else if (code=='MH10105') return '전주MBC';
+	else if (code=='MH10106') return 'MBC 경남';
+	else if (code=='MH10107') return '춘천MBC';
+	else if (code=='MH10108') return '청주MBC';
+	else if (code=='MH10109') return '제주MBC';
+	else if (code=='MH10110') return '울산MBC';
+	else if (code=='MH10111') return '강릉MBC';
+	else if (code=='MH10112') return '목포MBC';
+	else if (code=='MH10113') return '여수MBC';
+	else if (code=='MH10114') return '안동MBC';
+	else if (code=='MH10115') return '원주MBC';
+	else if (code=='MH10116') return '충주MBC';
+	else if (code=='MH10117') return '삼척MBC';
+	else if (code=='MH10118') return '포항MBC';
+	else if (code=='MH10119') return 'MBC C&I';
+	else if (code=='MH10120') return 'MBC아카데미';
+	else if (code=='MH10121') return 'MBC아트';
+	else if (code=='MH10122') return 'iMBC';
+	else if (code=='MH10123') return 'MBC 플러스미디어';
+	else if (code=='MH10124') return 'MBC AMERICA';
+	else if (code=='MH10125') return 'MBCPlayBe';
+	else if (code=='MH10126') return 'MBC나눔';
+	else if (code=='AJ10001') return '시각장애인용';
+	else if (code=='AJ10002') return '온에어';
+	else if (code=='AJ10003') return '편성표';
+	else if (code=='AJ10004') return '로그인';
+	else if (code=='AJ10005') return '로그아웃';
+	else if (code=='AJ10006') return '회원가입';
+	else if (code=='AJ10007') return '마이페이지';
+	else if (code=='AJ10008') return '정액권구입';
+	else if (code=='AJ10009') return '고객센터';
+	else if (code=='AJ10010') return '프로모션 키워드';
+	else if (code=='AJ10011') return 'MBC로고';
+	else if (code=='AJ10012') return '별별추천';
+	else if (code=='AJ10013') return 'TV';
+	else if (code=='AJ10014') return '동영상';
+	else if (code=='AJ10015') return '라디오';
+	else if (code=='AJ10016') return '뉴스';
+	else if (code=='AJ10017') return '연예스포츠';
+	else if (code=='AJ10018') return 'MBC와함께';
+	else if (code=='AJ10019') return 'MBC허브';
+	else if (code=='AJ10020') return '방송상품';
+	else if (code=='AJ10021') return '더보기';
+	else if (code=='AJ10022') return '프로모션배너';
+  else
+     return code;     
+}

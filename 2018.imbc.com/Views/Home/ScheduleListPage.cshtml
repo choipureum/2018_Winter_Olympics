@@ -1,0 +1,42 @@
+﻿@using _2018.imbc.com.Models
+@{
+    var list = ViewBag.list as ScheduleList;
+}
+@foreach (ScheduleInfo item in list)
+{
+    string clsnm = "";
+    string msg = "";
+    if(item.NowState == "2")
+    {
+        clsnm = "on";
+    }
+    /*
+    if(item.NowState == "1" || item.NowState == "2")
+    {
+        msg = item.PlayerName;
+    }
+    else
+    {
+        msg = item.ResultDetail;
+    }
+    */
+    msg = item.ResultDetail;
+    <tr class="@clsnm">
+        <td>@item.StartTime</td>
+        <td><p class="item">@item.SportName</p></td>
+        <td>
+            <p class="title">@item.DetailSportName</p>
+            <p class="result">@msg</p>
+        </td>
+        <td>
+            @if (@item.VodUrl != "" && item.VodUrl != null)
+            {
+                <a href="@item.VodUrl" class="btn go-vod">영상 보기</a>
+            }
+            @if (@item.NewsUrl != "" && item.NewsUrl != null)
+            {
+                <a href="@item.NewsUrl" class="btn go-news">관련기사</a>
+            }
+        </td>
+    </tr>
+}

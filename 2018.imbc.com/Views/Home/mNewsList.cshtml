@@ -1,0 +1,30 @@
+﻿@using _2018.imbc.com.Models
+@{
+    var list = ViewBag.list as EnewsList;
+}
+@foreach (EnewsInfo item in list)
+{
+    string opt = "E";
+    string img = item.ImgUrl;
+    string cls = "img";
+    if (item.Nickname == "IMNEWS") { opt = "I"; }
+    else
+    {
+        img = "http://talkimg.imbc.com/TVianUpload/TVian/TViews/image/" + item.ImgUrl;
+        cls = "img enews";
+    }
+    <li>        
+        <a href="javascript:goView('/m/news/View?idx=@item.Idx&opt=@opt')">
+            <div class="@cls">
+                <img src="@img" alt="@item.Title">
+            </div>
+            <div class="txt">
+                <span class="tit ellipsis">@item.Title</span><span class="date">@item.PublicationDate</span>
+            </div>
+        </a>
+    </li>
+}
+<script type="text/javascript">
+    var totalcnt = @ViewBag.totalcnt;    
+</script>
+

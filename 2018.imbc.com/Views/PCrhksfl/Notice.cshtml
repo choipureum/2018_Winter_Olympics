@@ -1,0 +1,94 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var list = ViewBag.list as NoticeList;
+    Page.Title = "공지사항";
+}
+
+<div id="nav_team">
+    <ul>
+        <li><a href="Medal">메달순위</a></li>
+        <li><a href="Schedule"> 편성표</a></li>
+        <li class="on"><a href="Notice">ON-AIR 공지</a></li>
+    </ul>
+</div>
+<div id="medal_tb">
+    <p>
+        온에어 여부 : <select id="isOnair_select">
+            @if (list.OnAir == "Y")
+            {
+                <option value="Y" selected="selected">Y</option>
+                                    <option value="N">N</option>
+            }
+            else
+            {
+                <option value="Y">Y</option>
+                                    <option value="N" selected="selected">N</option>
+            }
+        </select>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:chOnAir(1);" style="font-size:20px;">수정</a>
+    </p>
+
+    <table>
+        <caption>2016 리우올림픽 현재 메달순위</caption>
+        <thead>
+            <tr>
+                <th scope="col" style="width:50px">No.</th>
+                <th scope="col" style="width:600px" class="medal">공지내용</th>
+                <th scope="col" style="width:100px" class="medal">노출여부</th>
+                <th scope="col" style="width:100px" class="medal">수정</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (NoticeInfo item in list.List)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>
+                            <input id="title_@item.Seq" type="text" style="width:550px;text-align:left" value="@item.Title" />
+                        </td>
+                        <td>
+
+                            @if (item.IsDel == "Y")
+                            {
+                                <select id="select_@item.Seq" style="color:red">
+                                    <option value="Y" selected="selected" style="color:red;">삭제</option>
+                                    <option value="N">노출</option>
+                                </select>
+                            }
+                            else
+                            {
+                                <select id="select_@item.Seq">
+                                    <option value="Y" style="color:red;">삭제</option>
+                                    <option value="N" selected="selected">노출</option>
+                                </select>
+                            }
+
+                        </td>
+                        <td><a href="javascript:chOnAir(@item.Seq);">수정</a></td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    function chOnAir(seq) {
+
+        var title;
+        var isDel;
+
+        if (seq == 1) {
+            title = $("#isOnair_select").val();
+            isDel = $("#isOnair_select").val();
+        } else {
+            title = $("#title_" + seq).val();
+            isDel = $("#select_" + seq).val();
+        }
+
+        location.href = "NoticeProcess?seq=" + seq + "&title=" + escape(title) + "&isdel=" + isDel;
+    }
+</script>

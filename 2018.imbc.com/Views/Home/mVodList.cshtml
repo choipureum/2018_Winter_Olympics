@@ -1,0 +1,17 @@
+﻿@using _2018.imbc.com.Models
+@{
+    var vodlist = ViewBag.vodlist as ContentList;
+}
+@foreach (var item in vodlist.List)
+{
+    <li>
+        <a href="http://vodmall.imbc.com/player/player2014/popupPlayer.html?itemid=@item.itemid&broID=@item.BroadcastID" target="_blank">
+            <span class="img">
+                <img src="@item.ImgUrl_Normal" alt="@item.ContentTitle">
+            </span>
+            <p class="txt">
+                <span class="tit ellipsis">@item.ContentTitle</span><span class="count"><span>조회</span> @item.HitCount</span>
+            </p>
+        </a>
+    </li>
+}

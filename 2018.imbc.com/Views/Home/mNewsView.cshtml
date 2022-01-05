@@ -1,0 +1,63 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutM_2nd.cshtml";
+    ViewBag.page = "sub sub-news";
+    var info = ViewBag.info as NewsSimple;
+}
+
+<section class="view">
+    <div class="view_tit">
+        <h4>@info.title</h4>
+        @if (info.NickName == "IMNEWS")
+        {
+            <p class="writer">@info.author&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@info.pubDate</p> <br />
+        }
+        else
+        {
+            <p class="date">@info.pubDate</p>
+        }
+
+    </div>
+    <div class="view_cont view_imnews">
+        @if (info.NickName == "IMNEWS")
+        {
+            if (info.IsVideo == 1)
+            {
+                <div style="padding:0 20px;">
+                    <a class="vod-img" href="@info.vodurl"><img class="vod" src="@info.NewsImg" alt="@info.title"></a>
+                </div>
+            }
+            else
+            {
+                <div style="padding:0 20px;">
+                    <img src="@info.NewsImg" alt="@info.title">
+                </div>
+            }
+        }
+
+        <div class="view_txt">
+            @Html.Raw(info.content)
+        </div>
+    </div>
+    <div class="link_list">
+        <a href="/m/news/@ViewBag.curpage/@ViewBag.cursort">뉴스 목록 바로가기</a>
+    </div>
+</section>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-81416310-4"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-81416310-4');
+
+
+    for (var i = 0; i < $(".view_txt IMG").length; i++) {        
+        $(".view_txt IMG")[i].style.width = "";
+    }
+
+    for (var i = 0; i < $(".view_txt IFRAME").length; i++) {
+        $(".view_txt IFRAME")[i].style.width = "";
+        $(".view_txt IFRAME")[i].style.height = "";
+    }
+</script>

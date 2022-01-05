@@ -1,0 +1,55 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutM.cshtml";
+    ViewBag.page = "sub sub-vod";
+    var hotlist = ViewBag.hotlist as ContentList;
+}
+
+<section class="vod-visual">
+    <div class="swiper-container" id="sliderWrap">
+        <div class="swiper-wrapper">
+            @foreach (var item in hotlist.List)
+            {
+                <div class="swiper-slide">
+                    <a href="http://vodmall.imbc.com/player/player2014/popupPlayer.html?itemid=@item.itemid&broID=@item.BroadcastID" target="_blank">
+                        <span class="img"><img src="@item.ImgUrl_Normal" alt="@item.ContentTitle"></span><p class="txt ellipsis"><span class="hotclip">핫클립</span><span class="tit">@item.ContentTitle</span><span class="count">@item.HitCount</span></p>
+                    </a>
+                </div>
+            }
+        </div>
+        <div class="swiper-pagination swiper-pagination1"></div>
+        <div class="btn-right swiper-btn swiper-button-next">오른쪽으로 넘기기</div>
+    </div>
+</section>
+<section class="vod">
+    <h3>최신영상</h3>
+    <div class="wrap-vod">
+        <ul id="ul_list">
+            @Html.Partial("mVodList")
+        </ul>
+        <button class="b_more" onclick="javascript: btnMore();"><span>더보기</span></button>
+    </div>
+</section>
+<script type="text/javascript">
+    var page = 1;
+    var size = 6;
+    var totalcnt = @hotlist.TotalCount;
+
+    if (page * size >= totalcnt) {
+        $(".b_more").hide();
+    }
+
+    function btnMore() {
+        page++;
+        $.post(
+            '@Url.Action("mVodList", "Home")', { page: page, size: size },
+            function (response) {
+                $("#ul_list").append(response);
+
+                if (page * size >= totalcnt) {
+                    $(".b_more").hide();
+                }
+            }
+        );
+    }
+</script>

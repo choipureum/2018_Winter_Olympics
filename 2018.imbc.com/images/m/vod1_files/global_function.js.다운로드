@@ -1,0 +1,1432 @@
+// 슬로건
+document.write("<link rel=\"shortcut icon\" href=\"http://img.imbc.com/2010_main/images/favicon.ico\" />");
+//document.title = "TV보다 더 큰 세상, iMBC.com";
+document.write("<script" + " type='text/jav"+"asc"+"ript' src='http://www.imbc.com/common/js/checkTitle.js' charset='euc-kr'></script" + ">");
+
+document.write("<script" + " type='text/jav"+"asc"+"ript' src=http://www.imbc.com/common/js/makePCookie.js></script" + ">");
+
+// 엔톰 에드 -> 리얼미디어 막간광고
+document.write("<script " + " type='text/jav"+"asc"+"ript' src=http://www.imbc.com/include/interstitialScript.js></script" + ">");
+
+//서브 광고 코드
+document.write("<script " + " type='text/jav"+"asc"+"ript' src='http://www.imbc.com/2008_main_admin/js/cache/sub_DWCode.js' charset='euc-kr'></script" + ">");
+
+//개인화
+//document.write("<script" + " type='text/jav"+"asc"+"ript' src=http://www.imbc.com/2010_main/js/PersonalCookie.js></script" + ">");
+
+function CallPlayer(Url)
+{
+    top.location.href=Url;
+}
+
+//    document.domain = "imbc.com";
+	// IMBC ID GET
+	ID = escape(getCookie("IMBCMAIN"))
+	tUrl = document.location
+
+	// Ad flag 영역
+	if (typeof(sCurAdFlag) == "undefined") {
+		var sCurAdFlag = "sub";
+		var sCurAdPageFlag="";
+		var sCurLoc = String(document.location).toLowerCase();
+		var arrTemp;
+		var arrMainAdLoc = new Array("http://www.imbc.com","http://www.imbc.com/broad/tv/drama","http://www.imbc.com/broad/tv/ent","http://www.imbc.com/broad/tv/culture","http://www.imbc.com/broad/radio","http://imnews.imbc.com","http://imbc.com","http://imbc.com/broad/tv/drama","http://imbc.com/broad/tv/ent","http://imbc.com/broad/tv/culture","http://imbc.com/broad/radio", "http://search.imbc.com", "http://cue.imbc.com", "http://www.imbc.com/broad/tv/ent/sundaynight");
+		var arrSubAdLoc = new Array("http://www.imbc.com/","http://www.imbc.com/broad/tv/drama/","http://www.imbc.com/broad/tv/ent/","http://www.imbc.com/broad/tv/culture/","http://www.imbc.com/broad/radio/","http://imnews.imbc.com/","http://imbc.com/","http://imbc.com/broad/tv/drama/","http://imbc.com/broad/tv/ent/","http://imbc.com/broad/tv/culture/","http://imbc.com/broad/radio/", "http://search.imbc.com/", "http://cue.imbc.com", "http://www.imbc.com/broad/tv/ent/sundaynight");
+		var arrEtcAdLoc = new Array("http://sports.imbc.com");
+		var arrMainAdType = new Array("main","drama/dramamain","ent/entmain","culture/culturemain","radio/radiomain","news/newsmain","main","drama/dramamain","ent/entmain","culture/culturemain","radio/radiomain", "search", "search" ,"iamsinger");
+		var arrSubAdType = new Array("sub","drama/dramasub","ent/entsub","culture/culturesub","radio/radiosub","news/newssub","sub","drama/dramasub","ent/entsub","culture/culturesub","radio/radiosub", "search", "search","iamsinger");
+		var arrEtcAdType = new Array("sports");
+		for(var i = 0; i < arrMainAdLoc.length; i++) {
+			if (sCurLoc.indexOf(arrMainAdLoc[i],0) != -1) {
+				sCurAdFlag = arrMainAdType[i];
+				if (sCurLoc.length > arrMainAdLoc[i].length) {
+					arrTemp = sCurLoc.substring(arrMainAdLoc[i].length, sCurLoc.length).split("/");
+					if (arrTemp.length > 2) {
+						sCurAdFlag = arrSubAdType[i];
+						try{
+							sCurAdPageFlag = (sCurLoc.indexOf("/radio/")>0 ? arrTemp[2] : arrTemp[1]) ;
+						}
+						catch(e){}							
+					}
+				}
+			}
+		}
+	
+		for(var j = 0; j < arrEtcAdLoc.length; j++) {
+			if (sCurLoc.indexOf(arrEtcAdLoc[j],0) != -1) {
+				sCurAdFlag = arrEtcAdType[j];
+				
+			}
+		}
+
+	}
+	// 로그인 전 ==> 로그인/회원가입
+	// 로그인 후 ==> 로그아웃/회원정보수정
+	function SetLoginNew() {
+		ID = escape(getCookie("IMBCMAIN"))
+		if (ID == "")
+		{
+			document.write("<td><a href='javascript:iMbc_login();' target='_top' tabindex='3'><img src='http://img.imbc.com/admin/images/imbc2006_login.jpg' alt='로그인' width='41' height='19' border='0'></a></td>");
+			document.write("<td><a href='http://member.imbc.com/user/Join.html' tabindex='4'><img src='http://img.imbc.com/admin/images/imbc2006_member_in.jpg' alt='회원가입' width='47' height='19' border='0'></a></td>");
+		}	
+		else 
+		{
+			document.write("<td><a href='javascript:iMbc_logout();' target='_top' tabindex='3'><img src='http://img.imbc.com/admin/images/imbc2006_logout.jpg' alt='로그아웃' width='48' height='19' border='0'></a></td>");
+			document.write("<td><a href='http://member.imbc.com/User/ModifyMemberCheck.aspx' onClick='SetUrl();' tabindex='4'><img src='http://img.imbc.com/admin/images/imbc2006_member_out.jpg' alt='회원정보' width='46' height='19' border='0'></a></td>");
+		}
+	}
+
+	// 로그인 전 ==> 로그인/회원가입
+	// 로그인 후 ==> 로그아웃/회원정보수정
+	function SetLogin() {
+		ID = escape(getCookie("IMBCMAIN"))
+		if (ID == "")
+		{
+			document.write("	  <td width=150><a href='javascript:iMbc_login();' target='_top' onfocus='this.blur();'><img src=http://img.imbc.com/broad/radio/images/2005r_main_login.jpg border=0></a><a href='http://member.imbc.com/user/Join.html' onfocus='this.blur();'><img src=http://img.imbc.com/broad/radio/images/2005r_main_member_in.jpg border=0></a></td>");
+		}	
+		else 
+		{
+			document.write("      <td width=150><a href='javascript:iMbc_logout();' onfocus='this.blur();'><img src=http://img.imbc.com/broad/radio/images/2005r_main_logout.jpg border=0></a><a href='http://member.imbc.com/User/ModifyMemberCheck.aspx' onClick='SetUrl();' onfocus='this.blur();'><img src=http://img.imbc.com/broad/radio/images/2005r_main_member_out.jpg border=0></a></td>");
+		}
+	}	
+	// 로그인 전 ==> 로그인/회원가입
+	// 로그인 후 ==> 로그아웃/회원정보수정
+	function SetLoginMain() {
+		ID = escape(getCookie("IMBCMAIN"))
+		if (ID == "")
+		{
+			document.write('      <td width="76"><img src="http://img.imbc.com/admin/images/main_onair01.jpg" width="76" height="18"></td>');
+			document.write('      <td><a href="javascript:iMbc_login();" target="_top"><img src="http://img.imbc.com/admin/images/main_login.jpg" alt="로그인" width="61" height="18" border="0"></a></td>');
+			document.write('   </tr>');
+			document.write('   <tr> ');
+			document.write('      <td><img src="http://img.imbc.com/admin/images/main_onair02.jpg" width="76" height="24"></td>');
+			document.write('      <td><a href="http://member.imbc.com/user/Join.html"><img src="http://img.imbc.com/admin/images/main_member_in.jpg" alt="회원가입" width="61" height="24" border="0"></a></td>');
+		}	
+		else 
+		{
+			document.write('      <td width="76"><img src="http://img.imbc.com/admin/images/main_onair01.jpg" width="76" height="18"></td>');
+			document.write('      <td><a href="javascript:iMbc_logout();"><img src="http://img.imbc.com/admin/images/main_logout.jpg" alt="로그아웃" width="61" height="18" border="0"></a></td>');
+			document.write('   </tr>');
+			document.write('   <tr> ');
+			document.write('      <td><img src="http://img.imbc.com/admin/images/main_onair02.jpg" width="76" height="24"></td>');
+			document.write('      <td><a href="http://member.imbc.com/User/ModifyMemberCheck.aspx" onClick="SetUrl();"><img src="http://img.imbc.com/admin/images/main_member_out.jpg" alt="회원정보" width="61" height="24" border="0"></a></td>');
+		}
+	}	
+	// MBC와함께 전용 Login
+	function SetLoginWithmbc() {
+		ID = escape(getCookie("IMBCMAIN"))
+		if (ID == "")
+		{
+			document.write('<td width="76"><a href="javascript:iMbc_login();" target="_top"><img src="http://withmbc.imbc.com/withmbc/images/withmbc_main_login.jpg" width="76" height="25" border="0"></a></td>');
+			document.write('<td><a href="http://member.imbc.com/user/Join.html"><img src="http://withmbc.imbc.com/withmbc/images/withmbc_main_joinfo.jpg" width="54" height="25" border="0"></a></td>');
+		}	
+		else 
+		{
+			document.write('<td width="76"><a href="javascript:iMbc_logout();"><img src="http://withmbc.imbc.com/withmbc/images/withmbc_main_logout.jpg" width="76" height="25" border="0"></a></td>');
+			document.write('<td><a href="http://member.imbc.com/User/ModifyMemberCheck.aspx" onClick="SetUrl();"><img src="http://withmbc.imbc.com/withmbc/images/withmbc_main_join.jpg" width="54" height="25" border="0"></a></td>');
+		}
+	}	
+	// withmbc 전용 Login
+	function SetLoginWithmbcSub() {
+		ID = escape(getCookie("IMBCMAIN"))
+		if (ID == "")
+		{
+			document.write('<td width="68"><a href="javascript:iMbc_login();" target="_top"><img src=http://withmbc.imbc.com/withmbc/images/withmbc_log_in.jpg width=68 height=31 border=0></a></td>');
+			document.write('<td><a href="http://member.imbc.com/user/Join.html"><img src=http://withmbc.imbc.com/withmbc/images/withmbc_join.jpg width=53 height=31 border=0></a></td>');
+		}	
+		else 
+		{
+			document.write('<td width="68"><a href="javascript:iMbc_logout();"><img src=http://withmbc.imbc.com/withmbc/images/withmbc_log_out.jpg width=68 height=31 border=0></a></td>');
+			document.write('<td><a href="http://member.imbc.com/User/ModifyMemberCheck.aspx" onClick="SetUrl();"><img src=http://withmbc.imbc.com/withmbc/images/withmbc_joinfo.jpg width=53 height=31 border=0></a></td>');
+		}
+	}	
+	
+	// 데이터방송 전용 Login
+	function SetLoginDTV() {
+		ID = escape(getCookie("IMBCMAIN"))
+		if (ID == "")
+		{
+			document.write('<a href=javascript:iMbc_Dtvlogin();><img src=http://img.imbc.com/broad/dtv/images/datainfo_02_3_1.jpg width=147 height=46 border=0></a>');
+		}
+		else 
+		{
+			document.write('<a href=http://member.imbc.com/User/ModifyMemberCheck.aspx target=_top><img src=http://img.imbc.com/broad/dtv/images/datainfo_02_3_2.jpg width=147 height=46 border=0></a>');
+		}
+	}
+	// 2006차범근 전용 Login
+	function SetLogin2006Cha() {
+		ID = escape(getCookie("IMBCMAIN"))
+		if (ID == "")
+		{
+			document.write('<td><a href="javascript:iMbc_login();" target="_top"><img src="http://2006cha.imbc.com/images/chaboom_login.jpg" alt="로그인" width="57" height="21" border="0"></a></td>');
+			document.write('<td><a href="http://member.imbc.com/user/Join.html"><img src="http://2006cha.imbc.com/images/chaboom_member.jpg" alt="회원가입" width="55" height="21" border="0"></a></td>');
+		}	
+		else 
+		{
+			document.write('<td><a href="javascript:iMbc_logout();"><img src="http://2006cha.imbc.com/images/chaboom_logout.jpg" alt="로그아웃" width="57" height="21" border="0"></a></td>');
+			document.write('<td><a href="http://member.imbc.com/User/ModifyMemberCheck.aspx" onClick="SetUrl();"><img src="http://2006cha.imbc.com/images/chaboom_member_info.jpg" alt="회원정보" width="55" height="21" border="0"></a></td>');
+		}
+	}
+	// 로그인 전 ==> 로그인/회원가입
+	// 로그인 후 ==> 로그아웃/회원정보수정
+	function SetLogin2006() {
+		ID = escape(getCookie("IMBCMAIN"))
+		if (ID == "")
+		{
+			document.write("<td style='padding:0 0 0 4'><a href='javascript:iMbc_login();' target='_top' tabindex='3'><img src='http://img.imbc.com/2006_admin/images/top_link_txt01.gif' border='0' ></a></td>");
+			document.write("<td><img src='http://img.imbc.com/2006_admin/images/null.gif' border='0' height='1' width='12'></td>");
+			document.write("<td><img src='http://img.imbc.com/2006_admin/images/top_blt01.gif' border='0' ></td>");
+			document.write("<td style='padding:0 0 0 4'><a href='http://member.imbc.com/user/Join.html' tabindex='4'><img src='http://img.imbc.com/2006_admin/images/top_link_txt02.gif' border='0' ></a></td>");
+		}	
+		else 
+		{
+			document.write("<td style='padding:0 0 0 4'><a href='javascript:iMbc_logout();' target='_top' tabindex='3'><img src='http://img.imbc.com/2006_admin/images/logout_01.gif' border='0' alt='로그아웃'></a></td>");
+			document.write("<td><img src='http://img.imbc.com/2006_admin/images/null.gif' border='0' height='1' width='12'></td>");
+			document.write("<td><img src='http://img.imbc.com/2006_admin/images/top_blt01.gif' border='0' ></td>");
+			document.write("<td style='padding:0 0 0 4'><a href='http://member.imbc.com/User/ModifyMemberCheck.aspx' onClick='SetUrl();' tabindex='4'><img src='http://img.imbc.com/2006_admin/images/member_01.gif' border='0' alt='회원정보'></a></td>");
+		}
+	}
+	
+	// 로그인 전 ==> 로그인/회원가입
+	// 로그인 후 ==> 로그아웃/회원정보수정
+	function SetLogin2006Sub() {
+		ID = escape(getCookie("IMBCMAIN"))
+		if (ID == "")
+		{
+			document.write("<td><a href='javascript:iMbc_login();' target='_top' tabindex='3'><img src='http://img.imbc.com/2006_admin/images/n_login.jpg' alt='로그인' width='48' height='20' border='0'></a></td>");
+			document.write("<td><a href='http://member.imbc.com/user/Join.html' tabindex='4'><img src='http://img.imbc.com/2006_admin/images/n_member.jpg' alt='회원가입' width='55' height='20' border='0'></a></td>");
+		}	
+		else 
+		{
+			document.write("<td><a href='javascript:iMbc_logout();' target='_top' tabindex='3'><img src='http://img.imbc.com/2006_admin/images/n_logout.jpg' alt='로그아웃' width='58' height='20' border='0'></a></td>");
+			document.write("<td><a href='http://member.imbc.com/User/ModifyMemberCheck.aspx' onClick='SetUrl();' tabindex='4'><img src='http://img.imbc.com/2006_admin/images/n_member_info.jpg' alt='회원정보' width='55' height='20' border='0'></a></td>");
+		}
+	}
+	// shop.imbc.com 전용
+	function SetLogin2007Shop() {
+		ID = getCookie("IMBCMAIN")
+		if (ID == "")
+		{
+			document.domain = "imbc.com";
+			SetUrl();
+			document.write("<td><a href='http://member.imbc.com/Login/Login.aspx' target='_top' tabindex='3'><img src='http://img.imbc.com/2006_admin/images/n_login.jpg' alt='로그인' width='48' height='20' border='0'></a></td>");
+			document.write("<td><a href='http://member.imbc.com/user/Join.html' tabindex='4'><img src='http://img.imbc.com/2006_admin/images/n_member.jpg' alt='회원가입' width='55' height='20' border='0'></a></td>");
+		}	
+		else 
+		{
+			document.write("<td><a href='javascript:iMbc_logout();' target='_top' tabindex='3'><img src='http://img.imbc.com/2006_admin/images/n_logout.jpg' alt='로그아웃' width='58' height='20' border='0'></a></td>");
+			document.write("<td><a href='http://member.imbc.com/User/ModifyMemberCheck.aspx' onClick='SetUrl();' tabindex='4'><img src='http://img.imbc.com/2006_admin/images/n_member_info.jpg' alt='회원정보' width='55' height='20' border='0'></a></td>");
+		}
+	}
+	// DTV 가입하기 
+	function iMbc_Dtvlogin () 
+	{
+		if (escape(getCookie("IMBCMAIN")) == "") 
+		{
+			document.domain = "imbc.com";
+			window.open("http://dtvsys.imbc.com/agree.asp", "dtvagree", "resizable=no,scrollbars=no,width=405,height=335");
+		}
+		else 
+		{
+			window.location.reload();
+		}
+	}
+
+	// RETURN PAGE를 위해 현재 페이지 정보를 쿠키로 저장
+	function SetUrl() 
+	{
+		setCookie("IMBCURL",document.location,null,"/","imbc.com")			
+	}
+	
+	// shop.imbc.com 로긴
+	function iMbc_shoplogin() 
+	{
+		alert("ss");
+		
+	}
+                // 로그인 확인
+	function iMbc_loginCk()
+	{
+		if (escape(getCookie("IMBCMAIN")) == "") 
+		{
+			return true;
+		}
+		else 
+		{
+			return false;
+		}		
+	}  
+	// 로그인 
+	function iMbc_login () 
+	{
+				
+		if (escape(getCookie("IMBCMAIN")) == "") 
+		{
+			SetUrl();
+			window.location.href="http://member.imbc.com/Login/Login.aspx";
+		}
+		else 
+		{
+			window.location.reload();
+		}
+	}
+	
+// Game 이클립스워 로그인 확인 추가
+	function iMbc_login_ew() 
+	{
+				
+		if (escape(getCookie("IMBCMAIN")) == "") 
+		{
+			SetUrl_ew();
+			window.location.href="http://member.imbc.com/Login/Login.aspx";
+		}
+		else 
+		{
+			window.location.reload();
+		}
+	}
+
+
+
+	function SetUrl_ew() 
+	{
+	         setCookie("IMBCURL",document.location="http://ew.imbc.com/",null,"/","imbc.com")			
+	}
+
+	// 로그인 
+	function iMbc_loginEmbig () 
+	{
+				
+		if (escape(getCookie("IMBCMAIN")) == "") 
+		{
+			SetUrl();
+			window.location.href="http://member.imbc.com/Login/Login.aspx";
+		}
+		else 
+		{
+			window.location.reload();
+		}
+	}	
+	
+	// 로그아웃
+	function iMbc_logout () 
+	{
+		SetUrl();
+		window.location.href="http://member.imbc.com/Login/Logout.aspx";
+	}
+
+	// 본인확인창 
+	function iMbc_identity() 
+	{
+		SetUrl();
+		window.location.href = "https://member.imbc.com/Login/Identity.aspx" ;
+	}
+	
+	// 쿠키셋팅
+	function setCookie(strName, strValue, dateExpires, strPath, strDomain, isSecure)
+	{
+		var strCookie;
+		if(strName == "") return ;
+	
+		strCookie = strName + "=" + escape(strValue) + 
+					   ((dateExpires) ? "; expires=" + dateExpires.toGMTString() : "")  + 
+					   ((strPath)     ? "; path="    + strPath : "") + 
+		      	   ((strDomain)   ? "; domain="  + strDomain : "") + 
+					   ((isSecure)    ? "; secure" : "");
+	
+		document.cookie = strCookie; 
+	}
+	
+	// 쿠키정보 가져오기
+	function getCookie(strName)
+	{
+		var strArg = new String(strName + "=");	
+		var nArgLen, nCookieLen, nEnd;
+		var i = 0, j;
+	
+		nArgLen    = strArg.length;
+		nCookieLen = document.cookie.length;
+	
+		if(nCookieLen > 0) {
+			while(i < nCookieLen) {
+				j = i + nArgLen;
+				if(document.cookie.substring(i, j) == strArg) {
+					nEnd = document.cookie.indexOf (";", j);
+					if(nEnd == -1) nEnd = document.cookie.length;
+					return unescape(document.cookie.substring(j, nEnd));
+				}
+				i = document.cookie.indexOf(" ", i) + 1;
+				if (i == 0) break;
+			}
+		}
+		return("");
+	}
+
+	// 쿠키 삭제
+	function delCookie( name )
+	{
+		var todayDate = new Date();
+		todayDate.setDate( todayDate.getDate()-1 );
+		document.cookie = name+"=; domain=imbc.com; path=/; expires="+todayDate.toGMTString()+";";
+	}
+	
+	// On-Air TV
+	function newTV()
+	{
+		document.location ='http://playercue.imbc.com/onair/';
+//		document.location ='http://imbc.com/broad/tv/culture/toron/event/index.html?OnAir';
+	  }
+
+	// 생방송 표준 FM 유니캐스트용
+	function newsfm()
+	{
+		newVODPlayerAnal("SFM", "LR");
+	}
+	
+	// 생방송 음악 FM 유니캐스트용
+	function newmfm()
+	{
+		newVODPlayerAnal("MFM", "LR");
+	}
+	
+	// New VOD Player
+	function newVODPlayer(file, cont_type)
+	{
+		url = "http://playercue.imbc.com/TouchPlayer/TouchPlayerExe.aspx?file=" + file + "&type=" + cont_type;
+		window.open(url, '', 'width=380, height=430, resizable=yes');
+	}
+	// Main통계용 2007.06.05 최우석 (추가)
+	function newVODPlayerAnal(file, cont_type)
+	{
+		url = "http://playercue.imbc.com/TouchPlayer/TouchPlayerExe.aspx?file=" + file + "&type=" + cont_type;
+		window.open(url, '', 'width=380, height=430, resizable=yes');
+	}
+
+	// 프레임 파일 벗어나기
+	function fMoveTopUrl(str)
+	{
+		// top.parent.location.href = str;
+		parent.top.location.href = str;
+	}
+	
+	function in_f(e) {
+		document.all.onair01.style.display = "none";
+		switch (parseInt(e)) {
+			case 1 : 
+				document.all.onair01.style.display = "";
+				break;
+		}
+	}
+	 
+	function AODPlayer(main_part,rank,touchid) // 모든 VOD는 앞으로 이것으로. 오영진
+	{	
+		if (touchid.substr(touchid.length-1,1) == ' ') {touchid = touchid.substr(0,touchid.length-1)}
+		if (touchid.substr(touchid.length-1,1) == ' ') {touchid = touchid.substr(0,touchid.length-1)}
+			speed = 56
+		if (main_part == 'RA') {linkText = 'http://music.imbc.com/touch2/player.asp?main_part=' + main_part + '&count=1&l1=' + main_part + touchid.substr(touchid.length-7,7) + '&size=0&speed=' + speed}
+		else {linkText = 'http://music.imbc.com/touch2/player.asp?main_part=' + main_part + '&count=1&l1=' + touchid + '&size=0&speed=' + speed}
+			newwins = window.open(linkText, '_player','width=621,height=548,marginwidth=0,marginheight=0,resizable=0,scrollbars=0');
+	
+		newwins.focus();
+	}
+
+	function AODAllPlayer(main_part,count,touchids) // 모든 VOD는 앞으로 이것으로. 오영진
+	{
+		if (touchids.substr(touchids.length-1,1) == ' ') {touchids = touchids.substr(0,touchids.length-1)}
+		if (touchids.substr(touchids.length-1,1) == ' ') {touchids = touchids.substr(0,touchids.length-1)}
+		speed = 56
+		linkText = 'http://music.imbc.com/touch2/player.asp?main_part=' + main_part + '&count=' + count+ '&' + touchids + '&size=1&speed=' + speed
+		newwins = window.open(linkText, '_player','width=440,height=548,marginwidth=0,marginheight=0,resizable=0,scrollbars=0');
+		newwins.focus();
+	}
+
+	// TOUCH PLAYER 관련
+	function openOMP(url) {
+		window.open(url, 'dewna', 'width=780, height=600');
+	}
+
+	function openVOD(url) {
+
+		if (fnGCase(fnGParams(url,"file"),"mp4")== true ){
+		//alert(fnGParams(url,"file"));
+		//alert(fnGParams(url,"id"));
+
+		var headID = document.getElementsByTagName("head")[0];    
+		var newScript = document.createElement('script');
+		newScript.type = 'text/javascript';
+		//newScript.src = 'http://Playercue.imbc.com/TouchPlayer/GateWay.asp?id';
+
+		newScript.src = "http://vodmall.imbc.com/gateway/gateway.ashx?broadcastid=" + fnGParams(url,"id") + "&mediaurl=" +  fnGParams(url,"file")
+
+		headID.appendChild(newScript);
+
+		}
+		else
+		{
+			var objWin = "";
+			objWin = window.open(url, 'POPUP_CUE', 'left=0,top=0,width=385, height=435, resizable=yes, scrollbars=no, status=no');
+			 if(!objWin.closed && objWin) {
+			    objWin.focus()
+			}		
+		}
+	}
+
+function openVOD2(url2, title) {
+	  var url = url2 + "&title=" + title;
+		
+		if (fnGCase(fnGParams(url,"file"),"mp4")== true ){
+			var headID = document.getElementsByTagName("head")[0];    
+			var newScript = document.createElement('script');
+			newScript.type = 'text/javascript';		
+
+			newScript.src = "http://vodmall.imbc.com/gateway/gateway.ashx?broadcastid=" + fnGParams(url,"id") + "&mediaurl=" +  fnGParams(url,"file")
+
+			headID.appendChild(newScript);
+		}
+		else
+		{
+			var objWin = "";
+			if(title != ""){
+				objWin = window.open(url2+"&title="+escape(title), 'POPUP_CUE', 'left=0,top=0,width=385, height=435, resizable=yes, scrollbars=no, status=no');
+			}else{
+				objWin = window.open(url, 'POPUP_CUE', 'left=0,top=0,width=385, height=435, resizable=yes, scrollbars=no, status=no');
+			}
+			 if(!objWin.closed && objWin) {
+			    objWin.focus()
+			}		
+		}
+	}
+
+
+function fnGParams(Url,paramName) {
+    // 파라미터가 담길 배열
+    var param = new Array();
+    var paramValue = "";
+ 
+    // 현재 페이지의 url
+    var url = decodeURIComponent(Url);
+    // url이 encodeURIComponent 로 인코딩 되었을때는 다시 디코딩 해준다.
+    url = decodeURIComponent(url);
+ 
+    var params;
+    // url에서 '?' 문자 이후의 파라미터 문자열까지 자르기
+    params = url.substring( url.indexOf('?')+1, url.length );
+    // 파라미터 구분자("&") 로 분리
+    params = params.split("&");
+
+    // params 배열을 다시 "=" 구분자로 분리하여 param 배열에 key = value 로 담는다.
+    var size = params.length;
+    var key, value;
+    for(var i=0 ; i < size ; i++) {
+        key = params[i].split("=")[0];
+        value = params[i].split("=")[1];
+	if (paramName == key)	
+	{
+	  paramValue = value ;
+	}
+        //param[key] = value;
+    }
+	return paramValue;
+      
+    //return param;
+}
+
+
+
+
+
+    //아이콘 노출
+    function fnGCase(url,str) {
+         var strformat = "";
+         //str 포맷
+         strformat = fnGRight(url,3);
+         
+        if (strformat.toLowerCase() == str.toLowerCase()) {
+        return true;
+        }
+        else
+        {
+        return false;
+        }
+
+    }
+
+	
+	function fnGRight(str, n){
+      	if (n <= 0)
+         return "";
+      	else if (n > String(str).length)
+         return str;
+	else {
+         var iLen = String(str).length;
+         return String(str).substring(iLen, iLen - n);
+      	}
+       }
+
+
+
+	function OpenWin2( VodCnt ) {
+	    var winProperties = "directories=no,location=no,menubar=no,status=no,toolbar=no,scrollbars=no,resizable=no,width=604,height=540";
+	    win = window.open( VodCnt, "win2", winProperties);
+	} 
+	
+	function OpenWin3(previewcnt) {
+	    var winProperties1 = "directories=no,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes,resizable=no,width=604,height=650";
+	    win = window.open( previewcnt, "win3", winProperties1);
+	} 
+	
+	function OpenWin4(previewcnt) {
+	    var winProperties1 = "directories=no,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes,resizable=no,width=604,height=650";
+	    win = window.open( previewcnt, "win4", winProperties1);
+	} 
+	
+	function openDOWN(url) {
+		window.open(url, '_blank', 'width=410, height=475, resizable=yes');
+	}
+
+	function openUBook(url) {
+		window.open('http://ubook.imbc.com/booktopia/affiliate_site/imbc/script/script.asp' + url, 'ubook', 'width=430, height=400, resizable=yes');
+	}
+
+	function openUBookInfo() {
+		window.open('http://ubook.imbc.com/booktopia/affiliate_site/imbc/script/new_help4.htm', 'ubookinfo', 'width=470, height=400, scrollbars=yes, resizable=yes');
+	}
+
+	function openDownInfo() {
+		window.open('http://www.imbc.com/broad/tv/infoguide/overseas_help/index.html', 'downinfo', 'width=700, height=550, resizable=no');
+	}
+
+	// 오른쪽 프레임이 붙은 Touch Player 띄우기
+                // url : 동영상 URL
+                // url2 : 오른쪽 프레임 URL
+	function openVODEx(url, url2) 
+	{
+		var sURL;
+		sURL = url.replace('Touchplayer.asp', 'SVPlayer.asp');
+		window.open(sURL+"&svURL="+url2, '', 'width=678, height=414, resizable=yes');
+	}
+
+	// 한줄톡 붙은 Touch Player 띄우기
+	function openVODEx2(url, svcdiv)
+	{
+		if (svcdiv == '')
+		{
+			openVOD(url);
+		}
+		else
+		{
+			var sURL;
+			sURL = url.replace('Touchplayer.asp', 'SVPlayer.asp');
+			svcdiv = svcdiv.replace('http://comment.imbc.com/MemoList.asp?SvcDiv=', '');
+			svcdiv = svcdiv.replace('http://campaign.imbc.com/discussion/MemoList.asp?SvcDiv=', '');
+			window.open(sURL+"&svcdiv="+svcdiv, '', 'width=410, height=416, resizable=yes');
+		}
+	}
+
+	// 오른쪽 페이지에서 왼쪽 TOUCH URL변경          원래 스크립트..... 백업!!!!!!!!!!!!!!!!!!!!!!!!!
+	function ChangeVOD_backup(url)
+	{
+		if(window.parent && window.parent.PlayFrm && window.parent.PlayFrm.OpenMedia)
+		{		
+			var nPos;
+			nPos = url.indexOf("file=", 0);
+			if(nPos < 0 )
+			{
+				window.parent.PlayFrm.OpenMedia(url, 0);	
+			}
+			else
+			{
+				var nPos2;
+				var sMediaURL;
+				nPos2 = url.indexOf("&", nPos);
+				if(nPos2 < 0) sMediaURL = url.substring(nPos+5, url.length)
+				else sMediaURL = url.substring(nPos+5, nPos2)
+				window.parent.PlayFrm.OpenMedia(sMediaURL, 0);				
+			}
+		
+		}
+	}
+
+	// 터치플레이어의 미디어 파일을 변경.
+	function ChangeVOD(url)
+	{
+		ChangePos(url, 0);
+	}
+
+	// 터치플레이어의 재생위치를 변경.
+	function ChangePos(url, pos)
+	{
+		if(top.window && top.window.PlayFrm && top.window.PlayFrm.OpenMedia)
+		{	
+			var nPos;
+			nPos = url.indexOf("file=", 0);
+			if(nPos < 0 )
+			{
+				top.window.PlayFrm.OpenMedia(url, pos);	
+			}
+			else
+			{
+				var nPos2;
+				var sMediaURL;
+				nPos2 = url.indexOf("&", nPos);
+				if(nPos2 < 0) sMediaURL = url.substring(nPos+5, url.length)
+				else sMediaURL = url.substring(nPos+5, nPos2)
+				top.window.PlayFrm.OpenMedia(sMediaURL, pos);				
+			}
+		
+		}
+	}
+
+    // 사이즈 지정 가능한 한줄톡 창 띄우기
+	function openVODEx3(url, svcdiv, intWidth, intHeight)
+	{
+
+		if (svcdiv == '')
+		{
+			openVOD(url);
+		}
+		else
+		{
+			var sURL;
+			sURL = url.replace('Touchplayer.asp', 'SVPlayer.asp');
+			svcdiv = svcdiv.replace('http://comment.imbc.com/MemoList.asp?SvcDiv=', '');
+			window.open(sURL+"&svcdiv="+svcdiv+"&w="+intWidth+"&h="+intHeight, '', 'width=410, height=440, resizable=yes');
+		}
+	}
+	
+	function hideDivPpl() {
+	    hideDivPpl(document.getElementById('divppl'));
+	}
+
+	function hideDivPpl(s) {
+	    if (s!=null) s.style.display = 'none'; 
+	}
+
+	function getPpl(ppl_no) {
+		var list;
+		var posX, posY;
+		
+		try {
+			if (ppl_no.indexOf(",") >= 0) {
+				list = ppl_no.split(",");
+				ppl_no = list[0];
+				posX = parseInt(list[1]);
+				posY = parseInt(list[2]);
+			} else {
+				posX = window.event.clientX + document.body.scrollLeft;
+				posY = window.event.clientY + document.body.scrollTop + 5;
+			}
+			frameppl.location.href = "http://people.imbc.com/pplPopSrv.asp?ppl_no=" + ppl_no;
+
+			var obj = document.getElementById('divppl');
+			obj.style.position = 'absolute';
+			obj.style.left = posX;
+			obj.style.top = posY;
+			obj.style.display = '';
+		} catch(e) {}
+	}
+
+	/* div용 인물소개 09.07.24 이길환 추가*/
+	function div_getPpl(ppl_no) {
+		var list;
+		var bodyX, posX, posY;
+
+		
+		try {
+			if (ppl_no.indexOf(",") >= 0) {
+				list = ppl_no.split(",");
+				ppl_no = list[0];
+				posX = parseInt(list[1]);
+				posY = parseInt(list[2]);
+			} else {
+				if(document.body.clientWidth > 990 ) {
+					bodyX= (document.body.clientWidth - 990 ) / 2;
+					posX = window.event.clientX + document.body.scrollLeft - bodyX + 10;
+					posY = window.event.clientY + document.body.scrollTop -150;
+				} else {
+					posX = window.event.clientX + document.body.scrollLeft + 10;
+					posY = window.event.clientY + document.body.scrollTop -150;
+				}
+				
+			}
+			frameppl.location.href = "http://people.imbc.com/pplPopSrv.asp?ppl_no=" + ppl_no;
+			var obj = document.getElementById('divppl');
+			obj.style.position = 'absolute';
+			obj.style.left = posX;
+			obj.style.top = posY;
+			obj.style.display = '';
+			obj.style.zIndex = 100;
+		} catch(e) {}
+	}
+
+	function resizeFramePpl() {
+		try {
+			var oBody	=	frameppl.document.body;
+			var oFrame	=	document.getElementById('frameppl');
+		
+			oFrame.style.height = oBody.scrollHeight + (oBody.offsetHeight - oBody.clientHeight);
+			oFrame.style.width = oBody.scrollWidth + (oBody.offsetWidth - oBody.clientWidth);
+		} catch(e) {}
+	}
+
+	function openPplPopDetail(ppl_no) {
+		//window.open("http://people.imbc.com/pplPopSrvDetail.asp?ppl_no=" + ppl_no, "pplpopdetail", "scrollbars=yes,width=491,height=750");
+		window.open("http://people.imbc.com/user/PeopleDetail.asp?PeoNo=" + ppl_no, "pplpopdetail");
+	}
+
+	function MM_jumpMenu(targ,selObj,restore){
+		eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+		if (restore) selObj.selectedIndex=0;
+	}
+
+	function writeRno(strNo) {
+		var i=0;
+		
+		try {
+			if (strNo==null || strNo=="") return;
+			while(i<strNo.length) {
+				if (strNo.substring(i,i+1) != "0") {
+					document.write(strNo.substring(i, strNo.length));
+					return;
+				} else {
+					i++;
+				}
+			}
+			document.write(strNo);
+		} catch(e) {}
+	}
+
+	function writeSwfVars(url, width, height, allowDomain, vars) {
+		if (allowDomain == "") {
+			allowDomain = false;
+		}
+		try {
+			document.write('<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,124,0" width="' + width + '" height="' + height + '">');
+			document.write('<param name="movie" value="' + url + '">');
+			if (allowDomain == true) {
+				document.write('<param name="allowScriptAccess" value="sameDomain"/>');
+			} else {
+				document.write('<param name="allowScriptAccess" value="always"/>');
+			}
+			document.write('<param name="FlashVars" value="' + vars+ '">');
+			document.write('<param name="quality" value="high"><param name="wmode" value="transparent">');
+
+			if (allowDomain == true) {
+				document.write('<embed src="' + url + '" quality="high" wmode="transparent" allowscriptaccess="sameDomain" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="' + width + '" height="' + height + '"></embed>');
+			}
+			else{
+				document.write('<embed src="' + url + '" quality="high" wmode="transparent" allowscriptaccess="always" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="' + width + '" height="' + height + '"></embed>');
+			}	
+			
+			document.write('</object>');
+		} catch(E){}
+	}
+
+	function writeSwf(url, width, height, allowDomain, swfid) {
+		if (allowDomain == "") {
+			allowDomain = false;
+		}
+		if( (typeof swfid)=='undefined') {
+			swfid = '';
+		}
+
+		try {
+
+			document.write('<object id="'+swfid+'" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,124,0" width="' + width + '" height="' + height + '">');
+			document.write('<param name="movie" value="' + url + '">');
+			if (allowDomain == true) {
+				document.write('<param name="allowScriptAccess" value="sameDomain"/>');
+			} else {
+				document.write('<param name="allowScriptAccess" value="always"/>');
+			}
+			document.write('<param name="quality" value="high"><param name="wmode" value="transparent">');
+
+			if (allowDomain == true) {
+				document.write('<embed src="' + url + '" quality="high" wmode="transparent" allowscriptaccess="sameDomain" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="' + width + '" height="' + height + '"></embed>');
+			}
+			else{
+				document.write('<embed src="' + url + '" quality="high" wmode="transparent" allowscriptaccess="always" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="' + width + '" height="' + height + '"></embed>');
+			}	
+			
+			
+			document.write('</object>');
+		} catch(E){}
+	}
+	
+	function writeSwfObject(url, width, height, allowDomain, swfid) {
+		if (allowDomain == "") {
+			allowDomain = false;
+		}
+		if( (typeof swfid)=='undefined') {
+			swfid = '';
+		}
+
+		try {
+
+			document.write('<object id="'+swfid+'" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,124,0" width="' + width + '" height="' + height + '">');
+			document.write('<param name="movie" value="' + url + '">');
+			if (allowDomain == true) {
+				document.write('<param name="allowScriptAccess" value="sameDomain"/>');
+			} else {
+				document.write('<param name="allowScriptAccess" value="always"/>');
+			}
+			document.write('<param name="quality" value="high"><param name="wmode" value="transparent">');
+			document.write('</object>');
+		} catch(E){}
+	}
+
+	//불투명부분
+	function writeSwfOpa(url, width, height, allowDomain) {
+		if (allowDomain == "") {
+			allowDomain = false;
+		}
+		try {
+			document.write('<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,124,0" width="' + width + '" height="' + height + '">');
+			document.write('<param name="movie" value="' + url + '">');
+			if (allowDomain == true) {
+				document.write('<param name="allowScriptAccess" value="sameDomain"/>');
+			} else {
+				document.write('<param name="allowScriptAccess" value="always"/>');
+			}
+			document.write('<param name="quality" value="high">');
+
+			if (allowDomain == true) {
+				document.write('<embed src="' + url + '" quality="high" wmode="transparent" allowscriptaccess="sameDomain" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="' + width + '" height="' + height + '"></embed>');
+			}
+			else{
+				document.write('<embed src="' + url + '" quality="high" wmode="transparent" allowscriptaccess="always" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="' + width + '" height="' + height + '"></embed>');
+			}	
+			
+			
+			document.write('</object>');
+		} catch(E){}
+	}
+
+	// scriptlet
+	function fWriteScriptlet(strUrl, intWidth, intHeight)
+	{
+		document.writeln("<object type=text/x-scriptlet width="+intWidth+" height="+intHeight+" data="+strUrl+"></object>");
+	}
+	
+	// 전국 개그 신청
+	function fApp()
+	{
+		var winl = (screen.width - 300) / 2;
+		var wint = (screen.height - 430) / 2;
+		
+		win = window.open('http://campaign.imbc.com/gag/EvtAppForm.asp', 'APP', 'toolbar=no,location=no,status=no,menubar=no,resizable=no,scrollbars=no,top='+wint+',left='+winl+',width=430,height=300');
+		win.focus();
+	}	
+	
+	
+	function DownLoadOpen() {
+		try {
+					var openurl = "";
+					var uri = null;
+					if((typeof vodform.itemid)=='undefined') {
+						alert('선택할수 있는 아이템이 없습니다.');
+					}else {
+						if((typeof vodform.itemid.length)=='undefined') {
+							if(vodform.itemid.checked) {
+								uri = vodform.itemid.value;
+								vodform.itemidCheck.value = vodform.itemid.value;
+							}
+							else
+							{
+								vodform.itemidCheck.value = "0";
+							}
+						}else {
+							for(var i=0;i<vodform.itemid.length;i++) {
+								
+								if(vodform.itemid[i].checked) 
+								{
+									if(uri==null) {
+										uri = vodform.itemid[i].value;
+										vodform.itemidCheck[i].value = vodform.itemid[i].value;		
+									} else {
+										uri += ","+vodform.itemid[i].value;
+										vodform.itemidCheck[i].value = vodform.itemid[i].value;;
+									}	
+								}
+								else
+								{
+									vodform.itemidCheck[i].value = "0";	
+								}
+							}
+							
+						}
+						if(uri==null) {
+							alert('아이템을 선택하셔야 합니다.');
+						}else {
+							//alert('성공\n'+'sItmId='+uri);
+							//var oNewWin = window.open("http://script.imbc.com/dowload_info.asp?sItmIds=" + uri ,"_blank","width=1,height=1,left=50,top=50,toolbar=no,directories=no,status=no,scrollbars=auto,resize=yes,menubar=no");
+							
+							var fTarget = "f" + parseInt(Math.random()*10000000) 
+							var oNewWin = window.open("http://script.imbc.com/loading.html",fTarget,"width=100,height=100,left=50,top=50,toolbar=no,directories=no,status=no,scrollbars=auto,resize=yes,menubar=no");
+							vodform.target = fTarget;
+							vodform.submit();
+	
+						}
+					}
+				}
+				catch(e){}
+	}
+	
+	function onCheckBox(){
+		var Chid = escape(getCookie("IMBCMAIN"));
+		if (Chid == "")
+		{
+	                var CheckBoxmsg="로그인 후 이용 가능 합니다!";
+	                var st=window.showModalDialog("http://login.imbc.com/imbc/login/error/win_box_1.asp?msg="+CheckBoxmsg,"","dialogWidth:334px; dialogHeight:190px; status:no; help:no;resize:no; scroll:no");
+		iMbc_login();
+		}	
+	}
+	
+	// 마이페이지 즐겨찾기
+	function writeMyFav(PC) {
+		var tID = escape(getCookie("IMBCMAIN"))
+		if (tID == "") {
+			document.write("	<TABLE cellSpacing='1' cellPadding='2' width='131' align='center' bgColor='#999999' border='0'>");
+			document.write("		<TR>");
+			document.write("			<TD vAlign='top' align='center' bgColor='#e7e7e7'>");
+			document.write("				<TABLE cellSpacing='1' cellPadding='0' width='100%' bgColor='#96a2b6' border='0'>");
+			document.write("					<TR>");
+			document.write("						<TD bgColor='#ffffff'>");
+			document.write("							<TABLE cellSpacing='0' cellPadding='0' width='100%' border='0'>");
+			document.write("								<TR >");
+			document.write("									<TD valign='middle'><IMG hspace='3' src='http://img.imbc.com/login/images/mp_icn_05.gif' align='absMiddle'");
+			document.write("											vspace='1' ><B><FONT color='#0078bf'>즐겨찾기</FONT></B></TD>");
+			document.write("									<TD valign='middle' align='right'><IMG alt='설정' onclick='iMbc_login()' style='cursor:hand' hspace='2' src='http://img.imbc.com/login/images/mp_btn_favedit.gif' align='absMiddle'");
+			document.write("												border='0'></A></TD>");
+			document.write("								</TR>");
+			document.write("							</TABLE>");
+			document.write("						</TD>");
+			document.write("					</TR>");
+			document.write("				</TABLE>");
+			document.write("				<TABLE cellSpacing='0' cellPadding='2' width='100%' border='0'>");
+			document.write("					<TR>");
+			document.write("						<TD align='center' width='100%' bgColor='#e4e4e4' colSpan='2' height='30'  style='padding:3 0 0 0'>");
+			document.write("								<select name='BookMark_List' id='BookMark_List' class='bt' onclick='iMbc_login()' style='width:121px;FONT-SIZE: 12px;' >");
+			document.write("<option>-즐겨찾기 목록-</option>");
+			document.write("</select></TD>");
+			document.write("					</TR>");
+			document.write("				</TABLE>");
+			document.write("			</TD>");
+			document.write("		</TR>");
+			document.write("	</TABLE>");
+		}else {
+			document.write("<table cellSpacing='0' cellPadding='0' align='center' valign='top' width='131' height='60'><tr><td><iframe src='http://mypage.imbc.com/MyFav/MyBookMarkList.aspx?PC="+PC+"' frameborder=0 width='131' height='60'  scrolling=no></iframe></td></tr></table>");
+		}
+	}
+	
+	// 드라마 프로그램바로가기
+	document.write("<scri"+"pt type='text/jav"+"asc"+"ript' src='http://www.imbc.com/broad/tv/js/drama_program_go_n.js'></sc"+"ript>");
+	
+	//광고용 GeoIP 세팅.
+	//if(escape(getCookie("geo")) == "")
+	//{
+	//		document.write("<scri"+"pt type='text/jav"+"asc"+"ript' src='http://ads.imbc.com/geoip.php'></sc"+"ript>");
+	//}
+
+	//2008 메인개편 관련 JS
+	function layer_view(e_id){document.getElementById(e_id).style.display='block';}
+	function layer_hidden(e_id){document.getElementById(e_id).style.display='none';}
+	function d1_tabov(tab_num){
+		var tab_num2 = tab_num-1;
+		for(i=1; i<4; i++){
+			if(tab_num==i){
+				if(tab_num2 > 0){document.getElementById('d1_tab'+tab_num2).style.background="none";}
+				document.getElementById('d1_tab'+tab_num).style.background="none";
+				document.getElementById('d1_tabimg'+tab_num).src="http://img.imbc.com/2008_main_admin/images/main/d1_ton"+tab_num+".gif";
+				document.getElementById('dl_list'+tab_num).style.display="block";
+				
+			}else{
+				if((i-1) > 0){document.getElementById('d1_tab'+(i-1)).style.background="url(http://img.imbc.com/2008_main_admin/images/main/d1_bar.jpg) no-repeat right 6px";}
+				if(i < 4){document.getElementById('d1_tab'+i).style.background="url(http://img.imbc.com/2008_main_admin/images/main/d1_bar.jpg) no-repeat right 6px";}
+				document.getElementById('d1_tabimg'+i).src="http://img.imbc.com/2008_main_admin/images/main/d1_toff"+i+".gif";
+				document.getElementById('dl_list'+i).style.display="none";
+			}
+		}	
+	}
+
+	function d1_tabout(tab_num){
+		var tab_num2 = tab_num-1;
+		if(tab_num2 > 0){document.getElementById('d1_tab'+tab_num2).style.background="url(http://img.imbc.com/2008_main_admin/images/main/d1_bar.jpg) no-repeat right 6px";}
+		document.getElementById('d1_tab'+tab_num).style.background="url(http://img.imbc.com/2008_main_admin/images/main/d1_bar.jpg) no-repeat right 6px";
+		document.getElementById('d1_tabimg'+tab_num).src="http://img.imbc.com/2008_main_admin/images/main/d1_toff"+tab_num+".gif";
+	}
+
+	function si_tabov(tab_num){
+		var tab_num2 = tab_num-1;
+		for(i=1; i<8; i++){
+			if(tab_num==i){
+				if(tab_num2 > 0){document.getElementById('si_tab'+tab_num2).style.background="none";}			
+				document.getElementById('si_tab'+tab_num).style.background="none";
+				document.getElementById('si_tabimg'+tab_num).src="http://img.imbc.com/2008_main_admin/images/sub/si_a1_mv"+tab_num+".jpg";
+			}else{
+				if((i-1) < 0){document.getElementById('si_tab'+(i-1)).style.background="url(http://img.imbc.com/2008_main_admin/images/sub/si_a1_bar.jpg) no-repeat right 6px";}
+				
+				if(i < 7){document.getElementById('si_tab'+i).style.background="url(http://img.imbc.com/2008_main_admin/images/sub/si_a1_bar.jpg) no-repeat right 6px";}
+				document.getElementById('si_tabimg'+i).src="http://img.imbc.com/2008_main_admin/images/sub/si_a1_mf"+i+".jpg";
+			}
+		}	
+	}
+
+
+	function en_tabov(tab_num){
+		var tab_num2 = tab_num-1;
+		for(i=1; i<8; i++){
+			if(tab_num==i){
+				if(tab_num2 > 0){document.getElementById('en_tab'+tab_num2).style.background="none";}			
+				document.getElementById('en_tab'+tab_num).style.background="none";
+				document.getElementById('en_tabimg'+tab_num).src="http://img.imbc.com/2008_main_admin/images/sub/en_a1_mv"+tab_num+".jpg";
+			}else{
+				if((i-1) < 0){document.getElementById('en_tab'+(i-1)).style.background="url(http://img.imbc.com/2008_main_admin/images/sub/en_a1_bar.jpg) no-repeat right 6px";}
+				
+				if(i < 7){document.getElementById('en_tab'+i).style.background="url(http://img.imbc.com/2008_main_admin/images/sub/en_a1_bar.jpg) no-repeat right 6px";}
+				document.getElementById('en_tabimg'+i).src="http://img.imbc.com/2008_main_admin/images/sub/en_a1_mf"+i+".jpg";
+			}
+		}	
+	}
+	/*ul=dr_b4_li,img=dr_b4_ban1.jpg*/
+	function list_over1(u_id,listnum){
+		var s_id = u_id.split("_");
+		var d_id = u_id.replace("_"+s_id[2],"");
+		var lists = document.getElementById(u_id+"li").getElementsByTagName("li");
+		for(i=0;i<lists.length;i++){
+			if(i==listnum){
+				lists[i].className="on";
+				document.getElementById(d_id+"_img").src="http://img.imbc.com/2008_main_admin/images/sub/"+u_id+"ban"+(i+1)+".jpg";
+			}else{
+				lists[i].className="";
+			}
+		}
+	}
+
+	function menuchange1(u_id,num){
+		var s_id = u_id.split("_");
+		var d_id = u_id.replace("_"+s_id[2],"");
+		
+		var menus = document.getElementById(d_id+"_menu").getElementsByTagName("img");
+		var overs = document.getElementById(d_id+"_over").getElementsByTagName("img");
+		var lists = document.getElementById(u_id+"li").getElementsByTagName("li");
+
+		for(i=0;i<menus.length;i++){						
+			if(i==num){
+				menus[i].src="http://img.imbc.com/2008_main_admin/images/sub/"+d_id+"_mv"+(i+1)+".jpg";
+				overs[i].src="http://img.imbc.com/2008_main_admin/images/sub/"+d_id+"_mover.jpg";							
+				document.getElementById(d_id+"_"+(i+1)+"li").style.display="block";
+				/*
+				for(j=0;j<lists.length;j++){
+					if(lists[j].className=="on"){
+						document.getElementById(d_id+"_img").src="http://img.imbc.com/2008_main_admin/images/sub/"+u_id+"ban"+(j+1)+".jpg";
+					}
+				}
+				*/
+			}else{
+				menus[i].src="http://img.imbc.com/2008_main_admin/images/sub/"+d_id+"_mf"+(i+1)+".jpg";
+				overs[i].src="http://img.imbc.com/2008_main_admin/images/sub/blank.gif";
+
+				document.getElementById(d_id+"_"+(i+1)+"li").style.display="none";							
+			}
+		}					
+	}
+
+
+	/*ul=dr_b4_li,img=dr_b4_ban1.jpg*/
+	function list_over3(u_id,listnum){
+		var s_id = u_id.split("_");
+		var d_id = u_id.replace("_"+s_id[2],"");
+		var lists = document.getElementById(u_id+"li").getElementsByTagName("li");
+		
+		for(i=0;i<lists.length;i++){
+			if(i==listnum){
+				lists[i].className="on";
+				document.getElementById(d_id+"_img").src="http://img.imbc.com/2008_main_admin/images/sub/"+u_id+"ban"+(i+1)+".jpg";
+			}else{
+				lists[i].className="";
+			}
+		}
+	}
+
+	function menuchange3(u_id,num){
+		var s_id = u_id.split("_");
+		var d_id = u_id.replace("_"+s_id[2],"");
+		
+		var menus = document.getElementById(d_id+"_menu").getElementsByTagName("img");
+		var overs = document.getElementById(d_id+"_over").getElementsByTagName("img");
+		var lists = document.getElementById(u_id+"li").getElementsByTagName("li");
+		
+		for(i=0;i<menus.length;i++){
+			if(i==num){
+				menus[i].src="http://img.imbc.com/2008_main_admin/images/sub/"+d_id+"_mv"+(i+1)+".jpg";
+				overs[i].src="http://img.imbc.com/2008_main_admin/images/sub/"+d_id+"_mover.jpg";	
+				
+				document.getElementById(d_id+"_"+(i+1)+"li").style.display="block";
+				for(j=0;j<lists.length;j++){
+					if(lists[j].className=="on"){
+						document.getElementById(d_id+"_img").src="http://img.imbc.com/2008_main_admin/images/sub/"+u_id+"ban"+(j+1)+".jpg";
+					}
+				}
+			}else{
+				menus[i].src="http://img.imbc.com/2008_main_admin/images/sub/"+d_id+"_mf"+(i+1)+".jpg";
+				overs[i].src="http://img.imbc.com/2008_main_admin/images/sub/blank.gif";
+				document.getElementById(d_id+"_"+(i+1)+"li").style.display="none";
+			}
+		}
+	}
+	/*ul=dr_b4_li,img=dr_b4_ban1.jpg*/
+	function list_over2(u_id,listnum){
+		var s_id = u_id.split("_");
+		var d_id = u_id.replace("_"+s_id[2],"");
+		var lists = document.getElementById(u_id+"li").getElementsByTagName("li");
+		document.getElementById(d_id+"_img").src="http://img.imbc.com/2008_main_admin/images/sub/"+u_id+"ban"+(listnum+1)+".jpg";
+	}
+
+	function menuchange2(u_id,num){
+		var s_id = u_id.split("_");
+		var d_id = u_id.replace("_"+s_id[2],"");
+		
+		var menus = document.getElementById(d_id+"_menu").getElementsByTagName("img");
+		var overs = document.getElementById(d_id+"_over").getElementsByTagName("img");
+		
+		for(i=0;i<menus.length;i++){
+			if(i==num){
+				menus[i].src="http://img.imbc.com/2008_main_admin/images/sub/"+d_id+"_mv"+(i+1)+".jpg";
+				overs[i].src="http://img.imbc.com/2008_main_admin/images/sub/"+d_id+"_mover.jpg";
+				document.getElementById(d_id+"_"+(i+1)+"li").style.display="block";
+				
+			}else{
+				menus[i].src="http://img.imbc.com/2008_main_admin/images/sub/"+d_id+"_mf"+(i+1)+".jpg";
+				overs[i].src="http://img.imbc.com/2008_main_admin/images/sub/blank.gif";
+				document.getElementById(d_id+"_"+(i+1)+"li").style.display="none";
+			}
+		}
+	}
+
+	function cal_sh(num){
+		if(num==1){
+			document.getElementById("cal").style.display='block';
+		}else{
+			document.getElementById("cal").style.display='none';
+		}
+	}
+
+	function list_over(num){
+		for(i=1; i<=5; i++){ 
+			document.getElementById("best_bt"+i).src="http://img.imbc.com/2008_main_admin/images/list/best"+i+"_off.jpg";
+			document.getElementById("sub_best"+i).style.display='none';
+		}
+		document.getElementById("best_bt"+num).src="http://img.imbc.com/2008_main_admin/images/list/best"+num+"_on.jpg";
+		document.getElementById("sub_best"+num).style.display='block';
+	}
+
+	function list_bt(num){
+		for(i=1; i<=7; i++){ 
+			document.getElementById("top_bt"+i).className="back";
+		}
+		document.getElementById("top_bt"+num).className="back_on";
+	}
+
+
+	function commify(n) {
+		var reg = /(^[+-]?\d+)(\d{3})/;   
+		n += '';                          
+		while (reg.test(n))
+		  n = n.replace(reg, '$1' + ',' + '$2');
+		return n;
+	}
+		
+	function setBestBBS(){
+		try{
+			for(var i=0; i<document.imbbsBest.length;i++){
+				var szClass = ""
+				if(i==document.imbbsBest.length-1)
+					szClass = " class=\"end\" ";
+				if (document.imbbsBest[i].board_name.bytes()>27) document.imbbsBest[i].board_name = document.imbbsBest[i].board_name.cut(25);	
+				document.writeln("<li" + szClass + "><a href=\""+document.imbbsBest[i].url+"\" onfocus=\"this.blur();\"><span class=\"txt\"><img src=\"http://img.imbc.com/2008_main_admin/images/icon/icon_n1_"+(i+1)+".gif\" class=\"icon\" align=\"absmiddle\">"+document.imbbsBest[i].board_name+"</span><span class=\"count\">"+commify(document.imbbsBest[i].post_cnt)+"건</span></a></li>")
+			}
+		}
+		catch(e){}	
+	}	
+
+	function setInfoBBS(){
+		try{
+			for(var i=0; i<grpimbbs.length;i++){
+				if(i>3) break;
+				document.writeln("<li><a href=\""+grpimbbs[i].url+"\" onfocus=\"this.blur();\">["+ grpimbbs[i].prog_name +"] "+ grpimbbs[i].title+"</a></li>");
+			}	
+		}
+		catch(e){}			
+	}	
+
+
+	String.prototype.cut = function(len) {
+		var str = this;
+		var l = 0;
+		for (var i=0; i<str.length; i++) {
+			l += (str.charCodeAt(i) > 128) ? 2 : 1;
+			if (l > len) return str.substring(0,i) + "...";
+		}
+		return str;
+	}
+
+	String.prototype.bytes = function() {
+		var str = this;
+		var l = 0;
+		for (var i=0; i<str.length; i++) l += (str.charCodeAt(i) > 128) ? 2 : 1;
+		return l;
+	}
+
+
+function fDWClick(code, url, dscr, popup)
+{
+	  try{
+				if (dscr == "")
+					dscr = "［" + getSubDWCodeNm(code) + "］";
+				else
+					dscr = "［" + getSubDWCodeNm(code) + "］: " + dscr;
+		}
+		catch(e){}
+		
+		var clickurl = "http://www.imbc.com/dwredirect.html?dw_url=" + escape(url) + "&nethruCD=" + code + "&nethruNm=" + escape(dscr);
+		
+		if((typeof(popup)=='undefined' )||( popup=='')) {
+			document.location.href=clickurl;
+		}else {
+			if(popup=="1"){
+				var popupOpt;
+				if(url.toLowerCase().indexOf("vodmall.imbc.com/player/player.aspx")>0 && url.toLowerCase().indexOf("type=popup")>0 ){
+					popupOpt = 'width=950, height=445, resizable=yes';
+				}
+				else{
+					popupOpt = 'scrollbars=yes,toolbar=yes,location=yes,resizable=yes,status=yes,menubar=yes,width='+ (document.documentElement.offsetWidth-100) +',height='+ (document.documentElement.offsetHeight-100) + ',top=' + (window.screenTop+20)  + ',left=' + (window.screenLeft+100) ;
+				}
+				objWin = window.open(clickurl, 'mainpop', popupOpt );
+				try{
+					if(!objWin.closed && objWin) {
+					    objWin.focus()
+					}		
+				}
+				catch(e){
+				}	
+			}	
+			else{
+				window.open(clickurl, 'mainpop', popup);
+			}	
+			return false;	
+		}
+	}
+
+/* IE 6.0 백그라운드 리로드 방지하기 */
+(function() { 
+	/*Use Object Detection to detect IE6*/ 
+	var m = document.uniqueID /*IE*/ 
+	document.compatMode /*>=IE6*/ 
+	!window.XMLHttpRequest /*<=IE6*/ 
+	document.execCommand ; 
+	try { 
+		if(!!m) { 
+			m("BackgroundImageCache", false, true) /* = IE6 only */ 
+		} 
+	}
+	catch(oh) {};
+}) ();
+// IE6.0 PNG 투명배경 회색버그방지
+function setPng24(obj) {
+	obj.width=obj.height=1;
+	obj.className=obj.className.replace(/\bpng24\b/i,''); 
+	obj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+ obj.src +"',sizingMethod='image')";
+	obj.src='';  
+	return ''; 
+} 
+
+
+if (!iMbc_loginCk()) {
+    if (getCookie("chk_idsafe").substring(0, 1) == "Y") {        
+        var tm = new Date();
+        tm.setTime(tm.getTime() - (1000 * 60 * 2));
+        tm = convertDate(tm);
+        
+        if (tm >= getCookie("chk_idsafe").substring(1, 13)) {
+            //로그인 요청 체크            
+            var u = "http://idsafe.imbc.com/api/CheckRequest.aspx";
+            $.getJSON(u, 'callback=?', function (data) {
+                if (data.Result == 1) {                    
+                    var u2 = "http://idsafe.imbc.com/api/ModifyRequest.aspx";
+                    $.getJSON(u2, 'callback=?', function (data2) {
+                        if (data2.Result == 1) {
+                            //로그아웃 처리
+                            alert("강제 로그아웃 되었습니다.")
+                            iMbc_logout();
+                        }
+                    });
+                }
+            });
+            //쿠키 다시 굽기
+            setCookie("chk_idsafe", getCookie("chk_idsafe").substring(0, 1) + convertDate(Date()), null, "/", "imbc.com");
+        }
+    }
+}
+
+
+function convertDate(date) {
+
+    date = new Date(date);
+    var month = date.getMonth() + 1;
+    if (month < 10) month = "0" + month;
+
+    var day = date.getDate();
+    if (day < 10) day = "0" + day;
+
+    var hour = date.getHours();
+    if (hour < 10) hour = "0" + hour;
+
+    var mi = date.getMinutes();
+    if (mi < 10) mi = "0" + mi;
+
+
+    var t = date.getFullYear() + "" + month + "" + day + "" + hour + "" + mi;
+
+    return t;
+}
+
+function idsafejoin() {
+            var idsafe = window.open("http://idsafe.kr/api/auth?sitecode=016&sid=", '로그인도용방지서비스', 'scrollbars=no,titlebar=no,location=yes ,status=no,resize=no,width=30,height=300');
+        }
+
+//모바일 단말 체크
+function IsMobileAgent() {
+    if ((navigator.userAgent.toLowerCase().match(/iPhone/i)) || (navigator.userAgent.toLowerCase().match(/iPod/i)) || (navigator.userAgent.toLowerCase().match(/iPad/i))) {
+        return true;
+    }
+    else if (navigator.userAgent.toLowerCase().match(/android/i)) {
+        return true;
+    }
+    else
+        return false;
+}    
+     
+//미니 로그인 지원
+function iMbc_Minilogin() {
+	if (escape(getCookie("IMBCMAIN")) == "") 
+	{
+		SetUrl();
+		if (IsMobileAgent()){
+			document.domain = "imbc.com";
+                                                       window.location.href="http://m.imbc.com/User/responsiveLogin.aspx";
+		}
+		else{
+                                                  document.domain = "imbc.com";
+                                                 window.location.href="http://member.imbc.com/Login/Login.aspx";
+		}
+	}
+	else 
+	{
+		window.location.reload();
+	}
+}    
+
+function JDXEventHide(d){
+	document.getElementById(d).style.display='none';
+}

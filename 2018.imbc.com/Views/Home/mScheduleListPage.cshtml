@@ -1,0 +1,49 @@
+﻿@using _2018.imbc.com.Models
+@{
+    var list = ViewBag.list as ScheduleList;
+}
+
+@foreach (ScheduleInfo item in list)
+{
+    string clsnm = "";
+    string msg = "";
+    if (item.NowState == "2")
+    {
+        clsnm = "now";
+    }
+    /*
+    if (item.NowState == "1" || item.NowState == "2")
+    {
+        msg = item.PlayerName;
+    }
+    else
+    {
+        msg = item.ResultDetail;
+    }
+    */
+    msg = item.ResultDetail;
+    <tr class="@clsnm">
+        <td class="game-time">@item.StartTime</td>
+        <td class="td-cont">            
+            <span class="status"></span>            
+            <span class="game-name">@item.SportName</span>
+            <span class="game-detail">@item.DetailSportName</span>
+            <span class="game-result">@msg</span>
+        </td>
+        <td class="td-link">
+            @if (@item.VodUrl != "" && item.VodUrl != null)
+            {
+                string link = item.VodUrl.ToLower().Replace("2018.imbc.com/vod", "vodmall.imbc.com/player/player2014/popupPlayer.html").Replace("bid=", "broID=");
+                <a href="@link" target="_blank" class="vod-link">영상 바로가기</a>
+            }
+            @if (@item.NewsUrl != "" && item.NewsUrl != null)
+            {
+                string link = item.NewsUrl.ToLower().Replace("/news/view", "/m/news/view");
+                <a href="@link" class="news-link">관련기사 바로가기</a>
+            }
+        </td>
+    </tr>
+
+
+
+}

@@ -1,0 +1,138 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutM_2nd.cshtml";
+    ViewBag.page = "main";
+    var vodList = ViewBag.vodlist as ContentList;
+    var rnewslist = ViewBag.rnewslist as EnewsList;
+    var tlist = ViewBag.tlist as NoticeList;
+    var slist = ViewBag.slist as ScheduleList;
+    var kcount = ViewBag.kcount as MedalCount;
+}
+
+<section class="wrap-notice">
+    <div class="notice">
+        @if (tlist.OnAir == "Y")
+        {
+            <div class="on-air">
+                <a href="http://m.imbc.com/OnAir/sport2">온에어 바로가기</a>
+                @if (tlist.List.Count > 0)
+                {
+                    <div class="tit-notice">@tlist.List[0].Title</div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="notice-list">
+                <span class="btn-notice">공지</span>
+                @if (tlist.List.Count > 0)
+                {
+                    <div class="tit-notice">@tlist.List[0].Title</div>
+                }
+            </div>
+        }
+    </div>
+</section>
+<section class="wrap-schedule">
+    @if (slist.Count > 0)
+    {
+    <!-- 현재 시간 경기 -->
+        <div class="wrap-now">
+            <div class="now-schedule">
+                <p class="date">@ViewBag.dt</p>
+                <p class="game"><span class="game-time">@slist[0].StartTime</span><span class="game-name">@slist[0].SportName</span>/<span class="game-detail">@slist[0].DetailSportName</span></p>
+                <a href="/m/schedulelist" class="all-game">전체 일정 바로가기</a>
+            </div>
+            <button class="btn-show"><span>주요 경기 방송</span></button>
+        </div>
+    <!-- 오늘 모든 경기 -->
+        <div class="today-schedule">
+            <h3>@ViewBag.dt</h3>
+            <a href="/m/ScheduleList" class="all-game">전체 일정 바로가기</a>
+            <ul>
+                @foreach (ScheduleInfo item in slist)
+                {
+                    <li><span class="game-time">@item.StartTime</span><span class="game-name">@item.SportName</span>&nbsp;/&nbsp;<span class="game-detail">@item.DetailSportName</span></li>
+                }
+            </ul>
+            <button class="btn-up">오늘 일정 숨기기</button>
+        </div>
+    }
+</section>
+<section class="visual">
+    <h2>핫이슈</h2>
+    <div class="float">
+        <img src="/images/g-day.png" class="g-day" alt="G-day">
+        <span id="d-day" class="num"></span>
+    </div>
+    <div class="swiper-container" id="sliderWrap">
+        <div class="swiper-wrapper">
+            <!-- visual data-->
+        </div>
+        <div class="swiper-pagination swiper-pagination1"></div>
+        <div class="btn-right swiper-btn swiper-button-next">오른쪽으로 넘기기</div>
+    </div>
+</section>
+<!-- 대한민국 메달 순위-->
+<section class="korea" style="display:none;">
+    <div class="medal-korea">
+        <span class="flag"><img src="/images/m/korea.jpg" alt="금메달"></span>
+        <span class="rank"><strong>@kcount.Rank</strong>위</span>
+        <span class="name">대한민국</span>
+        <ul>
+            <li><img src="/images/m/ico-gold.png" alt="금메달">@kcount.Gold</li>
+            <li><img src="/images/m/ico-silver.png" alt="은메달">@kcount.Silver</li>
+            <li><img src="/images/m/ico-bronze.png" alt="동메달">@kcount.Bronze</li>
+        </ul>
+    </div>
+</section>
+<section class="vod">
+    <h3>최신영상</h3>
+    <div class="wrap-vod">
+        <ul>
+            @foreach (ContentInfo item in vodList.List)
+            {
+                <li>
+                    <a href="http://vodmall.imbc.com/player/player2014/popupPlayer.html?itemid=@item.itemid&broID=@item.BroadcastID" target="_blank">
+                        <span class="img">
+                            <img src="@item.ImgUrl_Normal" alt="@item.ContentTitle">
+                        </span><p class="txt"><span class="tit ellipsis">@item.ContentTitle</span><span class="count">조회 @item.HitCount</span></p>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+    <a href="/m/vod"><span class="more">더보기</span></a>
+</section>
+<section class="news">
+    <h3>뉴스</h3>
+    <ul class="wrap-news">
+        @foreach (EnewsInfo item in rnewslist)
+        {
+            string opt = "E";
+            string img = item.ImgUrl;
+            string cls = "img";
+            if (item.Nickname == "IMNEWS") { opt = "I"; }
+            else
+            {
+                img = "http://talkimg.imbc.com/TVianUpload/TVian/TViews/image/" + item.ImgUrl;
+                cls = "img enews";
+            }
+            <li>
+                <a href="/m/news/View?idx=@item.Idx&opt=@opt">
+                    <div class="@cls">
+                        <img src="@img" alt="@item.Title">
+                    </div>
+                    <div class="txt">
+                        <span class="tit ellipsis">@item.Title</span><span class="date">@item.PublicationDate</span>
+                    </div>
+                </a>
+            </li>
+        }
+    </ul>
+    <a href="/m/news"><span class="more">더보기</span></a>
+</section>
+<section class="banner">
+    <a href="/m/about/index.html"><img src="/images/m/link1_v2.jpg" alt="평창 동계올림픽 대회소개 바로가기"></a>
+    <a href="/m/schedule/all.html"><img src="/images/m/link2_v3.jpg" alt="평창 동게올림픽 전체 경기일정"></a>
+</section>

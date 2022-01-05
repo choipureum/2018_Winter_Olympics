@@ -1,0 +1,97 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutSub_2nd.cshtml";
+    ViewBag.Title = "메달순위";
+    ViewBag.page = "medal";
+    ViewBag.page2 = "rank";
+
+    var vodList = ViewBag.vodlist as ContentList;
+    var medalList = ViewBag.medalList as List<MedalCount>;
+    var kcount = ViewBag.kcount as MedalCount;
+}
+
+<div class="vod-rankTop">
+    <h3 class="tit">영광의 순간</h3>
+    <div class="glory-wrap">
+        <button type="button" class="btn prev">이전 보기</button>
+        <button type="button" class="btn next">다음 보기</button>
+        <div class="glory-area">
+            <ul>
+                @foreach (ContentInfo item in vodList.List)
+                {
+                    <li>
+                        <a href="/vod?bid=@item.BroadcastID&itemid=@item.itemid">
+                            <p class="img"><img src="@item.ImgUrl_Normal" alt="@item.ContentTitle"></p>
+                            <div class="txt-wrap">                                
+                                <p class="txt ellipsis">@item.ContentTitle</p>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="sec-wrap">
+    <div class="sec-area">
+        <div class="ko-rank">
+            <p class="title">대한민국 <strong class="num">@kcount.Rank</strong>위</p>
+            <span class="ranking num1"><em>금메달</em>@kcount.Gold</span>
+            <span class="ranking num2"><em>은메달</em>@kcount.Silver</span>
+            <span class="ranking num3"><em>동메달</em>@kcount.Bronze</span>
+        </div>
+        <div class="tit-wrap">
+            <a href="https://www.pyeongchang2018.com/ko/game-time/results/OWG2018/ko/general/medal-standings.htm" class="tit" target="_blank">전체 순위보기</a>
+            <p class="timer">최종 업데이트 시간 : @kcount.uptTime.Substring(0, 4)년 @kcount.uptTime.Substring(5, 2)월 @kcount.uptTime.Substring(8, 2)일 @kcount.uptTime.Substring(11, 2)시 @kcount.uptTime.Substring(14, 2)분 </p>
+        </div>
+        <div class="sch-wrap">
+            <div class="sch-area">
+                <div class="table-area">
+                    <table class="table-rank">
+                        <caption>2018 평창올림픽 20위까지 나라별 순위</caption>
+                        <colgroup>
+                            <col width="85px">
+                            <col width="auto">
+                            <col width="88px">
+                            <col width="88px">
+                            <col width="88px">
+                            <col width="88px">
+                        </colgroup>
+                        <thead>
+                        <th>순위</th>
+                        <th>국가</th>
+                        <th>금</th>
+                        <th>은</th>
+                        <th>동</th>
+                        <th>합계</th>
+                        </thead>
+                        <tbody>
+                            @{
+                                int k = 0;
+                                foreach (MedalCount item in medalList)
+                                {
+                                    <tr>
+                                        <td>@(item.Rank)</td>
+                                        <td><img src="http://2018.imbc.com/images/flags/flag_@(item.NationalID).jpg" alt="@item.NationalName 국기"><span>@item.NationalName</span></td>
+                                        <td>@item.Gold</td>
+                                        <td>@item.Silver</td>
+                                        <td>@item.Bronze</td>
+                                        <td>@item.Total</td>
+                                    </tr>
+                                    k++;
+                                    if (k == 20) { break; }
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sec-right">
+        <div class="ad-square">
+            <script src="http://www.imbc.com/2010_main/js/main_square_ad.js"></script>
+        </div>
+        <div class="sns-area" id="snsArea"> </div>
+    </div>
+</div>

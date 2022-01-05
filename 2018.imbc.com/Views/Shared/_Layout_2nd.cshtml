@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="2018 평창 동계올림픽 | MBC">
+    <meta property="og:description" content="평창 동계올림픽 | MBC 핫이슈, 영상, 하이라이트, VR, 뉴스, 경기 일정 등 제공">
+    <meta name="description" content="평창 동계올림픽 | MBC 핫이슈, 영상, 하이라이트, VR, 뉴스, 경기 일정 등 제공">
+    <title>2018 평창 동계올림픽</title>
+    <link type="text/css" href="http://www.imbc.com/commons/css/base-v2.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="http://2018.imbc.com/common/common.css">
+    <link type="text/css" rel="stylesheet" href="http://2018.imbc.com/common/main2.css">
+    <script src="http://www.imbc.com/commons/libs/jquery-1.12.3.min.js"></script>
+    <script src="http://www.imbc.com/common/js/global_function.js"></script>
+    <script src="http://2018.imbc.com/common/common2.js"></script>
+    <script src="/common/main.ui2.js"></script>
+    <script src="http://www.imbc.com/commons/libs/css_browser_selector.min.js"></script>
+    <!--[if lt IE 9]><script src="http://www.imbc.com/commons/libs/html5shiv.min.js"></script><![endif]-->
+    <script type="text/javascript">
+
+        var IsMobile = function () {
+            var bCheck = false;
+            if (navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)) {
+                bCheck = true;
+            }
+            return bCheck;
+        };
+
+        if (IsMobile()) {
+            location.href = '/m/main';
+        }
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.7";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</head>
+
+<body>
+    <div id="accessibility">
+        <a href="#navWrap">주메뉴 바로가기</a>
+        <a href="#container">본문 바로가기</a>
+    </div>
+
+    <div id="wrap" class="wrap">
+
+        <script type="text/javascript" src="http://www.imbc.com/commons/include/gnb.enter.js" charset="euc-kr"></script>
+        @RenderBody()
+        <footer id="footer" class="footer"></footer>
+    </div>
+
+    <script type="text/javascript" src="http://2018.imbc.com/p18content/data.js"></script>    
+    <script type="text/javascript" src="http://2018.imbc.com/wiz02/data.js"></script>
+</body>
+
+</html>

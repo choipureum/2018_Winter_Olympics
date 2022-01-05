@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>평창 올림픽</title>
+    <link rel="stylesheet" href="~/common/admin/css/reset.css">
+    <link rel="stylesheet" href="~/common/admin/css/style.css">
+    <link rel="shortcut icon" href="http://img.imbc.com/2010_main/images/favicon.ico">
+    <script src="http://www.imbc.com/commons/libs/jquery-1.12.3.min.js"></script>
+</head>
+<body class="s">
+    <div id="wrap">
+        <!-- header -->
+        <div id="header" style="font-size:20px">
+            <strong> 평창올림픽 관리 사이트</strong>
+        </div>
+        <!-- //header -->
+        <hr />
+        <!-- container -->
+        <div id="container">
+            <!-- colgroup -->
+            <div id="s_col">
+                <div id="s_con">
+                    <h2>@Page.Title</h2>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

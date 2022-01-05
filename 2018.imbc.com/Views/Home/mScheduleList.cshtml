@@ -1,0 +1,115 @@
+﻿@using _2018.imbc.com.Models
+@{
+    Layout = "~/Views/Shared/_LayoutM_2nd.cshtml";
+    ViewBag.page = "sub sub-schedule";
+
+}
+
+<ul class="depth2">
+    <li class="on"><a href="/m/ScheduleList">주요 방송 일정</a></li>
+    <li><a href="/m/schedule/all.html">전체 경기 일정</a></li>
+</ul>
+<section class="today-schedule">
+    <h3>MBC 중계 일정/결과</h3>
+    <div class="calendar">
+        <ul>
+            <li id="li_1" onclick="javascript:chDate('2018-02-08')"><span class="date">8</span><span class="day">목</span></li>
+            <li id="li_2" onclick="javascript:chDate('2018-02-09')"><span class="date">9</span><span class="day">금</span></li>
+            <li id="li_3" onclick="javascript:chDate('2018-02-10')"><span class="date">10</span><span class="day">토</span></li>
+            <li id="li_4" onclick="javascript:chDate('2018-02-11')"><span class="date">11</span><span class="day">일</span></li>
+            <li id="li_5" onclick="javascript:chDate('2018-02-12')"><span class="date">12</span><span class="day">월</span></li>
+            <li id="li_6" onclick="javascript:chDate('2018-02-13')"><span class="date">13</span><span class="day">화</span></li>
+            <li id="li_7" onclick="javascript:chDate('2018-02-14')"><span class="date">14</span><span class="day">수</span></li>
+            <li id="li_8" onclick="javascript:chDate('2018-02-15')"><span class="date">15</span><span class="day">목</span></li>
+            <li id="li_9" onclick="javascript:chDate('2018-02-16')"><span class="date">16</span><span class="day">금</span></li>
+            <li id="li_10" onclick="javascript:chDate('2018-02-17')"><span class="date">17</span><span class="day">토</span></li>
+            <li id="li_11" onclick="javascript:chDate('2018-02-18')"><span class="date">18</span><span class="day">일</span></li>
+            <li id="li_12" onclick="javascript:chDate('2018-02-19')"><span class="date">19</span><span class="day">월</span></li>
+            <li id="li_13" onclick="javascript:chDate('2018-02-20')"><span class="date">20</span><span class="day">화</span></li>
+            <li id="li_14" onclick="javascript:chDate('2018-02-21')"><span class="date">21</span><span class="day">수</span></li>
+            <li id="li_15" onclick="javascript:chDate('2018-02-22')"><span class="date">22</span><span class="day">목</span></li>
+            <li id="li_16" onclick="javascript:chDate('2018-02-23')"><span class="date">23</span><span class="day">금</span></li>
+            <li id="li_17" onclick="javascript:chDate('2018-02-24')"><span class="date">24</span><span class="day">토</span></li>
+            <li id="li_18" onclick="javascript:chDate('2018-02-25')"><span class="date">25</span><span class="day">일</span></li>
+        </ul>
+    </div>
+    <table class="game-schedule">
+        <caption>주요 방송 일정</caption>
+        <colgroup>
+            <col width="20%">
+            <col width="*">
+            <col width="25%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">시간</th>
+                <th scope="col" colspan="2">종목(결과)</th>
+            </tr>
+        </thead>
+        <tbody id="tbody_list">
+            @Html.Partial("mScheduleListPage")
+        </tbody>
+    </table>
+</section>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var day = "@ViewBag.dtDay".substring(8, 10);
+        var dtnum = 1;
+        if (day == "09") dtnum = 2;
+        else if (day == "10") dtnum = 3;
+        else if (day == "11") dtnum = 4;
+        else if (day == "12") dtnum = 5;
+        else if (day == "13") dtnum = 6;
+        else if (day == "14") dtnum = 7;
+        else if (day == "15") dtnum = 8;
+        else if (day == "16") dtnum = 9;
+        else if (day == "17") dtnum = 10;
+        else if (day == "18") dtnum = 11;
+        else if (day == "19") dtnum = 12;
+        else if (day == "20") dtnum = 13;
+        else if (day == "21") dtnum = 14;
+        else if (day == "22") dtnum = 15;
+        else if (day == "23") dtnum = 16;
+        else if (day == "24") dtnum = 17;
+        else if (day == "25") dtnum = 18;
+        
+        $("#li_" + dtnum).get(0).scrollIntoView(true);
+        $("#li_" + dtnum).addClass("today");
+        $(window).scrollTop(0);
+    });
+
+
+    function chDate(dt) {
+        var day = dt.substring(8,10);
+        var dtnum = 1;
+        if (day == "09") dtnum = 2;
+        else if (day == "10") dtnum = 3;
+        else if (day == "11") dtnum = 4;
+        else if (day == "12") dtnum = 5;
+        else if (day == "13") dtnum = 6;
+        else if (day == "14") dtnum = 7;
+        else if (day == "15") dtnum = 8;
+        else if (day == "16") dtnum = 9;
+        else if (day == "17") dtnum = 10;
+        else if (day == "18") dtnum = 11;
+        else if (day == "19") dtnum = 12;
+        else if (day == "20") dtnum = 13;
+        else if (day == "21") dtnum = 14;
+        else if (day == "22") dtnum = 15;
+        else if (day == "23") dtnum = 16;
+        else if (day == "24") dtnum = 17;
+        else if (day == "25") dtnum = 18;
+
+        $(".calendar li").removeClass("today");
+        $("#li_" + dtnum).addClass("today");
+
+        $.post(
+            '@Url.Action("mScheduleListPage", "Home")', { dtDay: dt},
+            function (response) {
+                $("#tbody_list").html('');
+                $("#tbody_list").html(response);
+            }
+        );
+    }
+</script>
