@@ -154,13 +154,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Blls\MedalBiz.cs" />
     <Compile Include="Blls\NewsBiz.cs" />
     <Compile Include="Blls\NoticeBiz.cs" />
     <Compile Include="Blls\ScheduleBiz.cs" />
     <Compile Include="Blls\Util.cs" />
     <Compile Include="Blls\VodBiz.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MedalController.cs" />
     <Compile Include="Controllers\PCrhksflController.cs" />
+    <Compile Include="Dals\MedalDal.cs" />
     <Compile Include="Dals\NewsDal.cs" />
     <Compile Include="Dals\NoticeDal.cs" />
     <Compile Include="Dals\ScheduleDal.cs" />
@@ -168,6 +171,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Medal.cs" />
     <Compile Include="Models\NewsInfo.cs" />
     <Compile Include="Models\NoticeInfo.cs" />
     <Compile Include="Models\ScheduleInfo.cs" />
@@ -931,6 +935,7 @@
     <Content Include="Views\Home\mScheduleList.cshtml" />
     <Content Include="Views\Home\mScheduleListPage.cshtml" />
     <Content Include="Views\Home\test.cshtml" />
+    <Content Include="Views\Medal\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

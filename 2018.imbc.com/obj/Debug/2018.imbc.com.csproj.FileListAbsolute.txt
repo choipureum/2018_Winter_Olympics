@@ -145,8 +145,8 @@ D:\wwwroot\2018 평창올림픽\2018.imbc.com\bin\ko\System.Web.Razor.resources.
 D:\wwwroot\2018 평창올림픽\2018.imbc.com\bin\ko\System.Web.WebPages.resources.dll
 D:\wwwroot\2018 평창올림픽\2018.imbc.com\bin\ko\System.Web.WebPages.Deployment.resources.dll
 D:\wwwroot\2018 평창올림픽\2018.imbc.com\bin\ko\System.Web.WebPages.Razor.resources.dll
-D:\wwwroot\2018 평창올림픽\2018.imbc.com\obj\Debug\2018.imbc.com.csproj.AssemblyReference.cache
 D:\wwwroot\2018 평창올림픽\2018.imbc.com\obj\Debug\2018.imbc.com.csproj.CoreCompileInputs.cache
 D:\wwwroot\2018 평창올림픽\2018.imbc.com\obj\Debug\2018.imbc.com.csproj.CopyComplete
 D:\wwwroot\2018 평창올림픽\2018.imbc.com\obj\Debug\2018.imbc.com.dll
 D:\wwwroot\2018 평창올림픽\2018.imbc.com\obj\Debug\2018.imbc.com.pdb
+D:\wwwroot\2018 평창올림픽\2018.imbc.com\obj\Debug\2018.imbc.com.csprojAssemblyReference.cache

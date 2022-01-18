@@ -1,0 +1,65 @@
+﻿@using _2018.imbc.com.Models;
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var list = ViewBag.list as List<OlpMedalCount>;
+    Page.Title = ViewBag.OlympicName + " 메달 관리자";
+}
+<form id="form1" action="/Medal/MedalProcess" method="post">
+    <div id="nav_team">
+        <ul>
+            <!--<li class="on"><a href="Medal">메달순위</a></li>-->
+        </ul>
+    </div>
+    <div id="rank_tb">
+        <p class="update">최종 업데이트 :  @ViewBag.time </p>
+        <select name="OlympicCode" id="OlympicCode">
+            <option value="">선택</option>
+            @foreach (OlympicCodeInfo item in ViewBag.olympicList)
+            {
+                <option value="@item.OlympicCode" @if (ViewBag.OlympicCode == item.OlympicCode) { <text> selected</text>}>@item.OlympicName</option>
+            }
+        </select>
+        <p style="text-align : right;"><input type="image" name="btnSubmit" id="btnSubmit" alt="적용" src="/Common/admin/images/btn_submit.gif" onclick="return onSubmit();" /></p>
+        <br />
+        <br />
+        <table>
+            <caption>올림픽 현재 메달순위</caption>
+            <thead>
+                <tr>
+                    <th scope="col" style="width:280px"><img src="/Common/admin/images/th_rank_country.gif" alt="국가" /></th>
+                    <th scope="col" style="width:180px" class="medal"><img src="/Common/admin/images/th_goldmedal.gif" alt="금메달" /></th>
+                    <th scope="col" style="width:180px" class="medal"><img src="/Common/admin/images/th_silvermedal.gif" alt="은메달" /></th>
+                    <th scope="col" style="width:180px" class="medal"><img src="/Common/admin/images/th_bronzemedal.gif" alt="동메달" /></th>
+                    <th scope="col" style="width:180px;vertical-align:middle" class="medal">총합</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (OlpMedalCount item in list)
+                {
+                    <tr>
+                        <td>@item.NationalName</td>
+                        <td class="medal"> <input name="Gold_@item.NationalID" type="text" value="@item.Gold" id="Gold_@item.NationalID" style="width:50px" /> </td>
+                        <td class="medal"> <input name="Silver_@item.NationalID" type="text" value="@item.Silver" id="Silver_@item.NationalID" style="width:50px" /> </td>
+                        <td class="medal"> <input name="Bronze_@item.NationalID" type="text" value="@item.Bronze" id="Bronze_@item.NationalID" style="width:50px" /> </td>
+                        <td class="medal"> @item.Total </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        function onSubmit() {
+
+        }
+        function getData(code) {
+            location.href = `/Medal/Index?OlympicCode=${code}`;
+        }
+
+        $("#OlympicCode").change(function () {
+            const olympicCode = $("#OlympicCode").val();
+            getData(olympicCode);
+        });
+
+    </script>
+</form>

@@ -142,7 +142,7 @@ namespace _2018.imbc.com.Blls
             }
             else
             {
-                if (!(uInfo.UserID == "sports06" || uInfo.UserID == "gkstkddms1" || uInfo.UserID == "sdocgu" || uInfo.UserID == "punklamb"))
+                if (!(uInfo.UserID == "sports06" || uInfo.UserID == "gkstkddms1" || uInfo.UserID == "sdocgu" || uInfo.UserID == "punklamb" || uInfo.UserID == "poo1994" || uInfo.UserID == "anna"))
                 {                    
                     HttpContext.Current.Response.Redirect("/");
                     HttpContext.Current.Response.End();
